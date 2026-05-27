@@ -149,8 +149,13 @@ def main() -> None:
     try:
         cfg = get_config()
     except Exception as e:  # noqa: BLE001
+        st.title("🗺️ TRPG Map Organizer")
         st.error(f"設定の読み込みに失敗しました: {e}")
-        st.stop()
+        st.info(
+            "`.env` に `GEMINI_API_KEY` を、`config.yaml` に `target_folder` を"
+            "設定してから再読み込みしてください。"
+        )
+        return
 
     if not cfg.database_path.exists():
         render_setup_help()
