@@ -1,0 +1,34 @@
+# TRPG マップ自動タグ付けシステム 設定例
+# このファイルを `config.yaml` にコピーして編集する
+
+# 解析対象の画像が置かれているフォルダ（絶対パス推奨）
+target_folder: "~/Pictures/TRPG_Maps"
+
+# 解析対象の拡張子（小文字で比較）
+image_extensions:
+  - ".jpg"
+  - ".jpeg"
+  - ".png"
+  - ".webp"
+  - ".gif"
+  - ".bmp"
+
+# SQLite データベースの保存先
+database_path: "./data/maps.db"
+
+# 使用する Gemini モデル
+# - gemini-2.5-flash : コストと精度のバランス（推奨）
+# - gemini-2.5-pro   : より高精度（コスト高）
+gemini_model: "gemini-2.5-flash"
+
+# API リクエスト時のリトライ回数
+api_retries: 3
+
+# API 呼び出し間の最小待機秒数（レート制限対策）
+api_min_interval_sec: 0.5
+
+# UI のグリッド列数
+ui_grid_columns: 4
+
+# サムネイル最大幅(px)
+ui_thumbnail_width: 300
