@@ -5,8 +5,12 @@
 # Config (local overrides)
 config.yaml
 
+# 自動提案で生成される中間ファイル (確認後 tag_aliases.yaml にマージする)
+tag_aliases_suggested.yaml
+
 # Data / Database
 data/
+maps/
 *.db
 *.db-journal
 *.sqlite

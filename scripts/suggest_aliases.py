@@ -23,6 +23,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from google import genai  # noqa: E402
 from google.genai import types  # noqa: E402
+from tenacity import retry, stop_after_attempt, wait_exponential  # noqa: E402
 
 from src import db  # noqa: E402
 from src.config import load_config  # noqa: E402
@@ -65,16 +66,22 @@ PROMPT_TEMPLATE = """\
 {tag_list}
 
 ## 出力形式
-JSON で `aliases` キーに variant→canonical のマップを返す。
+JSON で `aliases` キーに variant と canonical のペアの配列を返す。
 """
 
 _RESPONSE_SCHEMA: dict = {
     "type": "object",
     "properties": {
         "aliases": {
-            "type": "object",
-            "description": "variant -> canonical の対応",
-            "additionalProperties": {"type": "string"},
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "variant": {"type": "string", "description": "置き換えられる側のタグ"},
+                    "canonical": {"type": "string", "description": "代表として残す側のタグ"},
+                },
+                "required": ["variant", "canonical"],
+            },
         },
     },
     "required": ["aliases"],
@@ -99,6 +106,11 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+@retry(
+    stop=stop_after_attempt(6),
+    wait=wait_exponential(multiplier=2, min=2, max=60),
+    reraise=True,
+)
 def _ask_gemini(
     client: genai.Client,
     model: str,
@@ -126,8 +138,17 @@ def _ask_gemini(
     parsed = getattr(resp, "parsed", None)
     if parsed is None:
         parsed = json.loads(resp.text or "{}")
-    aliases = parsed.get("aliases") or {}
-    return {str(k): str(v) for k, v in aliases.items() if str(k) != str(v)}
+    pairs = parsed.get("aliases") or []
+    out: dict[str, str] = {}
+    for p in pairs:
+        if not isinstance(p, dict):
+            continue
+        variant = str(p.get("variant") or "").strip()
+        canonical = str(p.get("canonical") or "").strip()
+        if not variant or not canonical or variant == canonical:
+            continue
+        out[variant] = canonical
+    return out
 
 
 def main() -> int:
