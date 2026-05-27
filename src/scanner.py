@@ -9,7 +9,8 @@ from typing import Iterable, Iterator
 
 @dataclass
 class FoundImage:
-    path: Path
+    path: Path         # 絶対パス。FS 操作 (PIL.Image.open など) に使う
+    relative_path: str  # target_folder からの POSIX 形式相対パス。DB に保存する
     size: int
     mtime: float
 
@@ -19,12 +20,14 @@ class FoundImage:
 
     @property
     def path_str(self) -> str:
-        return str(self.path)
+        """DB に保存する文字列としての相対パス."""
+        return self.relative_path
 
 
 def iter_images(root: Path, extensions: Iterable[str]) -> Iterator[FoundImage]:
     """root 配下の画像ファイルを再帰的に列挙する.
 
+    `FoundImage.path` は絶対、`relative_path` は root からの POSIX 形式相対パス。
     extensions: ".png" のような形式 (小文字)。
     """
     ext_set = {e.lower() if e.startswith(".") else f".{e.lower()}" for e in extensions}
@@ -39,7 +42,13 @@ def iter_images(root: Path, extensions: Iterable[str]) -> Iterator[FoundImage]:
             stat = path.stat()
         except OSError:
             continue
-        yield FoundImage(path=path, size=stat.st_size, mtime=stat.st_mtime)
+        rel = path.relative_to(root).as_posix()
+        yield FoundImage(
+            path=path,
+            relative_path=rel,
+            size=stat.st_size,
+            mtime=stat.st_mtime,
+        )
 
 
 def quick_hash(path: Path, *, chunk: int = 65536) -> str:

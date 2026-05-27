@@ -33,6 +33,11 @@ def get_config() -> AppConfig:
     return load_config()
 
 
+def _resolve_abs(record: db.MapRecord, cfg: AppConfig) -> Path:
+    """DB の相対パスを絶対パスに解決する (旧データの絶対パスはそのまま)."""
+    return db.resolve_path(record, cfg.target_folder)
+
+
 @st.cache_data(show_spinner=False)
 def load_thumbnail(file_path: str, width: int, mtime: float) -> bytes | None:
     """サムネイル画像を JPEG バイト列で返す。mtime はキャッシュ無効化のためのキー."""
@@ -59,12 +64,12 @@ def _format_tags(tags: list[str], limit: int = 5) -> str:
 
 
 @st.dialog("マップ詳細", width="large")
-def show_preview(record: db.MapRecord) -> None:
-    path = Path(record.file_path)
+def show_preview(record: db.MapRecord, cfg: AppConfig) -> None:
+    path = _resolve_abs(record, cfg)
     if path.exists():
         st.image(str(path), use_container_width=True)
     else:
-        st.warning(f"ファイルが見つかりません: {record.file_path}")
+        st.warning(f"ファイルが見つかりません: {path}")
 
     st.markdown(f"**ファイル名:** `{record.file_name}`")
     st.markdown(f"**パス:** `{record.file_path}`")
@@ -104,6 +109,7 @@ def render_setup_help() -> None:
 def render_grid(
     records: list[db.MapRecord],
     *,
+    cfg: AppConfig,
     columns: int,
     thumbnail_width: int,
 ) -> None:
@@ -119,12 +125,13 @@ def render_grid(
                 break
             rec = records[idx]
             with col:
-                _render_card(rec, thumbnail_width)
+                _render_card(rec, cfg, thumbnail_width)
 
 
-def _render_card(record: db.MapRecord, thumbnail_width: int) -> None:
+def _render_card(record: db.MapRecord, cfg: AppConfig, thumbnail_width: int) -> None:
+    abs_path = _resolve_abs(record, cfg)
     thumb = load_thumbnail(
-        record.file_path,
+        str(abs_path),
         thumbnail_width,
         record.file_mtime or 0.0,
     )
@@ -142,7 +149,7 @@ def _render_card(record: db.MapRecord, thumbnail_width: int) -> None:
         st.caption("場所: " + " / ".join(record.location_tags[:3]))
 
     if st.button("詳細を見る", key=f"detail_{record.id}", use_container_width=True):
-        show_preview(record)
+        show_preview(record, cfg)
 
 
 def main() -> None:
@@ -212,7 +219,7 @@ def main() -> None:
         )
 
     st.markdown(f"**{len(records)} 件**")
-    render_grid(records, columns=columns, thumbnail_width=cfg.ui_thumbnail_width)
+    render_grid(records, cfg=cfg, columns=columns, thumbnail_width=cfg.ui_thumbnail_width)
 
 
 main()

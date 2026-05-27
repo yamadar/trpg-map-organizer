@@ -161,6 +161,32 @@ def delete_map_by_path(conn: sqlite3.Connection, file_path: str) -> bool:
     return cur.rowcount > 0
 
 
+def resolve_path(record: "MapRecord", target_folder: Path) -> Path:
+    """DB の file_path を絶対パスに解決する.
+
+    - 既に絶対パスなら (旧データ後方互換) そのまま返す
+    - 相対パスなら target_folder と結合する
+    """
+    p = Path(record.file_path)
+    return p if p.is_absolute() else (target_folder / p)
+
+
+def update_file_path(
+    conn: sqlite3.Connection,
+    *,
+    map_id: int,
+    file_path: str,
+    file_name: str,
+) -> None:
+    """ファイルパスとファイル名だけを更新する (リネーム/パス移行用)."""
+    now = datetime.now().isoformat(timespec="seconds")
+    conn.execute(
+        "UPDATE maps SET file_path = ?, file_name = ?, updated_at = ? WHERE id = ?",
+        (file_path, file_name, now, map_id),
+    )
+    conn.commit()
+
+
 def update_tags(
     conn: sqlite3.Connection,
     *,
