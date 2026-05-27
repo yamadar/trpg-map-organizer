@@ -75,12 +75,48 @@ streamlit run src/app.py
 - ファイル名で部分一致検索
 - カードの「詳細を見る」でフル解像度プレビュー＋全タグ表示
 
+## タグ表記揺れの正規化
+
+AI が付ける日本語タグは「大木 / 樹木 / 木」「河川 / 川」「のどかな / のどか」など
+表記揺れが発生する。これを `tag_aliases.yaml` で一元管理する。
+
+### 辞書フォーマット
+```yaml
+aliases:
+  大木: 木        # 「大木」を見つけたら「木」に置き換える
+  樹木: 木
+  河川: 川
+  のどかな: のどか
+  中世風: 中世
+```
+チェーン可 (`大樹木: 樹木` と `樹木: 木` を書けば「大樹木」も「木」に集約)。
+
+### 通常運用ワークフロー
+```bash
+# 1. 現状の全タグから Gemini に統合候補を生成させる
+python -m scripts.suggest_aliases
+#    → tag_aliases_suggested.yaml が生成される (要レビュー)
+
+# 2. 内容を確認のうえ、採用する行を tag_aliases.yaml にコピー
+
+# 3. 影響を dry-run で確認
+python -m scripts.normalize_db --dry-run
+
+# 4. DB に適用 (API 呼び出しなし、タグ書き換えのみ)
+python -m scripts.normalize_db
+
+# 5. Streamlit を再読み込みすると、すっきりしたタグで検索できる
+```
+
+build_db 実行時にも自動で正規化が適用される。
+
 ## プロジェクト構成
 
 ```
 trpg-map-organizer/
 ├── .env.example              # 環境変数テンプレート
 ├── config.example.yaml       # 設定テンプレート
+├── tag_aliases.yaml          # タグ正規化辞書 (git 管理の正本)
 ├── requirements.txt          # 依存パッケージ
 ├── README.md
 ├── src/
@@ -88,9 +124,12 @@ trpg-map-organizer/
 │   ├── db.py                 # SQLite 操作
 │   ├── scanner.py            # ファイル走査・変更検出
 │   ├── analyzer.py           # Gemini API クライアント
+│   ├── normalize.py          # タグ正規化
 │   └── app.py                # Streamlit UI
 ├── scripts/
-│   └── build_db.py           # DB 構築 CLI
+│   ├── build_db.py           # DB 構築 CLI
+│   ├── normalize_db.py       # 既存 DB に正規化を適用
+│   └── suggest_aliases.py    # Gemini に統合候補を提案させる
 └── data/                     # DB ファイル (gitignore)
 ```
 
