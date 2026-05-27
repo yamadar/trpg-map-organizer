@@ -9,6 +9,7 @@ Gemini の構造化出力 (response_schema) で堅牢に JSON を取得し、
 from __future__ import annotations
 
 import logging
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -16,13 +17,22 @@ from google import genai
 from google.genai import types
 from PIL import Image
 from tenacity import (
+    RetryCallState,
     retry,
     retry_if_exception_type,
     stop_after_attempt,
-    wait_exponential,
 )
 
 logger = logging.getLogger(__name__)
+
+# Gemini 429 レスポンス本文にある retryDelay: "35s" を拾うための正規表現。
+# 'retryDelay': '35s' / "retryDelay": "35.2s" のような表記に対応する。
+_RETRY_DELAY_RE = re.compile(
+    r"retry[Dd]elay['\"]?\s*[:\s]\s*['\"]?(\d+(?:\.\d+)?)\s*s",
+)
+
+_DEFAULT_MAX_WAIT = 60.0
+_RETRY_DELAY_SAFETY_MARGIN = 1.0
 
 
 ANALYSIS_PROMPT = """\
@@ -105,9 +115,10 @@ class GeminiAnalyzer:
     def _analyze_with_retry(self, image_path: Path) -> AnalysisResult:
         retrier = retry(
             stop=stop_after_attempt(self._max_attempts),
-            wait=wait_exponential(multiplier=1, min=1, max=30),
+            wait=_wait_respecting_retry_delay,
             retry=retry_if_exception_type(Exception),
             reraise=True,
+            before_sleep=_log_before_sleep,
         )
         return retrier(self._analyze_once)(image_path)
 
@@ -124,6 +135,53 @@ class GeminiAnalyzer:
             )
 
         return _parse_response(response)
+
+
+def _extract_retry_delay(exc: BaseException) -> float | None:
+    """例外メッセージから Gemini が示す retryDelay (秒) を抽出する."""
+    msg = str(exc)
+    m = _RETRY_DELAY_RE.search(msg)
+    if m:
+        try:
+            return float(m.group(1))
+        except ValueError:
+            return None
+    return None
+
+
+def _wait_respecting_retry_delay(retry_state: RetryCallState) -> float:
+    """Tenacity 用 wait 関数。429 の retryDelay を最優先で尊重する.
+
+    優先順位:
+        1. レスポンス本文の retryDelay (例: "35s") + 安全マージン
+        2. 指数バックオフ (1, 2, 4, 8, ... を _DEFAULT_MAX_WAIT で打ち切り)
+    """
+    exc = retry_state.outcome.exception() if retry_state.outcome else None
+    if exc is not None:
+        hinted = _extract_retry_delay(exc)
+        if hinted is not None:
+            return min(hinted + _RETRY_DELAY_SAFETY_MARGIN, _DEFAULT_MAX_WAIT)
+
+    return min(_DEFAULT_MAX_WAIT, 2.0 ** max(0, retry_state.attempt_number - 1))
+
+
+def _log_before_sleep(retry_state: RetryCallState) -> None:
+    exc = retry_state.outcome.exception() if retry_state.outcome else None
+    code = ""
+    if exc is not None:
+        m = re.match(r"\s*(\d{3})\b", str(exc))
+        if m:
+            code = f"[{m.group(1)}] "
+    next_wait = retry_state.next_action.sleep if retry_state.next_action else 0.0
+    logger.warning(
+        "  %sリトライ %d/%d (%.1fs 待機)",
+        code,
+        retry_state.attempt_number,
+        retry_state.retry_object.stop.max_attempt_number
+        if hasattr(retry_state.retry_object, "stop")
+        else 0,
+        next_wait,
+    )
 
 
 def _parse_response(response: types.GenerateContentResponse) -> AnalysisResult:

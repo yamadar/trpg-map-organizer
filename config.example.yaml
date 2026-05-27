@@ -21,11 +21,13 @@ database_path: "./data/maps.db"
 # - gemini-2.5-pro   : より高精度（コスト高）
 gemini_model: "gemini-2.5-flash"
 
-# API リクエスト時のリトライ回数
-api_retries: 3
+# API リクエスト時のリトライ回数 (429/503 など)
+api_retries: 6
 
 # API 呼び出し間の最小待機秒数（レート制限対策）
-api_min_interval_sec: 0.5
+# Gemini 2.5 Flash の無料枠は 5 RPM 制限のため、15 秒 (= 4 RPM) を推奨。
+# 有料プラン (Tier 1+) なら 0.5 程度まで縮めて高速化できる。
+api_min_interval_sec: 15
 
 # UI のグリッド列数
 ui_grid_columns: 4
