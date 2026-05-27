@@ -23,9 +23,20 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from src import db
 from src.analyzer import GeminiAnalyzer  # noqa: E402
 from src.config import load_config  # noqa: E402
+from src.normalize import TagNormalizer  # noqa: E402
 from src.scanner import iter_images, needs_reanalyze, quick_hash  # noqa: E402
 
 logger = logging.getLogger("build_db")
+
+_NORMALIZER: TagNormalizer | None = None
+
+
+def _get_normalizer() -> TagNormalizer:
+    global _NORMALIZER
+    if _NORMALIZER is None:
+        _NORMALIZER = TagNormalizer.load()
+        logger.info("タグ正規化辞書: %d 件", len(_NORMALIZER.aliases))
+    return _NORMALIZER
 
 
 def parse_args() -> argparse.Namespace:
@@ -138,6 +149,11 @@ def _persist_result(
     except OSError:
         hash_value = None
 
+    normalizer = _get_normalizer()
+    terrain = normalizer.normalize_tags(result.terrain_tags)
+    mood = normalizer.normalize_tags(result.mood_tags)
+    location = normalizer.normalize_tags(result.location_tags)
+
     with db_lock:
         db.upsert_map(
             conn,
@@ -146,9 +162,9 @@ def _persist_result(
             file_size=found.size,
             file_mtime=found.mtime,
             file_hash=hash_value,
-            terrain_tags=result.terrain_tags,
-            mood_tags=result.mood_tags,
-            location_tags=result.location_tags,
+            terrain_tags=terrain,
+            mood_tags=mood,
+            location_tags=location,
             description=result.description,
         )
 

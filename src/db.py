@@ -161,6 +161,36 @@ def delete_map_by_path(conn: sqlite3.Connection, file_path: str) -> bool:
     return cur.rowcount > 0
 
 
+def update_tags(
+    conn: sqlite3.Connection,
+    *,
+    map_id: int,
+    terrain_tags: list[str],
+    mood_tags: list[str],
+    location_tags: list[str],
+) -> None:
+    """タグ列だけを更新する (再解析せずに正規化を反映する用途)."""
+    now = datetime.now().isoformat(timespec="seconds")
+    conn.execute(
+        """
+        UPDATE maps SET
+            terrain_tags = ?,
+            mood_tags = ?,
+            location_tags = ?,
+            updated_at = ?
+        WHERE id = ?
+        """,
+        (
+            json.dumps(terrain_tags, ensure_ascii=False),
+            json.dumps(mood_tags, ensure_ascii=False),
+            json.dumps(location_tags, ensure_ascii=False),
+            now,
+            map_id,
+        ),
+    )
+    conn.commit()
+
+
 def list_maps(conn: sqlite3.Connection) -> list[MapRecord]:
     rows = conn.execute("SELECT * FROM maps ORDER BY file_name").fetchall()
     return [_row_to_record(r) for r in rows]

@@ -1,0 +1,30 @@
+# タグ表記揺れ正規化辞書
+#
+# variant: canonical の形式で、左側のタグが現れたら右側に置き換える。
+# - チェーン可 (大樹木: 樹木 → 樹木: 木 と書けば「大樹木」も最終的に「木」になる)
+# - 全カテゴリ共通の単一辞書
+# - canonical 側を更に variant に登録しないこと (循環は最大深度で打ち切るが推奨しない)
+#
+# 編集後の反映:
+#   1. python -m scripts.normalize_db --dry-run  # 影響範囲を確認
+#   2. python -m scripts.normalize_db            # 実際に DB を更新
+#
+# 自動提案:
+#   python -m scripts.suggest_aliases
+#     → tag_aliases_suggested.yaml に Gemini からの提案が出るので
+#       内容を確認して tag_aliases.yaml にマージする
+
+aliases:
+  # --- 地形・自然要素 ---
+  大木: 木
+  樹木: 木
+  河川: 川
+  浮遊島: 浮島
+
+  # --- 雰囲気・印象 ---
+  のどかな: のどか
+  中世風: 中世
+  魔法的: 魔法
+
+  # --- 構造・素材 ---
+  石造り: 石造
