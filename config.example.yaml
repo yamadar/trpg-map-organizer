@@ -24,10 +24,14 @@ gemini_model: "gemini-2.5-flash"
 # API リクエスト時のリトライ回数 (429/503 など)
 api_retries: 6
 
-# API 呼び出し間の最小待機秒数（レート制限対策）
-# Gemini 2.5 Flash の無料枠は 5 RPM 制限のため、15 秒 (= 4 RPM) を推奨。
-# 有料プラン (Tier 1+) なら 0.5 程度まで縮めて高速化できる。
+# API 呼び出し間の最小待機秒数 (workers=1 時のみ有効)
+# Gemini 2.5 Flash 無料枠 (5 RPM) は 15 秒推奨。有料 (Tier 1+) は 0 で OK。
 api_min_interval_sec: 15
+
+# 並列リクエスト数。有料プランで高速化したい場合に増やす。
+# 無料枠: 1 を強く推奨 (5 RPM 制限)。
+# 有料 Tier 1 (1000 RPM): 10-20 が実用的。
+api_workers: 1
 
 # UI のグリッド列数
 ui_grid_columns: 4

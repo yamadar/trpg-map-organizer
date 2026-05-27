@@ -20,6 +20,7 @@ class AppConfig:
     gemini_model: str
     api_retries: int
     api_min_interval_sec: float
+    api_workers: int
     ui_grid_columns: int
     ui_thumbnail_width: int
     gemini_api_key: str = field(repr=False)
@@ -65,8 +66,9 @@ def load_config(path: Path | None = None) -> AppConfig:
         image_extensions=extensions,
         database_path=_expand_path(raw.get("database_path", "./data/maps.db")),
         gemini_model=str(raw.get("gemini_model", "gemini-2.5-flash")),
-        api_retries=int(raw.get("api_retries", 3)),
+        api_retries=int(raw.get("api_retries", 6)),
         api_min_interval_sec=float(raw.get("api_min_interval_sec", 0.5)),
+        api_workers=max(1, int(raw.get("api_workers", 1))),
         ui_grid_columns=int(raw.get("ui_grid_columns", 4)),
         ui_thumbnail_width=int(raw.get("ui_thumbnail_width", 300)),
         gemini_api_key=api_key,

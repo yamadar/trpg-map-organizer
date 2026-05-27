@@ -12,7 +12,9 @@ from __future__ import annotations
 import argparse
 import logging
 import sys
+import threading
 import time
+from concurrent.futures import Future, ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 # プロジェクトルートを sys.path に通す（python script.py での直接実行に対応）
@@ -49,6 +51,12 @@ def parse_args() -> argparse.Namespace:
         "--dry-run",
         action="store_true",
         help="API を呼ばず処理対象だけ表示",
+    )
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=None,
+        help="並列ワーカ数 (省略時は config.api_workers を使用)",
     )
     parser.add_argument(
         "--verbose",
@@ -111,8 +119,44 @@ def main() -> int:
         max_attempts=cfg.api_retries,
     )
 
+    workers = max(1, args.workers if args.workers is not None else cfg.api_workers)
+    logger.info("ワーカ数: %d", workers)
+
+    if workers == 1:
+        return _run_sequential(cfg, analyzer, pending)
+    return _run_parallel(cfg, analyzer, pending, workers)
+
+
+def _persist_result(
+    conn,
+    db_lock: threading.Lock,
+    found,
+    result,
+) -> None:
+    try:
+        hash_value = quick_hash(found.path)
+    except OSError:
+        hash_value = None
+
+    with db_lock:
+        db.upsert_map(
+            conn,
+            file_path=found.path_str,
+            file_name=found.name,
+            file_size=found.size,
+            file_mtime=found.mtime,
+            file_hash=hash_value,
+            terrain_tags=result.terrain_tags,
+            mood_tags=result.mood_tags,
+            location_tags=result.location_tags,
+            description=result.description,
+        )
+
+
+def _run_sequential(cfg, analyzer: GeminiAnalyzer, pending: list) -> int:
     success = 0
     failed = 0
+    db_lock = threading.Lock()  # 単一スレッドだが API を統一する
     with db.connect(cfg.database_path) as conn:
         for i, found in enumerate(pending, start=1):
             logger.info("[%d/%d] %s", i, len(pending), found.path_str)
@@ -123,23 +167,7 @@ def main() -> int:
                 logger.error("  解析失敗: %s", e)
                 continue
 
-            try:
-                hash_value = quick_hash(found.path)
-            except OSError:
-                hash_value = None
-
-            db.upsert_map(
-                conn,
-                file_path=found.path_str,
-                file_name=found.name,
-                file_size=found.size,
-                file_mtime=found.mtime,
-                file_hash=hash_value,
-                terrain_tags=result.terrain_tags,
-                mood_tags=result.mood_tags,
-                location_tags=result.location_tags,
-                description=result.description,
-            )
+            _persist_result(conn, db_lock, found, result)
             success += 1
             logger.info(
                 "  地形=%s / 雰囲気=%s / 場所=%s",
@@ -147,9 +175,55 @@ def main() -> int:
                 result.mood_tags,
                 result.location_tags,
             )
-
             if cfg.api_min_interval_sec > 0 and i < len(pending):
                 time.sleep(cfg.api_min_interval_sec)
+
+    logger.info("完了: 成功 %d / 失敗 %d", success, failed)
+    return 0 if failed == 0 else 2
+
+
+def _run_parallel(cfg, analyzer: GeminiAnalyzer, pending: list, workers: int) -> int:
+    success = 0
+    failed = 0
+    db_lock = threading.Lock()
+    progress_lock = threading.Lock()
+    done = 0
+    total = len(pending)
+
+    # check_same_thread=False を許容するため SQLite 接続をここで開く
+    import sqlite3
+    conn = sqlite3.connect(cfg.database_path, check_same_thread=False)
+    conn.row_factory = sqlite3.Row
+    try:
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            future_to_found: dict[Future, object] = {
+                pool.submit(analyzer.analyze, f.path): f for f in pending
+            }
+            for fut in as_completed(future_to_found):
+                found = future_to_found[fut]
+                with progress_lock:
+                    done += 1
+                    idx = done
+                try:
+                    result = fut.result()
+                except Exception as e:  # noqa: BLE001
+                    failed += 1
+                    logger.error("[%d/%d] %s -> 解析失敗: %s", idx, total, found.path_str, e)
+                    continue
+
+                _persist_result(conn, db_lock, found, result)
+                success += 1
+                logger.info(
+                    "[%d/%d] %s -> 地形=%s / 雰囲気=%s / 場所=%s",
+                    idx,
+                    total,
+                    found.name,
+                    result.terrain_tags,
+                    result.mood_tags,
+                    result.location_tags,
+                )
+    finally:
+        conn.close()
 
     logger.info("完了: 成功 %d / 失敗 %d", success, failed)
     return 0 if failed == 0 else 2
