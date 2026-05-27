@@ -75,6 +75,38 @@ streamlit run src/app.py
 - ファイル名で部分一致検索
 - カードの「詳細を見る」でフル解像度プレビュー＋全タグ表示
 
+## パスの扱い (GitHub Pages 対応)
+
+DB の `file_path` は **`target_folder` からの相対パス** で保存される
+(例: `mystical_forest_ruins.png`)。GitHub Pages 等の静的サイトに
+そのまま画像を配置して `<img src="maps/${file_path}">` 形式で参照できる。
+
+ローカル実行時は `db.resolve_path()` が `target_folder` と結合して
+絶対パスに解決するため、Streamlit はそのまま動作する。
+
+### 既存 DB の移行 (旧データの絶対パスから相対パスへ)
+```bash
+python -m scripts.migrate_paths --dry-run   # 影響確認
+python -m scripts.migrate_paths             # 実行
+```
+
+## 英語ファイル名へのリネーム
+
+ファイル名を解析済みタグから生成した自然な英語名 (例: `mystical_forest_ruins.png`)
+に書き換える。実ファイルと DB の両方を更新する。
+
+```bash
+python -m scripts.rename_to_english --dry-run --limit 5   # サンプルで確認
+python -m scripts.rename_to_english --only-hash           # ハッシュ名のみ対象
+python -m scripts.rename_to_english                       # 全件対象
+```
+
+仕様:
+- 英小文字 + アンダースコアのみ、40 文字以内、2〜4 語
+- 例: `bustling_medieval_marketplace`, `ancient_underwater_temple`
+- 重複時は `_2`, `_3` を付与
+- ファイル名 + DB (`file_path`, `file_name`) の両方を同時更新
+
 ## タグ表記揺れの正規化
 
 AI が付ける日本語タグは「大木 / 樹木 / 木」「河川 / 川」「のどかな / のどか」など
@@ -129,7 +161,9 @@ trpg-map-organizer/
 ├── scripts/
 │   ├── build_db.py           # DB 構築 CLI
 │   ├── normalize_db.py       # 既存 DB に正規化を適用
-│   └── suggest_aliases.py    # Gemini に統合候補を提案させる
+│   ├── suggest_aliases.py    # Gemini に統合候補を提案させる
+│   ├── migrate_paths.py      # 絶対パス → target_folder 相対パスへ移行
+│   └── rename_to_english.py  # タグから英語ファイル名を生成しリネーム
 └── data/                     # DB ファイル (gitignore)
 ```
 
