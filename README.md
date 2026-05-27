@@ -75,7 +75,56 @@ streamlit run src/app.py
 - ファイル名で部分一致検索
 - カードの「詳細を見る」でフル解像度プレビュー＋全タグ表示
 
-## パスの扱い (GitHub Pages 対応)
+## GitHub Pages 公開
+
+`scripts/export_static.py` で `docs/` フォルダに完全自己完結の静的サイトを
+生成する。バニラ JS のみ・ビルド工程なし。
+
+### 出力構成
+```
+docs/
+├── index.html / style.css / app.js   # web/ テンプレートからコピー
+├── data/maps.json                    # DB エクスポート (検索用)
+└── images/
+    ├── thumb/  ~400px JPEG  (グリッド用、約 10MB / 284 件)
+    └── mid/    ~1280px JPEG (プレビュー用、約 110MB / 284 件)
+```
+合計サイズは 284 件で約 **125MB** (元 974MB から圧縮)。
+
+### 生成手順
+```bash
+# 全量生成 (画像変換含む、数分)
+python -m scripts.export_static
+
+# HTML/JS のみ更新 (画像はそのまま)
+python -m scripts.export_static --no-images
+
+# 並列数を指定
+python -m scripts.export_static --workers 8
+
+# ローカル確認
+python -m http.server -d docs 8080
+# → http://localhost:8080/ を開く
+```
+
+### GitHub Pages 設定
+1. `docs/` を含めて main にコミット & push
+2. リポジトリ Settings → Pages → Source:
+   - "Deploy from a branch"
+   - Branch: `main`
+   - Folder: `/docs`
+3. 数分後に `https://<user>.github.io/<repo>/` で公開される
+
+### 機能
+- タグ複数選択フィルタ (地形 / 雰囲気 / 場所、各 AND/OR 切替)
+- ファイル名部分一致検索
+- グリッド (遅延読み込み)
+- モーダルプレビュー (中解像度 JPEG)
+- フィルタ状態が URL ハッシュに同期 → リンク共有可能
+- ダークテーマ
+- レスポンシブ (スマホ対応)
+
+## パスの扱い
 
 DB の `file_path` は **`target_folder` からの相対パス** で保存される
 (例: `mystical_forest_ruins.png`)。GitHub Pages 等の静的サイトに
@@ -163,7 +212,13 @@ trpg-map-organizer/
 │   ├── normalize_db.py       # 既存 DB に正規化を適用
 │   ├── suggest_aliases.py    # Gemini に統合候補を提案させる
 │   ├── migrate_paths.py      # 絶対パス → target_folder 相対パスへ移行
-│   └── rename_to_english.py  # タグから英語ファイル名を生成しリネーム
+│   ├── rename_to_english.py  # タグから英語ファイル名を生成しリネーム
+│   └── export_static.py      # GitHub Pages 用 静的サイトを生成
+├── web/                      # 静的サイトのテンプレート
+│   ├── index.html
+│   ├── style.css
+│   └── app.js
+├── docs/                     # 生成された静的サイト (GH Pages 公開元)
 └── data/                     # DB ファイル (gitignore)
 ```
 

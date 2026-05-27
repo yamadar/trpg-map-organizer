@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRPG Map Organizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>🗺️ TRPG Map Organizer</h1>
+    <span id="count" class="count">—</span>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <section class="filter">
+        <label class="filter-label" for="search">ファイル名検索</label>
+        <input type="search" id="search" placeholder="部分一致..." autocomplete="off">
+      </section>
+
+      <section class="filter">
+        <label class="filter-label" for="match-mode">タグ一致条件</label>
+        <select id="match-mode">
+          <option value="any">いずれか含む (OR)</option>
+          <option value="all">全て含む (AND)</option>
+        </select>
+      </section>
+
+      <details class="cat" open>
+        <summary>地形 <span class="badge" id="terrain-selected">0</span></summary>
+        <div class="chips" id="terrain"></div>
+      </details>
+
+      <details class="cat" open>
+        <summary>雰囲気 <span class="badge" id="mood-selected">0</span></summary>
+        <div class="chips" id="mood"></div>
+      </details>
+
+      <details class="cat" open>
+        <summary>場所 <span class="badge" id="location-selected">0</span></summary>
+        <div class="chips" id="location"></div>
+      </details>
+
+      <button id="clear" type="button" class="clear-btn">フィルタをクリア</button>
+
+      <footer class="sidebar-footer">
+        <small id="generated-at">—</small>
+      </footer>
+    </aside>
+
+    <main class="grid" id="grid">
+      <p class="loading">読み込み中...</p>
+    </main>
+  </div>
+
+  <dialog id="preview" class="preview">
+    <button class="close" id="close" type="button" aria-label="閉じる">×</button>
+    <div class="preview-body">
+      <img id="preview-img" alt="">
+      <div class="preview-info">
+        <h2 id="preview-title"></h2>
+        <p class="preview-desc" id="preview-desc"></p>
+        <section class="preview-tags">
+          <h4>地形</h4>
+          <div id="preview-terrain"></div>
+        </section>
+        <section class="preview-tags">
+          <h4>雰囲気</h4>
+          <div id="preview-mood"></div>
+        </section>
+        <section class="preview-tags">
+          <h4>場所</h4>
+          <div id="preview-location"></div>
+        </section>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
