@@ -1,6 +1,132 @@
 # TRPG マップ自動タグ付け＆管理システム
 
-ローカルの TRPG 用マップ画像を Gemini AI で解析し、自動タグ付け＆SQLite に保存して、
-Streamlit の WebUI で検索・閲覧できるツール。
+ローカルにある TRPG 用マップ画像を **Google Gemini 2.5 Flash** で自動解析し、
+地形・雰囲気・場所のタグを付けて SQLite に保存、**Streamlit** の WebUI から
+タグ検索・閲覧できるツール。
 
-セットアップ手順は実装完了後に追記する。
+## 主な機能
+- 📂 指定フォルダを再帰的にスキャンし画像を発見
+- 🤖 Gemini API による自動タグ付け (地形 / 雰囲気 / 場所 + 簡易説明)
+- 💾 SQLite による永続化、増分解析（変更されたファイルのみ再解析）
+- 🔎 タグ複数選択 (AND/OR) ＋ ファイル名検索
+- 🖼️ グリッド表示＋プレビュー (全タグ・説明・パスを表示)
+
+## 必要環境
+- Python 3.10 以上
+- Google AI Studio の API キー (無料枠あり)
+  - 取得: <https://aistudio.google.com/apikey>
+
+## セットアップ
+
+```bash
+# 1. リポジトリに入って仮想環境を作る
+cd trpg-map-organizer
+python3 -m venv .venv
+source .venv/bin/activate
+
+# 2. 依存をインストール
+pip install -r requirements.txt
+
+# 3. 設定ファイルを作成
+cp .env.example .env                       # GEMINI_API_KEY を編集
+cp config.example.yaml config.yaml          # target_folder を編集
+```
+
+`.env`:
+```env
+GEMINI_API_KEY=AIzaSy...
+```
+
+`config.yaml` の主な項目:
+```yaml
+target_folder: "~/Pictures/TRPG_Maps"   # 解析するフォルダ
+database_path: "./data/maps.db"          # DB の保存先
+gemini_model: "gemini-2.5-flash"         # 使用モデル
+```
+
+## 使い方
+
+### 1. 解析を実行（DB を構築）
+```bash
+# 増分解析（新規・変更ファイルのみ）
+python -m scripts.build_db
+
+# 全件再解析
+python -m scripts.build_db --rebuild
+
+# テスト用に最初の N 件だけ
+python -m scripts.build_db --limit 5
+
+# API を呼ばず対象一覧だけ確認
+python -m scripts.build_db --dry-run
+
+# 詳細ログ
+python -m scripts.build_db -v
+```
+
+### 2. WebUI を起動
+```bash
+streamlit run src/app.py
+```
+
+ブラウザで <http://localhost:8501> を開くと:
+- サイドバーで地形・雰囲気・場所タグを複数選択して絞り込み
+- AND/OR を切り替えて検索条件を変更
+- ファイル名で部分一致検索
+- カードの「詳細を見る」でフル解像度プレビュー＋全タグ表示
+
+## プロジェクト構成
+
+```
+trpg-map-organizer/
+├── .env.example              # 環境変数テンプレート
+├── config.example.yaml       # 設定テンプレート
+├── requirements.txt          # 依存パッケージ
+├── README.md
+├── src/
+│   ├── config.py             # 設定ローダ
+│   ├── db.py                 # SQLite 操作
+│   ├── scanner.py            # ファイル走査・変更検出
+│   ├── analyzer.py           # Gemini API クライアント
+│   └── app.py                # Streamlit UI
+├── scripts/
+│   └── build_db.py           # DB 構築 CLI
+└── data/                     # DB ファイル (gitignore)
+```
+
+## データベース
+
+`maps` テーブル:
+
+| カラム | 型 | 説明 |
+|---|---|---|
+| id | INTEGER PK | 自動採番 |
+| file_path | TEXT UNIQUE | ファイルの絶対パス |
+| file_name | TEXT | ファイル名 |
+| file_size | INTEGER | バイト数（変更検出用） |
+| file_mtime | REAL | 更新時刻（変更検出用） |
+| file_hash | TEXT | 先頭 64KB の SHA1 |
+| terrain_tags | TEXT (JSON) | 地形タグ配列 |
+| mood_tags | TEXT (JSON) | 雰囲気タグ配列 |
+| location_tags | TEXT (JSON) | 場所タグ配列 |
+| description | TEXT | AI 生成の説明文 |
+| analyzed_at | TIMESTAMP | 最終解析日時 |
+| created_at | TIMESTAMP | 初回登録日時 |
+| updated_at | TIMESTAMP | 更新日時 |
+
+タグは JSON 配列として保存し、検索時は SQLite の JSON1 拡張で展開して照合する。
+
+## トラブルシュート
+
+- **`GEMINI_API_KEY が未設定です`**: `.env` を作成し API キーを設定する。
+- **`ターゲットフォルダが存在しません`**: `config.yaml` の `target_folder` を確認する。
+- **解析が遅い / 429 エラー**: `config.yaml` の `api_min_interval_sec` を増やす。
+- **画像が表示されない**: ファイルが移動・削除されていないか確認。プレビューに警告が出る。
+
+## セキュリティ
+- 画像データはローカルから移動せず、解析時のみ Gemini API に送信する。
+- API キーは `.env` に保存し、`.gitignore` で除外済み。
+- 生成された DB (`./data/maps.db`) も `.gitignore` で除外済み。
+
+## ライセンス
+ローカル利用を想定した個人プロジェクト。
