@@ -8,41 +8,45 @@
 </head>
 <body>
   <header class="topbar">
-    <h1>🗺️ TRPG Map Organizer</h1>
+    <h1 data-i18n="title">TRPG Map Organizer</h1>
     <span id="count" class="count">—</span>
+    <div class="lang-switcher" role="group" aria-label="Language">
+      <button type="button" class="lang-btn" data-lang="ja">日本語</button>
+      <button type="button" class="lang-btn" data-lang="en">English</button>
+    </div>
   </header>
 
   <div class="layout">
     <aside class="sidebar">
       <section class="filter">
-        <label class="filter-label" for="search">ファイル名検索</label>
-        <input type="search" id="search" placeholder="部分一致..." autocomplete="off">
+        <label class="filter-label" for="search" data-i18n="search_label">ファイル名検索</label>
+        <input type="search" id="search" autocomplete="off" data-i18n-attr="placeholder:search_placeholder" placeholder="部分一致...">
       </section>
 
       <section class="filter">
-        <label class="filter-label" for="match-mode">タグ一致条件</label>
+        <label class="filter-label" for="match-mode" data-i18n="match_label">タグ一致条件</label>
         <select id="match-mode">
-          <option value="any">いずれか含む (OR)</option>
-          <option value="all">全て含む (AND)</option>
+          <option value="any" data-i18n="match_any">いずれか含む (OR)</option>
+          <option value="all" data-i18n="match_all">全て含む (AND)</option>
         </select>
       </section>
 
       <details class="cat" open>
-        <summary>地形 <span class="badge" id="terrain-selected">0</span></summary>
+        <summary><span data-i18n="terrain">地形</span> <span class="badge" id="terrain-selected">0</span></summary>
         <div class="chips" id="terrain"></div>
       </details>
 
       <details class="cat" open>
-        <summary>雰囲気 <span class="badge" id="mood-selected">0</span></summary>
+        <summary><span data-i18n="mood">雰囲気</span> <span class="badge" id="mood-selected">0</span></summary>
         <div class="chips" id="mood"></div>
       </details>
 
       <details class="cat" open>
-        <summary>場所 <span class="badge" id="location-selected">0</span></summary>
+        <summary><span data-i18n="location">場所</span> <span class="badge" id="location-selected">0</span></summary>
         <div class="chips" id="location"></div>
       </details>
 
-      <button id="clear" type="button" class="clear-btn">フィルタをクリア</button>
+      <button id="clear" type="button" class="clear-btn" data-i18n="clear">フィルタをクリア</button>
 
       <footer class="sidebar-footer">
         <small id="generated-at">—</small>
@@ -50,27 +54,43 @@
     </aside>
 
     <main class="grid" id="grid">
-      <p class="loading">読み込み中...</p>
+      <p class="loading" data-i18n="loading">読み込み中...</p>
     </main>
   </div>
 
   <dialog id="preview" class="preview">
-    <button class="close" id="close" type="button" aria-label="閉じる">×</button>
+    <div class="preview-toolbar">
+      <button type="button" class="nav-btn" id="prev-btn" data-i18n-attr="title:preview_prev,aria-label:preview_prev" title="前へ" aria-label="前へ">‹</button>
+      <span class="position" id="position">— / —</span>
+      <button type="button" class="nav-btn" id="next-btn" data-i18n-attr="title:preview_next,aria-label:preview_next" title="次へ" aria-label="次へ">›</button>
+      <span class="toolbar-spacer"></span>
+      <button type="button" class="close" id="close" data-i18n-attr="title:preview_close,aria-label:preview_close" title="閉じる" aria-label="閉じる">×</button>
+    </div>
     <div class="preview-body">
-      <img id="preview-img" alt="">
+      <div class="preview-image-wrap" id="image-wrap">
+        <img id="preview-img" alt="">
+      </div>
       <div class="preview-info">
         <h2 id="preview-title"></h2>
         <p class="preview-desc" id="preview-desc"></p>
+
+        <div class="actions">
+          <a id="download-original" class="btn btn-primary" download data-i18n="download_original">元画像をダウンロード</a>
+          <a id="download-jpeg" class="btn" download data-i18n="download_jpeg">JPEG をダウンロード (1280px)</a>
+          <button id="copy-url" type="button" class="btn" data-i18n="copy_url">URL をコピー</button>
+          <span id="toast" class="toast" hidden></span>
+        </div>
+
         <section class="preview-tags">
-          <h4>地形</h4>
+          <h4 data-i18n="terrain">地形</h4>
           <div id="preview-terrain"></div>
         </section>
         <section class="preview-tags">
-          <h4>雰囲気</h4>
+          <h4 data-i18n="mood">雰囲気</h4>
           <div id="preview-mood"></div>
         </section>
         <section class="preview-tags">
-          <h4>場所</h4>
+          <h4 data-i18n="location">場所</h4>
           <div id="preview-location"></div>
         </section>
       </div>
