@@ -18,6 +18,45 @@ const PREFETCH_RADIUS = 2;
 
 const _MOBILE_MQ = window.matchMedia('(max-width: 800px)');
 
+// body スクロールロック (モバイル iOS Safari でモーダル/シート裏の背景が
+// アドレスバー出入りで露出/スクロールするのを防ぐ)
+//
+// "owner" 文字列で誰がロックしているかを管理することで、解除漏れや
+// 二重解除を防ぐ。例: 'preview' と 'sidebar' で別々に owner を登録する。
+const _scrollLockOwners = new Set();
+let _savedScrollY = 0;
+function lockBodyScroll(owner) {
+  if (!owner) throw new Error('lockBodyScroll requires an owner string');
+  if (_scrollLockOwners.has(owner)) return;
+  const wasEmpty = _scrollLockOwners.size === 0;
+  _scrollLockOwners.add(owner);
+  if (wasEmpty) {
+    _savedScrollY = window.scrollY || window.pageYOffset || 0;
+    const b = document.body;
+    b.style.position = 'fixed';
+    b.style.top = `-${_savedScrollY}px`;
+    b.style.left = '0';
+    b.style.right = '0';
+    b.style.width = '100%';
+    b.classList.add('scroll-locked');
+  }
+}
+function unlockBodyScroll(owner) {
+  if (!owner) throw new Error('unlockBodyScroll requires an owner string');
+  if (!_scrollLockOwners.has(owner)) return;
+  _scrollLockOwners.delete(owner);
+  if (_scrollLockOwners.size === 0) {
+    const b = document.body;
+    b.style.position = '';
+    b.style.top = '';
+    b.style.left = '';
+    b.style.right = '';
+    b.style.width = '';
+    b.classList.remove('scroll-locked');
+    window.scrollTo(0, _savedScrollY);
+  }
+}
+
 const state = {
   data: null,
   i18n: null,
@@ -202,6 +241,8 @@ function openSidebar() {
   document.getElementById('sidebar-backdrop').classList.add('visible');
   document.getElementById('sidebar-backdrop').hidden = false;
   document.getElementById('filter-toggle').setAttribute('aria-expanded', 'true');
+  // モバイル時のみ body スクロールをロック (デスクトップは sidebar が左固定のため不要)
+  if (_MOBILE_MQ.matches) lockBodyScroll('sidebar');
 }
 
 function closeSidebar() {
@@ -209,6 +250,7 @@ function closeSidebar() {
   document.getElementById('sidebar-backdrop').classList.remove('visible');
   document.getElementById('sidebar-backdrop').hidden = true;
   document.getElementById('filter-toggle').setAttribute('aria-expanded', 'false');
+  unlockBodyScroll('sidebar');
 }
 
 function toggleSidebar() {
@@ -300,7 +342,10 @@ function openPreview(index) {
   renderPreview();
   saveHash();
   const dlg = document.getElementById('preview');
-  if (!dlg.open) dlg.showModal();
+  if (!dlg.open) {
+    dlg.showModal();
+  }
+  lockBodyScroll('preview');
 }
 
 // id から該当マップを探してモーダルを開く。フィルタ外の id でも閲覧可能。
@@ -325,7 +370,10 @@ function openPreviewById(id, { fromHash = false } = {}) {
   }
   if (!fromHash) saveHash();
   const dlg = document.getElementById('preview');
-  if (!dlg.open) dlg.showModal();
+  if (!dlg.open) {
+    dlg.showModal();
+  }
+  lockBodyScroll('preview');
 }
 
 // 画像読み込み (ローディング表示 + 二重リクエスト防止)
@@ -441,6 +489,7 @@ function closePreview() {
   state.previewId = null;
   const dlg = document.getElementById('preview');
   if (dlg.open) dlg.close();
+  unlockBodyScroll('preview');
   saveHash();
 }
 
@@ -537,14 +586,24 @@ function bindEvents() {
   document.getElementById('preview').addEventListener('click', e => {
     if (e.target.id === 'preview') closePreview();
   });
-  // dialog の close イベント (ESC キーなど) でも URL から id を消す
-  document.getElementById('preview').addEventListener('close', () => {
+  // <dialog> の close / cancel イベントと、保険として open 属性の変化を監視
+  // (一部環境で close / cancel が発火しない可能性に備える)
+  const _onDialogClosed = () => {
+    unlockBodyScroll('preview');
     if (state.previewId != null) {
       state.previewIndex = -1;
       state.previewId = null;
       saveHash();
     }
-  });
+  };
+  const dlg = document.getElementById('preview');
+  dlg.addEventListener('close', _onDialogClosed);
+  dlg.addEventListener('cancel', _onDialogClosed);
+  // MutationObserver で open 属性の有無を監視。close/cancel イベントが
+  // 発火しない環境でも確実にロック解除する
+  new MutationObserver(() => {
+    if (!dlg.open) _onDialogClosed();
+  }).observe(dlg, { attributes: true, attributeFilter: ['open'] });
 
   document.getElementById('prev-btn').addEventListener('click', () => navigatePreview(-1));
   document.getElementById('next-btn').addEventListener('click', () => navigatePreview(1));
@@ -571,6 +630,7 @@ function bindEvents() {
       openPreviewById(state.previewId, { fromHash: true });
     } else if (dlg.open) {
       dlg.close();
+      // close 後の unlock は MutationObserver / close リスナが拾う
     }
   });
 }

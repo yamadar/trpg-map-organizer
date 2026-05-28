@@ -25,6 +25,13 @@ html, body {
   font-size: 14px;
   line-height: 1.5;
   min-height: 100vh;
+  /* スクロールチェーン抑止 (子要素スクロールが body へ波及するのを防ぐ) */
+  overscroll-behavior-y: contain;
+}
+body.scroll-locked {
+  /* JS が position:fixed で固定するため、追加で背景を完全に止める */
+  overflow: hidden;
+  width: 100%;
 }
 
 .topbar {
@@ -423,6 +430,9 @@ html, body {
   padding: 1.25rem;
   overflow-y: auto;
   max-height: calc(95vh - 52px);
+  /* モーダル内のスクロールが body にチェーンしないよう */
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 .preview-info h2 {
   margin: 0 0 0.75rem;
@@ -530,6 +540,7 @@ html, body {
     right: 0;
     bottom: 0;
     z-index: 22;
+    height: 100dvh;
     max-height: 100dvh;
     margin: 0;
     /* トップバー (約 64px) を避けて開く */
@@ -540,6 +551,8 @@ html, body {
     transform: translateY(-100%);
     transition: transform 0.18s ease-out;
     overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
   }
   .sidebar.open {
     transform: translateY(0);
@@ -572,6 +585,10 @@ html, body {
   }
 
   .preview {
+    /* iOS Safari でアドレスバー出入りに追従するよう dvh を使い、
+       inset: 0 で常にビューポート全面を覆う */
+    inset: 0;
+    margin: 0;
     width: 100vw;
     max-width: 100vw;
     height: 100dvh;
@@ -587,7 +604,10 @@ html, body {
   #preview-img {
     max-height: 60dvh;
   }
-  .preview-image-wrap { min-height: 200px; }
+  .preview-image-wrap {
+    min-height: 200px;
+    overscroll-behavior: contain;
+  }
   .preview-info {
     max-height: 40dvh;
     padding: 1rem;
