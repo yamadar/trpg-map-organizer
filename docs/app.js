@@ -31,25 +31,37 @@ const state = {
 
 // ===== 初期化 =====
 
+// i18n.json が無くても UI が壊れないようフォールバック (英語のみのキーフォールバック)
+const _I18N_FALLBACK = {
+  ui: { en: {}, ja: {} },
+  tags: {},
+};
+
 async function init() {
+  // maps.json は必須。i18n.json は任意 (無くても日本語のラベルが既定値として残る)。
   try {
-    const [maps, i18n] = await Promise.all([
-      fetch('data/maps.json', { cache: 'no-cache' }).then(r => {
-        if (!r.ok) throw new Error('maps.json: HTTP ' + r.status);
-        return r.json();
-      }),
-      fetch('data/i18n.json', { cache: 'no-cache' }).then(r => {
-        if (!r.ok) throw new Error('i18n.json: HTTP ' + r.status);
-        return r.json();
-      }),
-    ]);
-    state.data = maps;
-    state.i18n = i18n;
+    const r = await fetch('data/maps.json', { cache: 'no-cache' });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    state.data = await r.json();
   } catch (e) {
+    const msg = (_I18N_FALLBACK.ui.ja.load_error || 'データの読み込みに失敗しました') +
+                ': ' + String(e.message || e);
     document.getElementById('grid').innerHTML =
-      `<p class="loading">${escapeHtml(String(e.message || e))}</p>`;
+      `<p class="loading">${escapeHtml(msg)}</p>`;
     return;
   }
+
+  try {
+    const r = await fetch('data/i18n.json', { cache: 'no-cache' });
+    state.i18n = r.ok ? await r.json() : _I18N_FALLBACK;
+  } catch {
+    state.i18n = _I18N_FALLBACK;
+  }
+  // ui.en / ui.ja のどちらかが欠落しても t() が落ちないよう保険を入れる
+  state.i18n.ui = state.i18n.ui || {};
+  state.i18n.ui.en = state.i18n.ui.en || {};
+  state.i18n.ui.ja = state.i18n.ui.ja || state.i18n.ui.en;
+  state.i18n.tags = state.i18n.tags || {};
 
   state.lang = detectLang();
   applyUiTranslations();
@@ -88,10 +100,17 @@ function applyUiTranslations() {
     el.textContent = t(el.dataset.i18n);
   }
   // 属性 (例: data-i18n-attr="placeholder:search_placeholder,title:foo")
+  // 不正な記法は警告ログを出してスキップし、他要素の翻訳を止めないようにする
   for (const el of document.querySelectorAll('[data-i18n-attr]')) {
     for (const pair of el.dataset.i18nAttr.split(',')) {
-      const [attr, key] = pair.split(':');
-      el.setAttribute(attr.trim(), t(key.trim()));
+      const idx = pair.indexOf(':');
+      if (idx < 1 || idx === pair.length - 1) {
+        console.warn('skip malformed data-i18n-attr pair:', pair);
+        continue;
+      }
+      const attr = pair.slice(0, idx).trim();
+      const key = pair.slice(idx + 1).trim();
+      if (attr && key) el.setAttribute(attr, t(key));
     }
   }
   // html lang 属性
@@ -242,10 +261,10 @@ function renderPreview() {
       .join('');
   }
 
-  // ダウンロードリンク
+  // ダウンロードリンク (元画像は file_level + per-map の両方で存在確認)
   const orig = document.getElementById('download-original');
   const jpeg = document.getElementById('download-jpeg');
-  if (state.data.has_originals) {
+  if (state.data.has_originals && m.has_original !== false) {
     orig.hidden = false;
     orig.href = `originals/${encodeURIComponent(m.file)}`;
     orig.setAttribute('download', m.file);
@@ -270,25 +289,29 @@ function navigatePreview(delta) {
   renderPreview();
 }
 
+let _toastTimer = null;
+function _showToast(key) {
+  const toast = document.getElementById('toast');
+  toast.textContent = t(key);
+  toast.hidden = false;
+  if (_toastTimer) clearTimeout(_toastTimer);
+  _toastTimer = setTimeout(() => { toast.hidden = true; _toastTimer = null; }, 1500);
+}
+
 function copyCurrentImageUrl() {
   const m = state.filtered[state.previewIndex];
   if (!m) return;
-  const path = state.data.has_originals
+  const useOriginal = state.data.has_originals && m.has_original !== false;
+  const path = useOriginal
     ? `originals/${encodeURIComponent(m.file)}`
     : `images/mid/${encodeURIComponent(m.mid)}`;
   const url = new URL(path, location.href).href;
-  const showToast = (key) => {
-    const toast = document.getElementById('toast');
-    toast.textContent = t(key);
-    toast.hidden = false;
-    setTimeout(() => { toast.hidden = true; }, 1500);
-  };
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(url)
-      .then(() => showToast('url_copied'))
-      .catch(() => fallbackCopy(url, showToast));
+      .then(() => _showToast('url_copied'))
+      .catch(() => fallbackCopy(url, _showToast));
   } else {
-    fallbackCopy(url, showToast);
+    fallbackCopy(url, _showToast);
   }
 }
 
@@ -376,6 +399,16 @@ function bindEvents() {
   window.addEventListener('hashchange', () => {
     applyHash();
     render();
+    // モーダル表示中は previewIndex が新フィルタ結果に対して有効か確認する
+    const dlg = document.getElementById('preview');
+    if (dlg.open) {
+      if (state.filtered.length === 0) {
+        dlg.close();
+      } else {
+        state.previewIndex = Math.min(state.previewIndex, state.filtered.length - 1);
+        renderPreview();
+      }
+    }
   });
 }
 
@@ -421,7 +454,12 @@ function saveHash() {
     }
   }
   const hash = params.toString();
-  history.replaceState(null, '', hash ? `#${hash}` : ' ');
+  // 空ハッシュは pathname のみに戻して URL バーを綺麗に保つ
+  if (hash) {
+    history.replaceState(null, '', `#${hash}`);
+  } else if (location.hash) {
+    history.replaceState(null, '', location.pathname + location.search);
+  }
 }
 
 function applyHash() {
@@ -431,14 +469,26 @@ function applyHash() {
   state.query = params.get('q') || '';
   document.getElementById('search').value = state.query;
 
-  // 後方互換: 旧 URL は m=any/all を使っていたので mode 未指定なら m を見る
-  const modeRaw = params.get('mode') || params.get('m');
+  // 後方互換: 旧 URL は m=any/all を使っていたが、現在 m は mood キー。
+  // mode が未指定で m の値が 'all'/'any' の場合のみ「旧 mode」として扱う。
+  // それ以外は m を素直に mood タグ選択として読む。
+  let modeRaw = params.get('mode');
+  let mIsLegacyMode = false;
+  if (!modeRaw) {
+    const legacyM = params.get('m');
+    if (legacyM === 'all' || legacyM === 'any') {
+      modeRaw = legacyM;
+      mIsLegacyMode = true;
+    }
+  }
   state.mode = modeRaw === 'all' ? 'all' : 'any';
   document.getElementById('match-mode').value = state.mode;
 
   for (const cat of CATEGORIES) {
-    const raw = params.get(HASH_KEYS[cat]) || '';
-    const tags = raw ? raw.split(',') : [];
+    let raw = params.get(HASH_KEYS[cat]) || '';
+    // 旧 mode フォールバックで `m=all|any` が消費された場合は mood の解釈をスキップ
+    if (cat === 'mood' && mIsLegacyMode) raw = '';
+    const tags = raw ? raw.split(',').filter(Boolean) : [];
     state.selected[cat] = new Set(tags);
     updateBadge(cat);
     for (const btn of document.querySelectorAll(`.chip[data-cat="${cat}"]`)) {

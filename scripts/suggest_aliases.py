@@ -31,11 +31,12 @@ from src.normalize import TagNormalizer  # noqa: E402
 
 logger = logging.getLogger("suggest_aliases")
 
-CATEGORIES = ("terrain_tags", "mood_tags", "location_tags")
+CATEGORIES = ("terrain_tags", "mood_tags", "location_tags", "theme_tags")
 CATEGORY_LABELS = {
     "terrain_tags": "地形",
     "mood_tags": "雰囲気",
     "location_tags": "場所",
+    "theme_tags": "テーマ (世界観)",
 }
 
 PROMPT_TEMPLATE = """\
@@ -93,7 +94,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--config", type=Path, default=None)
     parser.add_argument(
         "--category",
-        choices=["terrain", "mood", "location", "all"],
+        choices=["terrain", "mood", "location", "theme", "all"],
         default="all",
     )
     parser.add_argument(

@@ -245,10 +245,17 @@ class GeminiAnalyzer:
         parsed = getattr(response, "parsed", None)
         if parsed is None:
             import json
-            parsed = json.loads(response.text or "{}")
+
+            text = (response.text or "").strip()
+            if not text:
+                # 空レスポンスは [] を黙って返さず例外でリトライ (既存テーマを誤って消さない)
+                raise RuntimeError("Gemini theme response is empty")
+            parsed = json.loads(text)
         if not isinstance(parsed, dict):
-            return []
-        raw = parsed.get("theme_tags") or []
+            raise RuntimeError(f"unexpected theme response shape: {type(parsed).__name__}")
+        raw = parsed.get("theme_tags")
+        if raw is None:
+            raise RuntimeError("theme_tags missing from response")
         return [str(t).strip() for t in raw if str(t).strip()]
 
 

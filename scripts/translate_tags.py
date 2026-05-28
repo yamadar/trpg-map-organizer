@@ -127,7 +127,8 @@ def _translate_batch(
             continue
         ja = str(it.get("ja") or "").strip()
         en = str(it.get("en") or "").strip().lower()
-        if ja and en and en != ja:
+        # ja==en (SF/TRPG など同じ表記) もマッピングとして記録し、再翻訳を防ぐ
+        if ja and en:
             out[ja] = en
     return out
 

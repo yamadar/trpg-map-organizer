@@ -68,7 +68,8 @@ def main() -> int:
         if not args.rebuild and m.theme_tags:
             continue
         candidates.append(m)
-        if args.limit and len(candidates) >= args.limit:
+        # --limit 0 を「処理 0 件」として正しく解釈するため is not None で判定
+        if args.limit is not None and len(candidates) >= args.limit:
             break
 
     logger.info(

@@ -208,51 +208,33 @@ def update_tags(
     terrain_tags: list[str],
     mood_tags: list[str],
     location_tags: list[str],
-    theme_tags: list[str] | None = None,
+    theme_tags: list[str],
 ) -> None:
-    """タグ列だけを更新する (再解析せずに正規化を反映する用途).
+    """タグ 4 列をまとめて更新する (再解析せずに正規化を反映する用途).
 
-    theme_tags=None の場合は theme_tags 列を更新しない (旧コードとの互換)。
+    部分更新を防ぐため theme_tags は必須引数。テーマだけ書き換えたい場合は
+    update_theme_tags() を使うこと。
     """
     now = datetime.now().isoformat(timespec="seconds")
-    if theme_tags is None:
-        conn.execute(
-            """
-            UPDATE maps SET
-                terrain_tags = ?,
-                mood_tags = ?,
-                location_tags = ?,
-                updated_at = ?
-            WHERE id = ?
-            """,
-            (
-                json.dumps(terrain_tags, ensure_ascii=False),
-                json.dumps(mood_tags, ensure_ascii=False),
-                json.dumps(location_tags, ensure_ascii=False),
-                now,
-                map_id,
-            ),
-        )
-    else:
-        conn.execute(
-            """
-            UPDATE maps SET
-                terrain_tags = ?,
-                mood_tags = ?,
-                location_tags = ?,
-                theme_tags = ?,
-                updated_at = ?
-            WHERE id = ?
-            """,
-            (
-                json.dumps(terrain_tags, ensure_ascii=False),
-                json.dumps(mood_tags, ensure_ascii=False),
-                json.dumps(location_tags, ensure_ascii=False),
-                json.dumps(theme_tags, ensure_ascii=False),
-                now,
-                map_id,
-            ),
-        )
+    conn.execute(
+        """
+        UPDATE maps SET
+            terrain_tags = ?,
+            mood_tags = ?,
+            location_tags = ?,
+            theme_tags = ?,
+            updated_at = ?
+        WHERE id = ?
+        """,
+        (
+            json.dumps(terrain_tags, ensure_ascii=False),
+            json.dumps(mood_tags, ensure_ascii=False),
+            json.dumps(location_tags, ensure_ascii=False),
+            json.dumps(theme_tags, ensure_ascii=False),
+            now,
+            map_id,
+        ),
+    )
     conn.commit()
 
 

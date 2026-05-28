@@ -130,7 +130,11 @@ def _process_one(job: ImageJob, force: bool) -> tuple[str, int, int]:
     return (job.stem, thumb_size, mid_size)
 
 
-def _build_json_payload(records: list[db.MapRecord], has_originals: bool) -> dict:
+def _build_json_payload(
+    records: list[db.MapRecord],
+    has_originals: bool,
+    target_folder: Path,
+) -> dict:
     theme_set: set[str] = set()
     terrain_set: set[str] = set()
     mood_set: set[str] = set()
@@ -138,19 +142,22 @@ def _build_json_payload(records: list[db.MapRecord], has_originals: bool) -> dic
     maps_out: list[dict] = []
     for r in records:
         stem = Path(r.file_name).stem
-        maps_out.append(
-            {
-                "id": r.id,
-                "file": r.file_name,
-                "thumb": f"{stem}.jpg",
-                "mid": f"{stem}.jpg",
-                "desc": r.description or "",
-                "theme": list(r.theme_tags),
-                "terrain": list(r.terrain_tags),
-                "mood": list(r.mood_tags),
-                "location": list(r.location_tags),
-            }
-        )
+        entry: dict = {
+            "id": r.id,
+            "file": r.file_name,
+            "thumb": f"{stem}.jpg",
+            "mid": f"{stem}.jpg",
+            "desc": r.description or "",
+            "theme": list(r.theme_tags),
+            "terrain": list(r.terrain_tags),
+            "mood": list(r.mood_tags),
+            "location": list(r.location_tags),
+        }
+        # 元画像コピーが有効でも、ソースが消えていれば per-record で has_original=false
+        if has_originals:
+            src = db.resolve_path(r, target_folder)
+            entry["has_original"] = src.exists()
+        maps_out.append(entry)
         theme_set.update(r.theme_tags)
         terrain_set.update(r.terrain_tags)
         mood_set.update(r.mood_tags)
@@ -259,7 +266,11 @@ def main() -> int:
     # 3. JSON 生成 (i18n.json も含む)
     data_dir = output / "data"
     data_dir.mkdir(parents=True, exist_ok=True)
-    payload = _build_json_payload(records, has_originals=not args.no_originals)
+    payload = _build_json_payload(
+        records,
+        has_originals=not args.no_originals,
+        target_folder=cfg.target_folder,
+    )
     json_path = data_dir / "maps.json"
     json_path.write_text(
         json.dumps(payload, ensure_ascii=False, indent=2, separators=(",", ": ")),
