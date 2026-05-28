@@ -36,22 +36,41 @@
         </select>
       </section>
 
-      <details class="cat" open>
+      <nav class="cat-tabs" role="tablist" aria-label="filter category">
+        <button type="button" role="tab" class="cat-tab active" data-cat="theme" aria-selected="true" aria-controls="theme">
+          <span data-i18n="theme">テーマ</span>
+          <span class="tab-badge" id="theme-tab-badge">0</span>
+        </button>
+        <button type="button" role="tab" class="cat-tab" data-cat="terrain" aria-selected="false" aria-controls="terrain">
+          <span data-i18n="terrain">地形</span>
+          <span class="tab-badge" id="terrain-tab-badge">0</span>
+        </button>
+        <button type="button" role="tab" class="cat-tab" data-cat="mood" aria-selected="false" aria-controls="mood">
+          <span data-i18n="mood">雰囲気</span>
+          <span class="tab-badge" id="mood-tab-badge">0</span>
+        </button>
+        <button type="button" role="tab" class="cat-tab" data-cat="location" aria-selected="false" aria-controls="location">
+          <span data-i18n="location">場所</span>
+          <span class="tab-badge" id="location-tab-badge">0</span>
+        </button>
+      </nav>
+
+      <details class="cat" data-cat="theme" data-active open>
         <summary><span data-i18n="theme">テーマ</span> <span class="badge" id="theme-selected">0</span></summary>
         <div class="chips" id="theme"></div>
       </details>
 
-      <details class="cat" open>
+      <details class="cat" data-cat="terrain" open>
         <summary><span data-i18n="terrain">地形</span> <span class="badge" id="terrain-selected">0</span></summary>
         <div class="chips" id="terrain"></div>
       </details>
 
-      <details class="cat" open>
+      <details class="cat" data-cat="mood" open>
         <summary><span data-i18n="mood">雰囲気</span> <span class="badge" id="mood-selected">0</span></summary>
         <div class="chips" id="mood"></div>
       </details>
 
-      <details class="cat" open>
+      <details class="cat" data-cat="location" open>
         <summary><span data-i18n="location">場所</span> <span class="badge" id="location-selected">0</span></summary>
         <div class="chips" id="location"></div>
       </details>

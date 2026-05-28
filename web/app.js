@@ -127,13 +127,29 @@ async function init() {
   if (gen) document.getElementById('generated-at').textContent = `${gen}`;
 }
 
-// モバイル時のサイドバー内デフォルト: theme のみ展開、それ以外は折り畳み
+// モバイル時のサイドバー: 全 details を open 維持し、タブ UI で
+// data-active 属性を切り替えてカテゴリを表示制御する
 function applyMobileDefaults() {
-  if (!_MOBILE_MQ.matches) return;
-  for (const cat of CATEGORIES) {
-    if (cat === 'theme') continue;
-    const det = document.getElementById(cat)?.closest('details');
-    if (det) det.open = false;
+  // 全 details を開いておく (チップは内側にあるため open でないと見えない)
+  for (const det of document.querySelectorAll('.cat')) {
+    det.open = true;
+  }
+  // デスクトップ・モバイル共に "theme" を初期アクティブに
+  activateCategoryTab('theme');
+}
+
+function activateCategoryTab(cat) {
+  for (const tab of document.querySelectorAll('.cat-tab')) {
+    const isActive = tab.dataset.cat === cat;
+    tab.classList.toggle('active', isActive);
+    tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+  }
+  for (const det of document.querySelectorAll('.cat')) {
+    if (det.dataset.cat === cat) {
+      det.setAttribute('data-active', '');
+    } else {
+      det.removeAttribute('data-active');
+    }
   }
 }
 
@@ -261,10 +277,19 @@ function toggleSidebar() {
 }
 
 function updateBadge(cat) {
-  const badge = document.getElementById(`${cat}-selected`);
   const n = state.selected[cat].size;
-  badge.textContent = n;
-  badge.classList.toggle('has-selection', n > 0);
+  // details の summary 内 badge (デスクトップ表示)
+  const badge = document.getElementById(`${cat}-selected`);
+  if (badge) {
+    badge.textContent = n;
+    badge.classList.toggle('has-selection', n > 0);
+  }
+  // モバイルタブの badge
+  const tabBadge = document.getElementById(`${cat}-tab-badge`);
+  if (tabBadge) {
+    tabBadge.textContent = n;
+    tabBadge.classList.toggle('has-selection', n > 0);
+  }
 }
 
 // ===== フィルタロジック =====
@@ -568,6 +593,11 @@ function bindEvents() {
 
   document.getElementById('filter-toggle').addEventListener('click', toggleSidebar);
   document.getElementById('sidebar-backdrop').addEventListener('click', closeSidebar);
+
+  // カテゴリタブ
+  for (const tab of document.querySelectorAll('.cat-tab')) {
+    tab.addEventListener('click', () => activateCategoryTab(tab.dataset.cat));
+  }
 
   // 言語トグル: タップで JA <-> EN を切替
   document.getElementById('lang-toggle').addEventListener('click', () => {

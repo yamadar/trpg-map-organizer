@@ -203,6 +203,50 @@ body.scroll-locked {
   outline: 2px solid var(--accent);
 }
 
+/* カテゴリタブ (モバイル時のみ表示) */
+.cat-tabs {
+  display: none;
+}
+.cat-tab {
+  background: var(--panel-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.4rem 0.75rem;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.cat-tab:hover { border-color: var(--accent); }
+.cat-tab.active {
+  background: var(--accent);
+  color: var(--tag-fg-active);
+  border-color: var(--accent);
+}
+.cat-tab .tab-badge {
+  background: var(--border);
+  color: var(--text-dim);
+  border-radius: 999px;
+  padding: 0 0.4rem;
+  font-size: 0.7rem;
+  min-width: 1.2rem;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.cat-tab .tab-badge.has-selection {
+  background: var(--accent);
+  color: var(--tag-fg-active);
+}
+.cat-tab.active .tab-badge,
+.cat-tab.active .tab-badge.has-selection {
+  background: rgba(15, 20, 25, 0.3);
+  color: var(--tag-fg-active);
+}
+
 .cat {
   background: var(--panel-2);
   border-radius: 8px;
@@ -610,41 +654,74 @@ body.scroll-locked {
 
   .layout { grid-template-columns: 1fr; }
 
-  /* サイドバーはトップバーの下から重なるシート風に。デフォルト非表示。 */
+  /* サイドバー: トップバーの下からドロップするモーダルシート (内容に合わせ可変高) */
   .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: auto;
     z-index: 22;
-    height: 100dvh;
-    max-height: 100dvh;
+    height: auto;
+    max-height: 85dvh;
     margin: 0;
-    /* トップバー (約 64px) を避けて開く */
-    padding: calc(64px + 0.5rem) 0.85rem 1.5rem;
+    /* トップバー (約 50px) を避けて開く */
+    padding: calc(50px + 0.6rem) 0.85rem 0.9rem;
     border: none;
     border-bottom: 1px solid var(--border);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
     transform: translateY(-100%);
     transition: transform 0.18s ease-out;
     overflow-y: auto;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
+    gap: 0.6rem;
   }
   .sidebar.open {
     transform: translateY(0);
   }
-  /* シート上部にバー (アクセント) を入れて開閉中であることを示す */
-  .sidebar::before {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 4px;
-    border-radius: 4px;
-    background: var(--border);
-    margin: 0 auto 0.5rem;
+  /* sidebar::before のグラブハンドルはフルスクリーン廃止のため不要 */
+  .sidebar::before { display: none; }
+
+  /* 検索/match-mode: ラベルと入力を 1 行に並べる */
+  .filter {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.55rem;
   }
+  .filter .filter-label {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: 0.8rem;
+  }
+  .filter input[type="search"],
+  .filter select {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 0.4rem 0.6rem;
+  }
+
+  /* カテゴリタブを表示し、details の summary は非表示にしてタブUIに置換 */
+  .cat-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-top: 0.2rem;
+  }
+  .cat-tab {
+    flex: 1 1 auto;
+    justify-content: center;
+    min-width: 0;
+  }
+  .cat { display: none; padding: 0; background: transparent; }
+  .cat[data-active] { display: block; }
+  .cat summary { display: none; }
+  .chips { max-height: 38dvh; }
+
+  .clear-btn { margin-top: 0.3rem; }
+  .sidebar-footer { display: none; }
 
   .sidebar-backdrop {
     display: block;
