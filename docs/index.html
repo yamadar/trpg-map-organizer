@@ -10,6 +10,11 @@
   <header class="topbar">
     <h1 data-i18n="title">TRPG Map Organizer</h1>
     <span id="count" class="count">—</span>
+    <button type="button" id="filter-toggle" class="filter-toggle" aria-expanded="false" aria-controls="sidebar">
+      <span class="filter-icon" aria-hidden="true">☰</span>
+      <span class="filter-label" data-i18n="filters">フィルタ</span>
+      <span class="filter-badge" id="filter-badge">0</span>
+    </button>
     <div class="lang-switcher" role="group" aria-label="Language">
       <button type="button" class="lang-btn" data-lang="ja">日本語</button>
       <button type="button" class="lang-btn" data-lang="en">English</button>
@@ -17,7 +22,7 @@
   </header>
 
   <div class="layout">
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
       <section class="filter">
         <label class="filter-label" for="search" data-i18n="search_label">ファイル名検索</label>
         <input type="search" id="search" autocomplete="off" data-i18n-attr="placeholder:search_placeholder" placeholder="部分一致...">
@@ -61,6 +66,9 @@
     <main class="grid" id="grid">
       <p class="loading" data-i18n="loading">読み込み中...</p>
     </main>
+  </div>
+
+  <div class="sidebar-backdrop" id="sidebar-backdrop" hidden>
   </div>
 
   <dialog id="preview" class="preview">

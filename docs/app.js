@@ -13,6 +13,11 @@ const CATEGORIES = ['theme', 'terrain', 'mood', 'location'];
 // URL ハッシュ用の 1〜2 文字キー (g=genre=theme で衝突回避)
 const HASH_KEYS = { theme: 'g', terrain: 't', mood: 'm', location: 'l' };
 
+// プレビューで前後何件をブラウザキャッシュに先読みするか
+const PREFETCH_RADIUS = 2;
+
+const _MOBILE_MQ = window.matchMedia('(max-width: 800px)');
+
 const state = {
   data: null,
   i18n: null,
@@ -27,6 +32,8 @@ const state = {
   },
   filtered: [],
   previewIndex: -1,
+  previewId: null,        // URL ハッシュに反映する map.id
+  currentImageSrc: '',    // 現在表示中の画像 URL (二重ロード防止)
 };
 
 // ===== 初期化 =====
@@ -66,12 +73,29 @@ async function init() {
   state.lang = detectLang();
   applyUiTranslations();
   renderFilters();
+  applyMobileDefaults();
   applyHash();
   bindEvents();
   render();
+  updateFilterToggle();
+
+  // URL に id があれば対応するモーダルを開く (初回表示時のみ)
+  if (state.previewId != null) {
+    openPreviewById(state.previewId, { fromHash: true });
+  }
 
   const gen = state.data.generated_at;
   if (gen) document.getElementById('generated-at').textContent = `${gen}`;
+}
+
+// モバイル時のサイドバー内デフォルト: theme のみ展開、それ以外は折り畳み
+function applyMobileDefaults() {
+  if (!_MOBILE_MQ.matches) return;
+  for (const cat of CATEGORIES) {
+    if (cat === 'theme') continue;
+    const det = document.getElementById(cat)?.closest('details');
+    if (det) det.open = false;
+  }
 }
 
 function detectLang() {
@@ -159,8 +183,40 @@ function toggleTag(cat, tag, btn) {
     btn.classList.add('active');
   }
   updateBadge(cat);
+  updateFilterToggle();
   saveHash();
   render();
+}
+
+function updateFilterToggle() {
+  const btn = document.getElementById('filter-toggle');
+  if (!btn) return;
+  const total = CATEGORIES.reduce((s, c) => s + state.selected[c].size, 0);
+  const hasFilters = total > 0 || state.query.length > 0 || state.mode !== 'any';
+  btn.classList.toggle('has-filters', hasFilters);
+  document.getElementById('filter-badge').textContent = total;
+}
+
+function openSidebar() {
+  document.getElementById('sidebar').classList.add('open');
+  document.getElementById('sidebar-backdrop').classList.add('visible');
+  document.getElementById('sidebar-backdrop').hidden = false;
+  document.getElementById('filter-toggle').setAttribute('aria-expanded', 'true');
+}
+
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sidebar-backdrop').classList.remove('visible');
+  document.getElementById('sidebar-backdrop').hidden = true;
+  document.getElementById('filter-toggle').setAttribute('aria-expanded', 'false');
+}
+
+function toggleSidebar() {
+  if (document.getElementById('sidebar').classList.contains('open')) {
+    closeSidebar();
+  } else {
+    openSidebar();
+  }
 }
 
 function updateBadge(cat) {
@@ -239,17 +295,96 @@ function cardSummary(m) {
 
 function openPreview(index) {
   state.previewIndex = index;
+  const m = state.filtered[index];
+  state.previewId = m ? m.id : null;
   renderPreview();
+  saveHash();
   const dlg = document.getElementById('preview');
   if (!dlg.open) dlg.showModal();
+}
+
+// id から該当マップを探してモーダルを開く。フィルタ外の id でも閲覧可能。
+function openPreviewById(id, { fromHash = false } = {}) {
+  let idx = state.filtered.findIndex(m => m.id === id);
+  if (idx >= 0) {
+    state.previewIndex = idx;
+    state.previewId = id;
+    renderPreview();
+  } else {
+    // フィルタ外にあるマップ: previewIndex=-1 で navigation を抑止
+    const m = state.data.maps.find(mm => mm.id === id);
+    if (!m) {
+      // 該当 id なし: URL ハッシュを掃除して何もしない
+      state.previewId = null;
+      if (!fromHash) saveHash();
+      return;
+    }
+    state.previewIndex = -1;
+    state.previewId = id;
+    renderPreviewOf(m);
+  }
+  if (!fromHash) saveHash();
+  const dlg = document.getElementById('preview');
+  if (!dlg.open) dlg.showModal();
+}
+
+// 画像読み込み (ローディング表示 + 二重リクエスト防止)
+function setPreviewImage(newSrc, fallbackAlt) {
+  const imgEl = document.getElementById('preview-img');
+  const wrap = document.getElementById('image-wrap');
+  imgEl.alt = fallbackAlt || '';
+
+  if (state.currentImageSrc === newSrc &&
+      imgEl.complete && imgEl.naturalWidth > 0) {
+    // 既に同じ画像が読み込み済み
+    wrap.classList.remove('loading');
+    return;
+  }
+  state.currentImageSrc = newSrc;
+  wrap.classList.add('loading');
+
+  const loader = new Image();
+  loader.onload = () => {
+    if (state.currentImageSrc !== newSrc) return; // 既に別の画像へ移動済み
+    imgEl.src = newSrc;
+    wrap.classList.remove('loading');
+  };
+  loader.onerror = () => {
+    if (state.currentImageSrc !== newSrc) return;
+    wrap.classList.remove('loading');
+  };
+  loader.src = newSrc;
+  if (loader.complete && loader.naturalWidth > 0) {
+    // キャッシュヒット: onload が走らない場合があるので即座に反映
+    imgEl.src = newSrc;
+    wrap.classList.remove('loading');
+  }
+}
+
+// 前後の画像をブラウザキャッシュにプリフェッチ
+function prefetchAround(index, radius = PREFETCH_RADIUS) {
+  if (index < 0) return;
+  for (let d = 1; d <= radius; d++) {
+    for (const k of [index + d, index - d]) {
+      if (k < 0 || k >= state.filtered.length) continue;
+      const m = state.filtered[k];
+      if (!m) continue;
+      const img = new Image();
+      img.src = `images/mid/${m.mid}`;
+    }
+  }
 }
 
 function renderPreview() {
   const m = state.filtered[state.previewIndex];
   if (!m) return;
+  renderPreviewOf(m);
+  prefetchAround(state.previewIndex);
+}
 
-  document.getElementById('preview-img').src = `images/mid/${m.mid}`;
-  document.getElementById('preview-img').alt = m.file;
+// 個別マップを引数で受け取って描画 (フィルタ外 id 表示用にも使う)
+function renderPreviewOf(m) {
+  setPreviewImage(`images/mid/${m.mid}`, m.file);
   document.getElementById('preview-title').textContent = m.file;
   document.getElementById('preview-desc').textContent = m.desc || '';
 
@@ -275,18 +410,38 @@ function renderPreview() {
   jpeg.setAttribute('download', m.mid);
 
   // 位置インジケータと prev/next の状態
-  document.getElementById('position').textContent =
-    `${state.previewIndex + 1}${t('position_sep')}${state.filtered.length}`;
-  document.getElementById('prev-btn').disabled = state.previewIndex <= 0;
-  document.getElementById('next-btn').disabled =
-    state.previewIndex >= state.filtered.length - 1;
+  // previewIndex=-1 (フィルタ外を URL 経由で表示) のときは位置表示・ナビを抑制
+  const positionEl = document.getElementById('position');
+  if (state.previewIndex < 0) {
+    positionEl.textContent = '— / —';
+    document.getElementById('prev-btn').disabled = true;
+    document.getElementById('next-btn').disabled = true;
+  } else {
+    positionEl.textContent =
+      `${state.previewIndex + 1}${t('position_sep')}${state.filtered.length}`;
+    document.getElementById('prev-btn').disabled = state.previewIndex <= 0;
+    document.getElementById('next-btn').disabled =
+      state.previewIndex >= state.filtered.length - 1;
+  }
 }
 
 function navigatePreview(delta) {
+  if (state.previewIndex < 0) return; // フィルタ外表示中は無効
   const next = state.previewIndex + delta;
   if (next < 0 || next >= state.filtered.length) return;
   state.previewIndex = next;
+  const m = state.filtered[next];
+  state.previewId = m ? m.id : null;
   renderPreview();
+  saveHash();
+}
+
+function closePreview() {
+  state.previewIndex = -1;
+  state.previewId = null;
+  const dlg = document.getElementById('preview');
+  if (dlg.open) dlg.close();
+  saveHash();
 }
 
 let _toastTimer = null;
@@ -336,12 +491,14 @@ function fallbackCopy(text, showToast) {
 function bindEvents() {
   document.getElementById('search').addEventListener('input', e => {
     state.query = e.target.value;
+    updateFilterToggle();
     saveHash();
     render();
   });
 
   document.getElementById('match-mode').addEventListener('change', e => {
     state.mode = e.target.value;
+    updateFilterToggle();
     saveHash();
     render();
   });
@@ -356,9 +513,13 @@ function bindEvents() {
       updateBadge(cat);
     }
     document.querySelectorAll('.chip.active').forEach(b => b.classList.remove('active'));
+    updateFilterToggle();
     saveHash();
     render();
   });
+
+  document.getElementById('filter-toggle').addEventListener('click', toggleSidebar);
+  document.getElementById('sidebar-backdrop').addEventListener('click', closeSidebar);
 
   for (const btn of document.querySelectorAll('.lang-btn')) {
     btn.addEventListener('click', () => {
@@ -371,13 +532,17 @@ function bindEvents() {
     });
   }
 
-  document.getElementById('close').addEventListener('click', () => {
-    document.getElementById('preview').close();
-  });
+  document.getElementById('close').addEventListener('click', closePreview);
 
   document.getElementById('preview').addEventListener('click', e => {
-    if (e.target.id === 'preview') {
-      document.getElementById('preview').close();
+    if (e.target.id === 'preview') closePreview();
+  });
+  // dialog の close イベント (ESC キーなど) でも URL から id を消す
+  document.getElementById('preview').addEventListener('close', () => {
+    if (state.previewId != null) {
+      state.previewIndex = -1;
+      state.previewId = null;
+      saveHash();
     }
   });
 
@@ -399,15 +564,13 @@ function bindEvents() {
   window.addEventListener('hashchange', () => {
     applyHash();
     render();
-    // モーダル表示中は previewIndex が新フィルタ結果に対して有効か確認する
+    updateFilterToggle();
     const dlg = document.getElementById('preview');
-    if (dlg.open) {
-      if (state.filtered.length === 0) {
-        dlg.close();
-      } else {
-        state.previewIndex = Math.min(state.previewIndex, state.filtered.length - 1);
-        renderPreview();
-      }
+    // URL ハッシュ側の状態に従ってモーダルを同期
+    if (state.previewId != null) {
+      openPreviewById(state.previewId, { fromHash: true });
+    } else if (dlg.open) {
+      dlg.close();
     }
   });
 }
@@ -453,6 +616,9 @@ function saveHash() {
       params.set(HASH_KEYS[cat], [...state.selected[cat]].join(','));
     }
   }
+  if (state.previewId != null) {
+    params.set('id', String(state.previewId));
+  }
   const hash = params.toString();
   // 空ハッシュは pathname のみに戻して URL バーを綺麗に保つ
   if (hash) {
@@ -494,6 +660,15 @@ function applyHash() {
     for (const btn of document.querySelectorAll(`.chip[data-cat="${cat}"]`)) {
       btn.classList.toggle('active', state.selected[cat].has(btn.dataset.tag));
     }
+  }
+
+  // モーダル状態 (id=)
+  const idStr = params.get('id');
+  if (idStr) {
+    const idNum = Number(idStr);
+    state.previewId = Number.isFinite(idNum) ? idNum : null;
+  } else {
+    state.previewId = null;
   }
 }
 

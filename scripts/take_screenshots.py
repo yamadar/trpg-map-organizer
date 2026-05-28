@@ -89,7 +89,7 @@ def main() -> int:
         print(f"saved: {out}")
         ctx.close()
 
-        # ----- 5. モバイル (375x812 = iPhone X 相当) -----
+        # ----- 5. モバイル (375x812 = iPhone X 相当) - フィルタ閉じた状態 -----
         ctx = browser.new_context(
             viewport={"width": 390, "height": 844},
             locale="ja-JP",
@@ -106,6 +106,16 @@ def main() -> int:
         out = args.out / "05-mobile-ja.png"
         page.screenshot(path=str(out), full_page=False)
         print(f"saved: {out}")
+
+        # ----- 5b. モバイル - フィルタ開いた状態 -----
+        page.click("#filter-toggle")
+        time.sleep(0.5)
+        out = args.out / "05b-mobile-filter.png"
+        page.screenshot(path=str(out), full_page=False)
+        print(f"saved: {out}")
+        # 閉じる: topbar の filter-toggle (z-index で常に上) をもう一度タップ
+        page.click("#filter-toggle")
+        time.sleep(0.5)
 
         # ----- 6. モバイル プレビューモーダル -----
         page.goto(base + "#g=" + "メルヘン", wait_until="networkidle")
