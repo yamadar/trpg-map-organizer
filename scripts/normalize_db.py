@@ -62,11 +62,13 @@ def main() -> int:
             new_terrain = normalizer.normalize_tags(m.terrain_tags)
             new_mood = normalizer.normalize_tags(m.mood_tags)
             new_location = normalizer.normalize_tags(m.location_tags)
+            new_theme = normalizer.normalize_tags(m.theme_tags)
 
             diffs = [
                 _diff_summary("地形", m.terrain_tags, new_terrain),
                 _diff_summary("雰囲気", m.mood_tags, new_mood),
                 _diff_summary("場所", m.location_tags, new_location),
+                _diff_summary("テーマ", m.theme_tags, new_theme),
             ]
             diffs = [d for d in diffs if d]
             if not diffs:
@@ -85,6 +87,7 @@ def main() -> int:
                     terrain_tags=new_terrain,
                     mood_tags=new_mood,
                     location_tags=new_location,
+                    theme_tags=new_theme,
                 )
 
     action = "差分検出" if args.dry_run else "更新"

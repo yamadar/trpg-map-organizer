@@ -76,15 +76,18 @@ def show_preview(record: db.MapRecord, cfg: AppConfig) -> None:
     if record.description:
         st.markdown(f"**説明:** {record.description}")
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(4)
     with col1:
-        st.markdown("**地形タグ**")
-        st.markdown(_format_tags(record.terrain_tags, limit=20))
+        st.markdown("**テーマ**")
+        st.markdown(_format_tags(record.theme_tags, limit=20))
     with col2:
-        st.markdown("**雰囲気タグ**")
-        st.markdown(_format_tags(record.mood_tags, limit=20))
+        st.markdown("**地形**")
+        st.markdown(_format_tags(record.terrain_tags, limit=20))
     with col3:
-        st.markdown("**場所タグ**")
+        st.markdown("**雰囲気**")
+        st.markdown(_format_tags(record.mood_tags, limit=20))
+    with col4:
+        st.markdown("**場所**")
         st.markdown(_format_tags(record.location_tags, limit=20))
 
     if record.analyzed_at:
@@ -141,6 +144,8 @@ def _render_card(record: db.MapRecord, cfg: AppConfig, thumbnail_width: int) -> 
         st.markdown(":warning: 画像読込失敗")
 
     st.markdown(f"**{record.file_name}**")
+    if record.theme_tags:
+        st.caption("テーマ: " + " / ".join(record.theme_tags[:3]))
     if record.terrain_tags:
         st.caption("地形: " + " / ".join(record.terrain_tags[:3]))
     if record.mood_tags:
@@ -172,6 +177,7 @@ def main() -> None:
 
     with db.connect(cfg.database_path) as conn:
         all_records = db.list_maps(conn)
+        theme_choices = db.distinct_tags(conn, "theme_tags")
         terrain_choices = db.distinct_tags(conn, "terrain_tags")
         mood_choices = db.distinct_tags(conn, "mood_tags")
         location_choices = db.distinct_tags(conn, "location_tags")
@@ -192,6 +198,7 @@ def main() -> None:
             horizontal=True,
             index=0,
         )
+        selected_theme = st.multiselect("テーマ", theme_choices)
         selected_terrain = st.multiselect("地形タグ", terrain_choices)
         selected_mood = st.multiselect("雰囲気タグ", mood_choices)
         selected_location = st.multiselect("場所タグ", location_choices)
@@ -214,6 +221,7 @@ def main() -> None:
             terrain_tags=selected_terrain,
             mood_tags=selected_mood,
             location_tags=selected_location,
+            theme_tags=selected_theme,
             name_query=name_query,
             match_mode=match_mode_label,
         )

@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS maps (
     terrain_tags  TEXT    NOT NULL DEFAULT '[]',
     mood_tags     TEXT    NOT NULL DEFAULT '[]',
     location_tags TEXT    NOT NULL DEFAULT '[]',
+    theme_tags    TEXT    NOT NULL DEFAULT '[]',
     description   TEXT,
     analyzed_at   TIMESTAMP,
     created_at    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -35,6 +36,8 @@ CREATE TABLE IF NOT EXISTS maps (
 CREATE INDEX IF NOT EXISTS idx_maps_file_name ON maps(file_name);
 CREATE INDEX IF NOT EXISTS idx_maps_analyzed_at ON maps(analyzed_at);
 """
+
+TAG_COLUMNS = ("terrain_tags", "mood_tags", "location_tags", "theme_tags")
 
 
 @dataclass
@@ -48,6 +51,7 @@ class MapRecord:
     terrain_tags: list[str]
     mood_tags: list[str]
     location_tags: list[str]
+    theme_tags: list[str]
     description: str | None
     analyzed_at: str | None
     created_at: str
@@ -65,6 +69,7 @@ def _row_to_record(row: sqlite3.Row) -> MapRecord:
         terrain_tags=json.loads(row["terrain_tags"] or "[]"),
         mood_tags=json.loads(row["mood_tags"] or "[]"),
         location_tags=json.loads(row["location_tags"] or "[]"),
+        theme_tags=json.loads((row["theme_tags"] if "theme_tags" in row.keys() else "[]") or "[]"),
         description=row["description"],
         analyzed_at=row["analyzed_at"],
         created_at=row["created_at"],
@@ -73,10 +78,16 @@ def _row_to_record(row: sqlite3.Row) -> MapRecord:
 
 
 def init_db(db_path: Path) -> None:
-    """DB ファイルとテーブルを用意する."""
+    """DB ファイルとテーブルを用意する (既存 DB は ALTER TABLE で増分マイグレーション)."""
     db_path.parent.mkdir(parents=True, exist_ok=True)
     with sqlite3.connect(db_path) as conn:
         conn.executescript(SCHEMA_SQL)
+        # 既存 DB の自動マイグレーション
+        existing_cols = {row[1] for row in conn.execute("PRAGMA table_info(maps)").fetchall()}
+        if "theme_tags" not in existing_cols:
+            conn.execute(
+                "ALTER TABLE maps ADD COLUMN theme_tags TEXT NOT NULL DEFAULT '[]'"
+            )
         conn.commit()
 
 
@@ -109,6 +120,7 @@ def upsert_map(
     terrain_tags: list[str],
     mood_tags: list[str],
     location_tags: list[str],
+    theme_tags: list[str],
     description: str | None,
 ) -> int:
     """新規登録 or 既存レコードを更新し、id を返す."""
@@ -117,10 +129,10 @@ def upsert_map(
         """
         INSERT INTO maps (
             file_path, file_name, file_size, file_mtime, file_hash,
-            terrain_tags, mood_tags, location_tags, description,
+            terrain_tags, mood_tags, location_tags, theme_tags, description,
             analyzed_at, created_at, updated_at
         )
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ON CONFLICT(file_path) DO UPDATE SET
             file_name     = excluded.file_name,
             file_size     = excluded.file_size,
@@ -129,6 +141,7 @@ def upsert_map(
             terrain_tags  = excluded.terrain_tags,
             mood_tags     = excluded.mood_tags,
             location_tags = excluded.location_tags,
+            theme_tags    = excluded.theme_tags,
             description   = excluded.description,
             analyzed_at   = excluded.analyzed_at,
             updated_at    = excluded.updated_at
@@ -142,6 +155,7 @@ def upsert_map(
             json.dumps(terrain_tags, ensure_ascii=False),
             json.dumps(mood_tags, ensure_ascii=False),
             json.dumps(location_tags, ensure_ascii=False),
+            json.dumps(theme_tags, ensure_ascii=False),
             description,
             now,
             now,
@@ -194,25 +208,65 @@ def update_tags(
     terrain_tags: list[str],
     mood_tags: list[str],
     location_tags: list[str],
+    theme_tags: list[str] | None = None,
 ) -> None:
-    """タグ列だけを更新する (再解析せずに正規化を反映する用途)."""
+    """タグ列だけを更新する (再解析せずに正規化を反映する用途).
+
+    theme_tags=None の場合は theme_tags 列を更新しない (旧コードとの互換)。
+    """
+    now = datetime.now().isoformat(timespec="seconds")
+    if theme_tags is None:
+        conn.execute(
+            """
+            UPDATE maps SET
+                terrain_tags = ?,
+                mood_tags = ?,
+                location_tags = ?,
+                updated_at = ?
+            WHERE id = ?
+            """,
+            (
+                json.dumps(terrain_tags, ensure_ascii=False),
+                json.dumps(mood_tags, ensure_ascii=False),
+                json.dumps(location_tags, ensure_ascii=False),
+                now,
+                map_id,
+            ),
+        )
+    else:
+        conn.execute(
+            """
+            UPDATE maps SET
+                terrain_tags = ?,
+                mood_tags = ?,
+                location_tags = ?,
+                theme_tags = ?,
+                updated_at = ?
+            WHERE id = ?
+            """,
+            (
+                json.dumps(terrain_tags, ensure_ascii=False),
+                json.dumps(mood_tags, ensure_ascii=False),
+                json.dumps(location_tags, ensure_ascii=False),
+                json.dumps(theme_tags, ensure_ascii=False),
+                now,
+                map_id,
+            ),
+        )
+    conn.commit()
+
+
+def update_theme_tags(
+    conn: sqlite3.Connection,
+    *,
+    map_id: int,
+    theme_tags: list[str],
+) -> None:
+    """theme_tags 列だけを更新する (バックフィル用)."""
     now = datetime.now().isoformat(timespec="seconds")
     conn.execute(
-        """
-        UPDATE maps SET
-            terrain_tags = ?,
-            mood_tags = ?,
-            location_tags = ?,
-            updated_at = ?
-        WHERE id = ?
-        """,
-        (
-            json.dumps(terrain_tags, ensure_ascii=False),
-            json.dumps(mood_tags, ensure_ascii=False),
-            json.dumps(location_tags, ensure_ascii=False),
-            now,
-            map_id,
-        ),
+        "UPDATE maps SET theme_tags = ?, updated_at = ? WHERE id = ?",
+        (json.dumps(theme_tags, ensure_ascii=False), now, map_id),
     )
     conn.commit()
 
@@ -228,6 +282,7 @@ def search_maps(
     terrain_tags: Iterable[str] = (),
     mood_tags: Iterable[str] = (),
     location_tags: Iterable[str] = (),
+    theme_tags: Iterable[str] = (),
     name_query: str = "",
     match_mode: str = "any",
 ) -> list[MapRecord]:
@@ -263,6 +318,7 @@ def search_maps(
     _add_tag_filter("terrain_tags", terrain_tags)
     _add_tag_filter("mood_tags", mood_tags)
     _add_tag_filter("location_tags", location_tags)
+    _add_tag_filter("theme_tags", theme_tags)
 
     if name_query.strip():
         where.append("LOWER(file_name) LIKE ?")
@@ -278,8 +334,8 @@ def search_maps(
 
 
 def distinct_tags(conn: sqlite3.Connection, column: str) -> list[str]:
-    """指定カラム (terrain_tags/mood_tags/location_tags) のユニークタグ一覧."""
-    if column not in {"terrain_tags", "mood_tags", "location_tags"}:
+    """指定カラム (terrain_tags/mood_tags/location_tags/theme_tags) のユニークタグ一覧."""
+    if column not in TAG_COLUMNS:
         raise ValueError(f"invalid column: {column}")
     rows = conn.execute(
         f"SELECT DISTINCT json_each.value AS tag "

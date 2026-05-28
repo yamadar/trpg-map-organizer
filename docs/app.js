@@ -7,7 +7,11 @@
 //  - モーダルプレビュー: Prev/Next、元画像/JPEG ダウンロード、URL コピー
 //  - スマホでもスワイプとボタンで操作できる
 
-const CATEGORIES = ['terrain', 'mood', 'location'];
+// 表示順 = 内部順。theme を先頭に置く。
+const CATEGORIES = ['theme', 'terrain', 'mood', 'location'];
+
+// URL ハッシュ用の 1〜2 文字キー (g=genre=theme で衝突回避)
+const HASH_KEYS = { theme: 'g', terrain: 't', mood: 'm', location: 'l' };
 
 const state = {
   data: null,
@@ -15,7 +19,12 @@ const state = {
   lang: 'ja',
   query: '',
   mode: 'any',
-  selected: { terrain: new Set(), mood: new Set(), location: new Set() },
+  selected: {
+    theme: new Set(),
+    terrain: new Set(),
+    mood: new Set(),
+    location: new Set(),
+  },
   filtered: [],
   previewIndex: -1,
 };
@@ -403,11 +412,12 @@ function bindSwipe() {
 
 function saveHash() {
   const params = new URLSearchParams();
+  // 注意: m はマッチモード用に予約済み (1 文字キー)。theme=g とすることで衝突回避。
   if (state.query) params.set('q', state.query);
-  if (state.mode !== 'any') params.set('m', state.mode);
+  if (state.mode !== 'any') params.set('mode', state.mode);
   for (const cat of CATEGORIES) {
     if (state.selected[cat].size > 0) {
-      params.set(cat[0], [...state.selected[cat]].join(','));
+      params.set(HASH_KEYS[cat], [...state.selected[cat]].join(','));
     }
   }
   const hash = params.toString();
@@ -421,11 +431,13 @@ function applyHash() {
   state.query = params.get('q') || '';
   document.getElementById('search').value = state.query;
 
-  state.mode = params.get('m') === 'all' ? 'all' : 'any';
+  // 後方互換: 旧 URL は m=any/all を使っていたので mode 未指定なら m を見る
+  const modeRaw = params.get('mode') || params.get('m');
+  state.mode = modeRaw === 'all' ? 'all' : 'any';
   document.getElementById('match-mode').value = state.mode;
 
   for (const cat of CATEGORIES) {
-    const raw = params.get(cat[0]) || '';
+    const raw = params.get(HASH_KEYS[cat]) || '';
     const tags = raw ? raw.split(',') : [];
     state.selected[cat] = new Set(tags);
     updateBadge(cat);

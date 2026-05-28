@@ -37,7 +37,7 @@ _RETRY_DELAY_SAFETY_MARGIN = 1.0
 
 ANALYSIS_PROMPT = """\
 あなたは TRPG (テーブルトーク RPG) のゲームマスター向けに、マップ画像を分類する
-アシスタントです。与えられた画像を分析し、以下 3 つのカテゴリーごとに日本語のタグを
+アシスタントです。与えられた画像を分析し、以下 4 つのカテゴリーごとに日本語のタグを
 抽出してください。
 
 ## 地形分類 (terrain_tags)
@@ -51,11 +51,70 @@ ANALYSIS_PROMPT = """\
 画像が表す場所や空間の種類。例: ダンジョン、町、村、屋外、室内、城、神殿、酒場、
 地下、塔、墓地、港、街道
 
+## ジャンル分類 (theme_tags)
+画像が馴染む世界観・ジャンル。**複数該当して構わない**。
+判定基準は「この世界観でしか使えない」ではなく「この世界観でも使えそう」レベル。
+
+主な候補 (これに限定せず、他に該当する TRPG 世界観があれば追加してよい):
+- 汎用: 草原・荒地・洞窟など、特定ジャンルに縛られず汎用的に使える背景
+- 中世: 西洋ファンタジー、中世風の城・村・教会
+- 東洋: 和風・中華風・東南アジア風
+- アラビアン: 砂漠の都市・モスク・千夜一夜物語風
+- 南米: マヤ・アステカ・インカ風、ジャングル神殿
+- メルヘン: おとぎ話・童話・絵本のような幻想風
+- クトゥルフ: コズミックホラー、深海、異形、狂気
+- 大航海時代: 海賊・帆船・港町・ルネサンス
+- スチームパンク: 蒸気機関・歯車・ヴィクトリア朝風
+- サイバーパンク: 未来都市・ネオン・退廃した近未来
+- ポストアポカリプス: 文明崩壊後の廃墟世界
+- 古代: 古代エジプト・ギリシャ・ローマ風
+- 北欧: バイキング・ルーン・氷の世界
+- 現代: 現実的な現代社会
+- SF: 宇宙・未来・宇宙船・異星
+
 ## 出力ルール
-- 各カテゴリ 1〜5 個。重要度が高い順に並べる。
-- タグは短い単語または短い熟語 (例: 「鬱蒼とした森」ではなく「森」「鬱蒼」を分ける)。
-- 不確実なタグは含めない。
-- description: 画像の特徴を 80 文字程度の日本語で簡潔に説明する。
+- terrain/mood/location: 各カテゴリ 1〜5 個、重要度の高い順
+- theme_tags: 1〜5 個、当てはまる世界観すべて
+  - 汎用要素が強い場合は「汎用」を含める (例: 草原のみのマップ → 汎用 + 中世)
+  - 1 画像が複数ジャンルに当てはまることを推奨
+- タグは短い単語または熟語 (「鬱蒼とした森」ではなく「森」「鬱蒼」のように分割)
+- 接尾辞「風」「的」は付けない (例: 中世風 ではなく 中世)
+- 不確実なタグは含めない
+- description: 画像の特徴を 80 文字程度の日本語で簡潔に説明する
+
+JSON フォーマットで返答してください。
+"""
+
+
+THEME_ONLY_PROMPT = """\
+あなたは TRPG マップ画像を世界観で分類するアシスタントです。
+与えられた画像が馴染む世界観・ジャンルを判定し、日本語のタグで抽出してください。
+
+判定基準は「この世界観でしか使えない」ではなく「この世界観でも使えそう」レベル。
+**複数該当して構わない**。
+
+主な候補 (これに限定せず、他に該当する TRPG 世界観があれば追加してよい):
+- 汎用: 草原・荒地・洞窟など、特定ジャンルに縛られず汎用的に使える背景
+- 中世: 西洋ファンタジー、中世風の城・村・教会
+- 東洋: 和風・中華風・東南アジア風
+- アラビアン: 砂漠の都市・モスク・千夜一夜物語風
+- 南米: マヤ・アステカ・インカ風、ジャングル神殿
+- メルヘン: おとぎ話・童話・絵本のような幻想風
+- クトゥルフ: コズミックホラー、深海、異形、狂気
+- 大航海時代: 海賊・帆船・港町・ルネサンス
+- スチームパンク: 蒸気機関・歯車・ヴィクトリア朝風
+- サイバーパンク: 未来都市・ネオン・退廃した近未来
+- ポストアポカリプス: 文明崩壊後の廃墟世界
+- 古代: 古代エジプト・ギリシャ・ローマ風
+- 北欧: バイキング・ルーン・氷の世界
+- 現代: 現実的な現代社会
+- SF: 宇宙・未来・宇宙船・異星
+
+ルール:
+- 1〜5 個。当てはまる世界観すべて
+- 汎用要素が強い場合は「汎用」を含める (例: 草原のみのマップ → 汎用 + 中世)
+- 接尾辞「風」「的」は付けない (例: 中世風 ではなく 中世)
+- 不確実なタグは含めない
 
 JSON フォーマットで返答してください。
 """
@@ -66,6 +125,7 @@ class AnalysisResult:
     terrain_tags: list[str] = field(default_factory=list)
     mood_tags: list[str] = field(default_factory=list)
     location_tags: list[str] = field(default_factory=list)
+    theme_tags: list[str] = field(default_factory=list)
     description: str = ""
 
 
@@ -87,12 +147,36 @@ _RESPONSE_SCHEMA: dict = {
             "items": {"type": "string"},
             "description": "場所・空間タグ (日本語)",
         },
+        "theme_tags": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "馴染む世界観・ジャンルタグ (日本語、複数可)",
+        },
         "description": {
             "type": "string",
             "description": "画像の簡潔な説明 (日本語、80 文字程度)",
         },
     },
-    "required": ["terrain_tags", "mood_tags", "location_tags", "description"],
+    "required": [
+        "terrain_tags",
+        "mood_tags",
+        "location_tags",
+        "theme_tags",
+        "description",
+    ],
+}
+
+
+_THEME_ONLY_SCHEMA: dict = {
+    "type": "object",
+    "properties": {
+        "theme_tags": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "馴染む世界観・ジャンルタグ (日本語、複数可)",
+        },
+    },
+    "required": ["theme_tags"],
 }
 
 
@@ -109,8 +193,19 @@ class GeminiAnalyzer:
         self._max_attempts = max(1, int(max_attempts))
 
     def analyze(self, image_path: Path) -> AnalysisResult:
-        """画像を解析しタグと説明を返す."""
+        """画像を解析しタグと説明を返す (4 カテゴリすべて)."""
         return self._analyze_with_retry(image_path)
+
+    def analyze_themes(self, image_path: Path) -> list[str]:
+        """画像のテーマ (世界観) タグだけを返す (既存レコードのバックフィル用)."""
+        retrier = retry(
+            stop=stop_after_attempt(self._max_attempts),
+            wait=_wait_respecting_retry_delay,
+            retry=retry_if_exception_type(Exception),
+            reraise=True,
+            before_sleep=_log_before_sleep,
+        )
+        return retrier(self._analyze_themes_once)(image_path)
 
     def _analyze_with_retry(self, image_path: Path) -> AnalysisResult:
         retrier = retry(
@@ -135,6 +230,26 @@ class GeminiAnalyzer:
             )
 
         return _parse_response(response)
+
+    def _analyze_themes_once(self, image_path: Path) -> list[str]:
+        with Image.open(image_path) as img:
+            img.load()
+            response = self._client.models.generate_content(
+                model=self._model,
+                contents=[img, THEME_ONLY_PROMPT],
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json",
+                    response_schema=_THEME_ONLY_SCHEMA,
+                ),
+            )
+        parsed = getattr(response, "parsed", None)
+        if parsed is None:
+            import json
+            parsed = json.loads(response.text or "{}")
+        if not isinstance(parsed, dict):
+            return []
+        raw = parsed.get("theme_tags") or []
+        return [str(t).strip() for t in raw if str(t).strip()]
 
 
 def _extract_retry_delay(exc: BaseException) -> float | None:
@@ -208,5 +323,6 @@ def _parse_response(response: types.GenerateContentResponse) -> AnalysisResult:
         terrain_tags=_as_str_list(parsed.get("terrain_tags")),
         mood_tags=_as_str_list(parsed.get("mood_tags")),
         location_tags=_as_str_list(parsed.get("location_tags")),
+        theme_tags=_as_str_list(parsed.get("theme_tags")),
         description=str(parsed.get("description") or "").strip(),
     )

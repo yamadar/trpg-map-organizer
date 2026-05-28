@@ -131,6 +131,7 @@ def _process_one(job: ImageJob, force: bool) -> tuple[str, int, int]:
 
 
 def _build_json_payload(records: list[db.MapRecord], has_originals: bool) -> dict:
+    theme_set: set[str] = set()
     terrain_set: set[str] = set()
     mood_set: set[str] = set()
     location_set: set[str] = set()
@@ -144,11 +145,13 @@ def _build_json_payload(records: list[db.MapRecord], has_originals: bool) -> dic
                 "thumb": f"{stem}.jpg",
                 "mid": f"{stem}.jpg",
                 "desc": r.description or "",
+                "theme": list(r.theme_tags),
                 "terrain": list(r.terrain_tags),
                 "mood": list(r.mood_tags),
                 "location": list(r.location_tags),
             }
         )
+        theme_set.update(r.theme_tags)
         terrain_set.update(r.terrain_tags)
         mood_set.update(r.mood_tags)
         location_set.update(r.location_tags)
@@ -158,6 +161,7 @@ def _build_json_payload(records: list[db.MapRecord], has_originals: bool) -> dic
         "total": len(maps_out),
         "has_originals": has_originals,
         "tags": {
+            "theme": sorted(theme_set),
             "terrain": sorted(terrain_set),
             "mood": sorted(mood_set),
             "location": sorted(location_set),

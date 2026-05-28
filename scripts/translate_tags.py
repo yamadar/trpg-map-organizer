@@ -33,6 +33,7 @@ CATEGORY_LABELS = {
     "terrain_tags": "terrain / landscape feature",
     "mood_tags": "mood / atmosphere",
     "location_tags": "place / location type",
+    "theme_tags": "theme / genre / world setting (e.g. medieval, eastern, cthulhu)",
 }
 
 PROMPT_TEMPLATE = """\
@@ -154,7 +155,7 @@ def main() -> int:
     # カテゴリごとに DB から distinct タグを取得
     needed: dict[str, list[str]] = {}
     with db.connect(cfg.database_path) as conn:
-        for col in ("terrain_tags", "mood_tags", "location_tags"):
+        for col in ("terrain_tags", "mood_tags", "location_tags", "theme_tags"):
             tags = db.distinct_tags(conn, col)
             missing = [t for t in tags if t not in existing]
             if missing:

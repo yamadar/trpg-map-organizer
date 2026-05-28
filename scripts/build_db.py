@@ -153,6 +153,7 @@ def _persist_result(
     terrain = normalizer.normalize_tags(result.terrain_tags)
     mood = normalizer.normalize_tags(result.mood_tags)
     location = normalizer.normalize_tags(result.location_tags)
+    theme = normalizer.normalize_tags(result.theme_tags)
 
     with db_lock:
         db.upsert_map(
@@ -165,6 +166,7 @@ def _persist_result(
             terrain_tags=terrain,
             mood_tags=mood,
             location_tags=location,
+            theme_tags=theme,
             description=result.description,
         )
 
@@ -186,10 +188,11 @@ def _run_sequential(cfg, analyzer: GeminiAnalyzer, pending: list) -> int:
             _persist_result(conn, db_lock, found, result)
             success += 1
             logger.info(
-                "  地形=%s / 雰囲気=%s / 場所=%s",
+                "  地形=%s / 雰囲気=%s / 場所=%s / テーマ=%s",
                 result.terrain_tags,
                 result.mood_tags,
                 result.location_tags,
+                result.theme_tags,
             )
             if cfg.api_min_interval_sec > 0 and i < len(pending):
                 time.sleep(cfg.api_min_interval_sec)
@@ -230,13 +233,14 @@ def _run_parallel(cfg, analyzer: GeminiAnalyzer, pending: list, workers: int) ->
                 _persist_result(conn, db_lock, found, result)
                 success += 1
                 logger.info(
-                    "[%d/%d] %s -> 地形=%s / 雰囲気=%s / 場所=%s",
+                    "[%d/%d] %s -> 地形=%s / 雰囲気=%s / 場所=%s / テーマ=%s",
                     idx,
                     total,
                     found.name,
                     result.terrain_tags,
                     result.mood_tags,
                     result.location_tags,
+                    result.theme_tags,
                 )
     finally:
         conn.close()
