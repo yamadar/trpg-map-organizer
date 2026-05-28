@@ -1,260 +1,279 @@
-# TRPG マップ自動タグ付け＆管理システム
+# 🗺️ TRPG Map Organizer
 
-ローカルにある TRPG 用マップ画像を **Google Gemini 2.5 Flash** で自動解析し、
-地形・雰囲気・場所のタグを付けて SQLite に保存、**Streamlit** の WebUI から
-タグ検索・閲覧できるツール。
+> ローカルに溜まった TRPG 用マップ画像を、AI に自動でタグ付けさせて検索・閲覧できるツール
 
-## 主な機能
-- 📂 指定フォルダを再帰的にスキャンし画像を発見
-- 🤖 Gemini API による自動タグ付け (地形 / 雰囲気 / 場所 + 簡易説明)
-- 💾 SQLite による永続化、増分解析（変更されたファイルのみ再解析）
-- 🔎 タグ複数選択 (AND/OR) ＋ ファイル名検索
-- 🖼️ グリッド表示＋プレビュー (全タグ・説明・パスを表示)
+**[▶︎ Live Demo (GitHub Pages)](https://yamadar.github.io/trpg-map-organizer/)**
 
-## 必要環境
+![メイン画面](screenshots/01-main-ja.jpg)
+
+TRPG のゲームマスターをやっていると、ネットや AI 生成で集めたマップ画像が
+何百枚もフォルダに散らばってしまいがちです。ファイル名はランダムなハッシュ、
+中身は開いてみるまでわからない…。
+
+このツールは、**Google Gemini 2.5 Flash** にマップ画像を解析させて
+「テーマ / 地形 / 雰囲気 / 場所」の 4 軸でタグ付けし、ファイル名も内容を表す
+英語 (`mystical_forest_ruins.png` のような) に自動でリネームします。
+
+タグ付けされたマップは:
+
+- **Streamlit** のローカル WebUI で検索・閲覧
+- **静的 HTML** をエクスポートして GitHub Pages で公開
+
+の両方ができます。
+
+---
+
+## ✨ 特徴
+
+- 🤖 **AI 自動タグ付け** — Gemini が画像を解析し、4 カテゴリーで日本語タグを抽出
+- 🎭 **テーマ判定** — 中世 / 東洋 / アラビアン / クトゥルフ / メルヘン / 大航海時代 / 汎用…など、TRPG 世界観で分類
+- 📝 **英語名リネーム** — タグ情報から雰囲気の伝わる英語ファイル名を自動生成
+- 🔁 **タグ表記揺れの自動統合** — `森林 / 樹林 / 林` → `森` のように同義語を辞書で一元化
+- 🌐 **多言語対応** — ブラウザ言語で自動的に日本語 / 英語切替、UI もタグも翻訳
+- 🔍 **高度な検索** — 4 軸タグの multi-select × AND/OR + ファイル名部分一致
+- 🖼️ **プレビュー機能** — 元画像/JPEG ダウンロード、URL コピー、Prev/Next ナビ
+- 📱 **モバイル対応** — スワイプで前後遷移、フルスクリーンプレビュー
+- 🚀 **GitHub Pages 公開** — 静的サイトを 1 コマンドで生成
+
+---
+
+## 📸 スクリーンショット
+
+| デスクトップ (JA) | テーマフィルタ |
+|---|---|
+| ![](screenshots/01-main-ja.jpg) | ![](screenshots/02-filtered-cthulhu.jpg) |
+
+| プレビューモーダル | 英語 UI |
+|---|---|
+| ![](screenshots/03-preview-modal.jpg) | ![](screenshots/04-main-en.jpg) |
+
+<details>
+<summary>モバイル表示</summary>
+
+| グリッド | プレビュー |
+|---|---|
+| <img src="screenshots/05-mobile-ja.jpg" width="320"> | <img src="screenshots/06-mobile-preview.jpg" width="320"> |
+
+</details>
+
+---
+
+## 🛠️ 必要なもの
+
 - Python 3.10 以上
-- Google AI Studio の API キー (無料枠あり)
-  - 取得: <https://aistudio.google.com/apikey>
+- [Google AI Studio](https://aistudio.google.com/apikey) の API キー（無料枠あり、有料 Tier 1 なら 1000 RPM）
 
-## セットアップ
+---
+
+## 🚀 Quick Start
 
 ```bash
-# 1. リポジトリに入って仮想環境を作る
+# 1. リポジトリを取得
+git clone https://github.com/yamadar/trpg-map-organizer.git
 cd trpg-map-organizer
+
+# 2. 仮想環境と依存
 python3 -m venv .venv
 source .venv/bin/activate
-
-# 2. 依存をインストール
 pip install -r requirements.txt
 
-# 3. 設定ファイルを作成
-cp .env.example .env                       # GEMINI_API_KEY を編集
-cp config.example.yaml config.yaml          # target_folder を編集
-```
+# 3. 設定ファイル
+cp .env.example .env                    # GEMINI_API_KEY=... を編集
+cp config.example.yaml config.yaml      # target_folder を編集
 
-`.env`:
-```env
-GEMINI_API_KEY=AIzaSy...
-```
+# 4. マップ画像を target_folder に置いて、解析実行
+python -m scripts.build_db              # 並列で全件解析 (10 worker 推奨)
 
-`config.yaml` の主な項目:
-```yaml
-target_folder: "~/Pictures/TRPG_Maps"   # 解析するフォルダ
-database_path: "./data/maps.db"          # DB の保存先
-gemini_model: "gemini-2.5-flash"         # 使用モデル
-```
-
-## 使い方
-
-### 1. 解析を実行（DB を構築）
-```bash
-# 増分解析（新規・変更ファイルのみ）
-python -m scripts.build_db
-
-# 全件再解析
-python -m scripts.build_db --rebuild
-
-# テスト用に最初の N 件だけ
-python -m scripts.build_db --limit 5
-
-# API を呼ばず対象一覧だけ確認
-python -m scripts.build_db --dry-run
-
-# 詳細ログ
-python -m scripts.build_db -v
-```
-
-### 2. WebUI を起動
-```bash
+# 5. ローカル WebUI で確認
 streamlit run src/app.py
+# → http://localhost:8501
 ```
 
-ブラウザで <http://localhost:8501> を開くと:
-- サイドバーで地形・雰囲気・場所タグを複数選択して絞り込み
-- AND/OR を切り替えて検索条件を変更
-- ファイル名で部分一致検索
-- カードの「詳細を見る」でフル解像度プレビュー＋全タグ表示
+設定ファイルの主な項目:
 
-## GitHub Pages 公開
-
-`scripts/export_static.py` で `docs/` フォルダに完全自己完結の静的サイトを
-生成する。バニラ JS のみ・ビルド工程なし。
-
-### 出力構成
+```yaml
+# config.yaml
+target_folder: "./maps"          # 解析する画像フォルダ
+database_path: "./data/maps.db"  # SQLite の保存先
+gemini_model: "gemini-2.5-flash" # 使用モデル
+api_workers: 10                  # 並列ワーカ (無料枠は 1、Tier 1+ は 10-20)
+api_min_interval_sec: 0          # 連続呼び出しの最小間隔秒 (無料枠は 15)
 ```
-docs/
-├── index.html / style.css / app.js   # web/ テンプレートからコピー
-├── data/maps.json                    # DB エクスポート (検索用)
-└── images/
-    ├── thumb/  ~400px JPEG  (グリッド用、約 10MB / 284 件)
-    └── mid/    ~1280px JPEG (プレビュー用、約 110MB / 284 件)
-```
-合計サイズは 284 件で約 **125MB** (元 974MB から圧縮)。
 
-### 生成手順
+---
+
+## 📚 主なワークフロー
+
+### 1. 画像を追加して解析
 ```bash
-# 全量生成 (画像変換含む、数分)
-python -m scripts.export_static
+python -m scripts.build_db                # 増分解析 (未解析のみ)
+python -m scripts.build_db --rebuild      # 全件再解析
+python -m scripts.build_db --workers 10   # 並列ワーカ数を上書き
+```
 
-# HTML/JS のみ更新 (画像はそのまま)
-python -m scripts.export_static --no-images
+### 2. 英語ファイル名へリネーム
+```bash
+python -m scripts.rename_to_english --only-hash   # ハッシュ名のみ対象
+python -m scripts.rename_to_english               # 全件対象
+```
+タグと description から `mystical_forest_ruins.png` のような名前を生成し、
+実ファイル + DB を同時更新。
 
-# 並列数を指定
-python -m scripts.export_static --workers 8
+### 3. タグ表記揺れの正規化
+```bash
+# (a) Gemini に統合候補を出させる
+python -m scripts.suggest_aliases
+# → tag_aliases_suggested.yaml が生成される (要レビュー)
+
+# (b) 内容を確認のうえ採用するものを tag_aliases.yaml にマージ
+
+# (c) DB に適用 (API 呼ばず、書き換えのみ)
+python -m scripts.normalize_db --dry-run
+python -m scripts.normalize_db
+```
+
+### 4. テーマ (世界観) の埋め直し
+新しいテーマカテゴリを追加した場合や、theme_tags が空のレコードを補完する場合:
+```bash
+python -m scripts.analyze_themes          # 空のものだけ再解析
+python -m scripts.analyze_themes --rebuild # 全件再解析
+```
+
+### 5. 英訳辞書の更新
+```bash
+python -m scripts.translate_tags          # 未翻訳のタグだけ Gemini で英訳
+```
+
+### 6. 静的サイトを生成して GitHub Pages へ
+```bash
+python -m scripts.export_static                 # docs/ に全生成 (~125MB + 元画像)
+python -m scripts.export_static --no-originals  # 元画像コピーを省く (~135MB)
+python -m scripts.export_static --no-images     # JSON/HTML のみ更新
 
 # ローカル確認
 python -m http.server -d docs 8080
-# → http://localhost:8080/ を開く
+# → http://localhost:8080
+
+# 公開
+git push origin main
+# GitHub Settings → Pages → Source: main / /docs
 ```
 
-### GitHub Pages 設定
-1. `docs/` を含めて main にコミット & push
-2. リポジトリ Settings → Pages → Source:
-   - "Deploy from a branch"
-   - Branch: `main`
-   - Folder: `/docs`
-3. 数分後に `https://<user>.github.io/<repo>/` で公開される
+---
 
-### 機能
-- タグ複数選択フィルタ (地形 / 雰囲気 / 場所、各 AND/OR 切替)
-- ファイル名部分一致検索
-- グリッド (遅延読み込み)
-- モーダルプレビュー (中解像度 JPEG)
-- フィルタ状態が URL ハッシュに同期 → リンク共有可能
-- ダークテーマ
-- レスポンシブ (スマホ対応)
-
-## パスの扱い
-
-DB の `file_path` は **`target_folder` からの相対パス** で保存される
-(例: `mystical_forest_ruins.png`)。GitHub Pages 等の静的サイトに
-そのまま画像を配置して `<img src="maps/${file_path}">` 形式で参照できる。
-
-ローカル実行時は `db.resolve_path()` が `target_folder` と結合して
-絶対パスに解決するため、Streamlit はそのまま動作する。
-
-### 既存 DB の移行 (旧データの絶対パスから相対パスへ)
-```bash
-python -m scripts.migrate_paths --dry-run   # 影響確認
-python -m scripts.migrate_paths             # 実行
-```
-
-## 英語ファイル名へのリネーム
-
-ファイル名を解析済みタグから生成した自然な英語名 (例: `mystical_forest_ruins.png`)
-に書き換える。実ファイルと DB の両方を更新する。
-
-```bash
-python -m scripts.rename_to_english --dry-run --limit 5   # サンプルで確認
-python -m scripts.rename_to_english --only-hash           # ハッシュ名のみ対象
-python -m scripts.rename_to_english                       # 全件対象
-```
-
-仕様:
-- 英小文字 + アンダースコアのみ、40 文字以内、2〜4 語
-- 例: `bustling_medieval_marketplace`, `ancient_underwater_temple`
-- 重複時は `_2`, `_3` を付与
-- ファイル名 + DB (`file_path`, `file_name`) の両方を同時更新
-
-## タグ表記揺れの正規化
-
-AI が付ける日本語タグは「大木 / 樹木 / 木」「河川 / 川」「のどかな / のどか」など
-表記揺れが発生する。これを `tag_aliases.yaml` で一元管理する。
-
-### 辞書フォーマット
-```yaml
-aliases:
-  大木: 木        # 「大木」を見つけたら「木」に置き換える
-  樹木: 木
-  河川: 川
-  のどかな: のどか
-  中世風: 中世
-```
-チェーン可 (`大樹木: 樹木` と `樹木: 木` を書けば「大樹木」も「木」に集約)。
-
-### 通常運用ワークフロー
-```bash
-# 1. 現状の全タグから Gemini に統合候補を生成させる
-python -m scripts.suggest_aliases
-#    → tag_aliases_suggested.yaml が生成される (要レビュー)
-
-# 2. 内容を確認のうえ、採用する行を tag_aliases.yaml にコピー
-
-# 3. 影響を dry-run で確認
-python -m scripts.normalize_db --dry-run
-
-# 4. DB に適用 (API 呼び出しなし、タグ書き換えのみ)
-python -m scripts.normalize_db
-
-# 5. Streamlit を再読み込みすると、すっきりしたタグで検索できる
-```
-
-build_db 実行時にも自動で正規化が適用される。
-
-## プロジェクト構成
+## 🏗️ アーキテクチャ
 
 ```
-trpg-map-organizer/
-├── .env.example              # 環境変数テンプレート
-├── config.example.yaml       # 設定テンプレート
-├── tag_aliases.yaml          # タグ正規化辞書 (git 管理の正本)
-├── requirements.txt          # 依存パッケージ
-├── README.md
-├── src/
-│   ├── config.py             # 設定ローダ
-│   ├── db.py                 # SQLite 操作
-│   ├── scanner.py            # ファイル走査・変更検出
-│   ├── analyzer.py           # Gemini API クライアント
-│   ├── normalize.py          # タグ正規化
-│   └── app.py                # Streamlit UI
-├── scripts/
-│   ├── build_db.py           # DB 構築 CLI
-│   ├── normalize_db.py       # 既存 DB に正規化を適用
-│   ├── suggest_aliases.py    # Gemini に統合候補を提案させる
-│   ├── migrate_paths.py      # 絶対パス → target_folder 相対パスへ移行
-│   ├── rename_to_english.py  # タグから英語ファイル名を生成しリネーム
-│   └── export_static.py      # GitHub Pages 用 静的サイトを生成
-├── web/                      # 静的サイトのテンプレート
-│   ├── index.html
-│   ├── style.css
-│   └── app.js
-├── docs/                     # 生成された静的サイト (GH Pages 公開元)
-└── data/                     # DB ファイル (gitignore)
+画像ファイル                ┌──────────────────────┐
+   │                       │  Gemini 2.5 Flash    │
+   │  scripts/build_db.py  │  (multimodal API)    │
+   └─────────► 並列解析 ◄──┤   - 4 カテゴリ抽出   │
+                  │        │   - 説明文生成        │
+                  ▼        └──────────────────────┘
+       ┌──────────────────┐
+       │   tag_aliases    │  variant → canonical の表記揺れ統合
+       │   normalize      │
+       └──────┬───────────┘
+              ▼
+       ┌──────────────────┐
+       │  SQLite (maps.db)│  file_path / file_name / 4 tags / desc / mtime ...
+       └──────┬───────────┘
+              │
+        ┌─────┴──────┐
+        ▼            ▼
+ ┌──────────────┐ ┌─────────────────────┐
+ │  Streamlit   │ │  scripts/           │
+ │  WebUI       │ │  export_static.py   │
+ │ (ローカル)    │ │ → docs/ (バニラ JS) │
+ └──────────────┘ └──────────┬──────────┘
+                             ▼
+                     ┌────────────────┐
+                     │ GitHub Pages   │
+                     │ で静的公開      │
+                     └────────────────┘
 ```
 
-## データベース
+### データベース
 
 `maps` テーブル:
 
-| カラム | 型 | 説明 |
+| カラム | 型 | 用途 |
 |---|---|---|
-| id | INTEGER PK | 自動採番 |
-| file_path | TEXT UNIQUE | ファイルの絶対パス |
-| file_name | TEXT | ファイル名 |
-| file_size | INTEGER | バイト数（変更検出用） |
-| file_mtime | REAL | 更新時刻（変更検出用） |
-| file_hash | TEXT | 先頭 64KB の SHA1 |
-| terrain_tags | TEXT (JSON) | 地形タグ配列 |
-| mood_tags | TEXT (JSON) | 雰囲気タグ配列 |
-| location_tags | TEXT (JSON) | 場所タグ配列 |
-| description | TEXT | AI 生成の説明文 |
-| analyzed_at | TIMESTAMP | 最終解析日時 |
-| created_at | TIMESTAMP | 初回登録日時 |
-| updated_at | TIMESTAMP | 更新日時 |
+| `id` | INTEGER PK | 自動採番 |
+| `file_path` | TEXT UNIQUE | target_folder からの相対パス (POSIX) |
+| `file_name` | TEXT | ファイル名のみ |
+| `file_size`, `file_mtime`, `file_hash` | — | 変更検出用メタ |
+| `theme_tags` | JSON | 世界観タグ |
+| `terrain_tags` | JSON | 地形タグ |
+| `mood_tags` | JSON | 雰囲気タグ |
+| `location_tags` | JSON | 場所タグ |
+| `description` | TEXT | AI 生成の 80 字程度の説明 |
+| `analyzed_at` / `created_at` / `updated_at` | TIMESTAMP | 時刻情報 |
 
-タグは JSON 配列として保存し、検索時は SQLite の JSON1 拡張で展開して照合する。
+タグは JSON 配列で保存し、検索時は SQLite の JSON1 拡張 (`json_each`) で展開してフィルタする。
 
-## トラブルシュート
+---
 
-- **`GEMINI_API_KEY が未設定です`**: `.env` を作成し API キーを設定する。
-- **`ターゲットフォルダが存在しません`**: `config.yaml` の `target_folder` を確認する。
-- **解析が遅い / 429 エラー**: `config.yaml` の `api_min_interval_sec` を増やす。
-- **画像が表示されない**: ファイルが移動・削除されていないか確認。プレビューに警告が出る。
+## 📁 プロジェクト構成
 
-## セキュリティ
-- 画像データはローカルから移動せず、解析時のみ Gemini API に送信する。
-- API キーは `.env` に保存し、`.gitignore` で除外済み。
-- 生成された DB (`./data/maps.db`) も `.gitignore` で除外済み。
+```
+trpg-map-organizer/
+├── README.md
+├── requirements.txt
+├── .env.example
+├── config.example.yaml
+├── tag_aliases.yaml               # タグ正規化辞書 (人間が編集する正本)
+├── src/
+│   ├── config.py                  # 設定ローダ
+│   ├── db.py                      # SQLite 操作
+│   ├── scanner.py                 # ファイル走査・変更検出
+│   ├── analyzer.py                # Gemini API クライアント (画像 → 4 タグ)
+│   ├── normalize.py               # タグ表記揺れの正規化
+│   └── app.py                     # Streamlit ローカル UI
+├── scripts/
+│   ├── build_db.py                # DB 構築 (並列解析)
+│   ├── analyze_themes.py          # 既存レコードにテーマだけ追加
+│   ├── normalize_db.py            # 既存 DB にエイリアスを適用
+│   ├── suggest_aliases.py         # Gemini に統合候補を提案させる
+│   ├── translate_tags.py          # タグを英訳して i18n.json を更新
+│   ├── rename_to_english.py       # 英語ファイル名へリネーム
+│   ├── migrate_paths.py           # 旧 DB を相対パスへ移行 (一度きり)
+│   ├── export_static.py           # 静的サイト生成
+│   └── take_screenshots.py        # README 用スクショ撮影
+├── web/                           # 静的サイトのテンプレート
+│   ├── index.html
+│   ├── style.css
+│   ├── app.js
+│   └── i18n.json                  # UI + タグ翻訳
+├── docs/                          # 生成された静的サイト (GH Pages 配信元)
+└── screenshots/                   # README 用スクリーンショット
+```
 
-## ライセンス
-ローカル利用を想定した個人プロジェクト。
+---
+
+## 🔧 設計上の判断
+
+- **AI モデル選定**: マルチモーダル対応・構造化 JSON 出力 (`response_schema`) サポート・無料枠あり・コスパ最良の理由で **Gemini 2.5 Flash** を採用。
+- **タグの表記揺れ**: AI 出力は表記が安定しないため、`tag_aliases.yaml` で variant → canonical の置換辞書を持ち、挿入時 + 既存 DB 一括更新の両方をサポート。`scripts/suggest_aliases.py` で AI に統合候補を提案させて人間がレビュー。
+- **DB のパス**: GitHub Pages へポータブルにするため、`file_path` は `target_folder` からの相対パスで保存。ローカル実行時は `db.resolve_path()` で絶対化。
+- **静的サイト**: ビルド工程不要のバニラ JS。`docs/data/maps.json` を fetch して動的にレンダリング。
+- **画像サイズ**: 元 PNG を `docs/originals/` にそのままコピー、グリッド用に 400px JPEG、プレビュー用に 1280px JPEG を生成。サイズが気になる場合は `--no-originals` で 135MB 程度に抑えられる。
+- **i18n**: ブラウザ `navigator.language` で自動切替。手動切替は `localStorage` に保存。URL ハッシュ内のタグは canonical (日本語) で保持し、表示時に翻訳。
+
+---
+
+## 🐛 トラブルシュート
+
+| 症状 | 対処 |
+|---|---|
+| `GEMINI_API_KEY が未設定です` | `.env` を作成し API キーを設定 |
+| `ターゲットフォルダが存在しません` | `config.yaml` の `target_folder` を確認 |
+| 429 Too Many Requests | 無料枠なら `api_workers: 1`, `api_min_interval_sec: 15` に。有料枠 (Tier 1+) なら `api_workers: 10` で快適 |
+| 503 Service Unavailable | tenacity で自動リトライ。多発時は時間を置いて再実行 |
+| 画像が表示されない | ファイル名が変わっている / 移動されている可能性。`build_db.py` 再実行で更新検出 |
+
+---
+
+## 📄 ライセンス
+
+個人利用を想定したプロジェクト。
