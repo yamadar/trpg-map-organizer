@@ -8,17 +8,17 @@
 </head>
 <body>
   <header class="topbar">
-    <h1 data-i18n="title">TRPG Map Organizer</h1>
+    <h1 class="topbar-title" data-i18n="title">TRPG Map Organizer</h1>
     <span id="count" class="count">—</span>
     <button type="button" id="filter-toggle" class="filter-toggle" aria-expanded="false" aria-controls="sidebar">
-      <span class="filter-icon" aria-hidden="true">☰</span>
+      <span class="filter-icon" aria-hidden="true">🔍</span>
       <span class="filter-label" data-i18n="filters">フィルタ</span>
       <span class="filter-badge" id="filter-badge">0</span>
     </button>
-    <div class="lang-switcher" role="group" aria-label="Language">
-      <button type="button" class="lang-btn" data-lang="ja">日本語</button>
-      <button type="button" class="lang-btn" data-lang="en">English</button>
-    </div>
+    <button type="button" id="lang-toggle" class="lang-toggle" data-i18n-attr="title:lang_label,aria-label:lang_label" title="言語" aria-label="言語">
+      <span class="lang-icon" aria-hidden="true">🌐</span>
+      <span class="lang-code" id="lang-code">JA</span>
+    </button>
   </header>
 
   <div class="layout">

@@ -178,10 +178,9 @@ function applyUiTranslations() {
   }
   // html lang 属性
   document.documentElement.lang = state.lang;
-  // 言語スイッチャの active 状態
-  for (const btn of document.querySelectorAll('.lang-btn')) {
-    btn.classList.toggle('active', btn.dataset.lang === state.lang);
-  }
+  // 言語ボタンの現在表示
+  const codeEl = document.getElementById('lang-code');
+  if (codeEl) codeEl.textContent = state.lang === 'ja' ? 'JA' : 'EN';
 }
 
 // ===== フィルタ UI =====
@@ -570,16 +569,15 @@ function bindEvents() {
   document.getElementById('filter-toggle').addEventListener('click', toggleSidebar);
   document.getElementById('sidebar-backdrop').addEventListener('click', closeSidebar);
 
-  for (const btn of document.querySelectorAll('.lang-btn')) {
-    btn.addEventListener('click', () => {
-      state.lang = btn.dataset.lang;
-      localStorage.setItem('lang', state.lang);
-      applyUiTranslations();
-      refreshChipLabels();
-      render();
-      if (document.getElementById('preview').open) renderPreview();
-    });
-  }
+  // 言語トグル: タップで JA <-> EN を切替
+  document.getElementById('lang-toggle').addEventListener('click', () => {
+    state.lang = state.lang === 'ja' ? 'en' : 'ja';
+    localStorage.setItem('lang', state.lang);
+    applyUiTranslations();
+    refreshChipLabels();
+    render();
+    if (document.getElementById('preview').open) renderPreview();
+  });
 
   document.getElementById('close').addEventListener('click', closePreview);
 

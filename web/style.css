@@ -46,15 +46,20 @@ body.scroll-locked {
   z-index: 30;
 }
 
-.topbar h1 {
+.topbar-title {
   margin: 0;
   font-size: 1.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
 }
 
 .count {
   color: var(--text-dim);
   font-variant-numeric: tabular-nums;
   margin-right: auto;
+  white-space: nowrap;
 }
 
 /* モバイル時のみ表示するフィルタトグルボタン */
@@ -97,6 +102,30 @@ body.scroll-locked {
   background: rgba(15, 20, 25, 0.25);
   color: var(--tag-fg-active);
 }
+
+/* 言語切替トグル (アイコンボタン) */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--panel-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.lang-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.lang-toggle .lang-icon { font-size: 0.95rem; line-height: 1; }
+.lang-toggle .lang-code { line-height: 1; }
 
 .sidebar-backdrop {
   display: none;
@@ -520,15 +549,62 @@ body.scroll-locked {
 }
 
 @media (max-width: 800px) {
+  /* モバイル: タイトル / 件数 / フィルタ / 言語 を 1 行に収める */
   .topbar {
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    padding: 0.7rem 0.85rem;
+    flex-wrap: nowrap;
+    gap: 0.4rem;
+    padding: 0.55rem 0.7rem;
+    align-items: center;
   }
-  .topbar h1 { font-size: 1rem; }
-  .filter-toggle { display: inline-flex; }
-  /* 日本語/英語スイッチャはやや小さく */
-  .lang-btn { padding: 0.2rem 0.55rem; font-size: 0.75rem; }
+  .topbar-title {
+    font-size: 0.9rem;
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+  .count {
+    font-size: 0.75rem;
+    margin-right: auto;
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  /* フィルタはアクセントカラーで常時目立つように */
+  .filter-toggle {
+    display: inline-flex;
+    background: var(--accent);
+    color: var(--tag-fg-active);
+    border-color: var(--accent);
+    font-weight: 700;
+    padding: 0.45rem 0.85rem;
+    box-shadow: 0 2px 10px rgba(88, 166, 255, 0.45);
+    flex-shrink: 0;
+  }
+  .filter-toggle:hover {
+    background: var(--accent);
+    color: var(--tag-fg-active);
+    border-color: var(--accent);
+  }
+  .filter-toggle .filter-icon { font-size: 1.05rem; }
+  .filter-toggle .filter-badge {
+    background: rgba(15, 20, 25, 0.3);
+    color: var(--tag-fg-active);
+    font-weight: 700;
+  }
+  /* 選択タグがあれば光らせて気付かせる */
+  .filter-toggle.has-filters {
+    animation: filter-pulse 1.4s ease-in-out;
+  }
+  @keyframes filter-pulse {
+    0% { box-shadow: 0 2px 10px rgba(88, 166, 255, 0.45); }
+    50% { box-shadow: 0 4px 16px rgba(88, 166, 255, 0.85); }
+    100% { box-shadow: 0 2px 10px rgba(88, 166, 255, 0.45); }
+  }
+
+  .lang-toggle {
+    padding: 0.32rem 0.55rem;
+    font-size: 0.7rem;
+  }
+  .lang-toggle .lang-icon { font-size: 1rem; }
 
   .layout { grid-template-columns: 1fr; }
 
