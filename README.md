@@ -27,7 +27,7 @@ TRPG のゲームマスターをやっていると、ネットや AI 生成で�
 
 - 🤖 **AI 自動タグ付け** — Gemini が画像を解析し、4 カテゴリーで日本語タグを抽出
 - 🎭 **テーマ判定** — 中世 / 東洋 / アラビアン / クトゥルフ / メルヘン / 大航海時代 / 汎用…など、TRPG 世界観で分類
-- 📝 **英語名リネーム** — タグ情報から雰囲気の伝わる英語ファイル名を自動生成
+- 📝 **英語名リネーム + WebP 化** — タグ情報から雰囲気の伝わる英語ファイル名を自動生成し、WebP に変換 (元 PNG から平均 85% サイズ削減)
 - 🔁 **タグ表記揺れの自動統合** — `森林 / 樹林 / 林` → `森` のように同義語を辞書で一元化
 - 🌐 **多言語対応** — ブラウザ言語で自動的に日本語 / 英語切替、UI もタグも翻訳
 - 🔍 **高度な検索** — 4 軸タグの multi-select × AND/OR + ファイル名部分一致
@@ -116,13 +116,16 @@ python -m scripts.build_db --rebuild      # 全件再解析
 python -m scripts.build_db --workers 10   # 並列ワーカ数を上書き
 ```
 
-### 2. 英語ファイル名へリネーム
+### 2. 英語ファイル名へリネーム (+ WebP 変換)
 ```bash
 python -m scripts.rename_to_english --only-hash   # ハッシュ名のみ対象
 python -m scripts.rename_to_english               # 全件対象
+python -m scripts.rename_to_english --keep-format # WebP 変換せず元形式を保持
 ```
-タグと description から `mystical_forest_ruins.png` のような名前を生成し、
-実ファイル + DB を同時更新。
+タグと description から `mystical_forest_ruins.webp` のような名前を生成し、
+リネームと同時に **PNG/JPG を WebP (Quality=85, Effort=4) に変換** する。
+DB の `file_path` / `file_name` も同時更新。`--keep-format` を付けると変換せず
+元の拡張子を保持する。
 
 ### 3. タグ表記揺れの正規化
 ```bash
@@ -149,10 +152,23 @@ python -m scripts.analyze_themes --rebuild # 全件再解析
 python -m scripts.translate_tags          # 未翻訳のタグだけ Gemini で英訳
 ```
 
+### 5b. 既存画像の一括 WebP 化 (移行用)
+```bash
+python -m scripts.convert_to_webp                       # 既定 Q=85, E=4
+python -m scripts.convert_to_webp --quality 90 --effort 6  # より高品質/高圧縮
+python -m scripts.convert_to_webp --only maps           # maps/ のみ
+python -m scripts.convert_to_webp --only docs           # docs/originals/ のみ
+python -m scripts.convert_to_webp --dry-run             # 計画のみ表示
+```
+`maps/*.png` と `docs/originals/*.png` (+ `.jpg`) を `.webp` に変換し、
+DB の `file_path` / `file_name` / `file_size` / `file_mtime` / `file_hash`
+も同期する。既に新規追加分は `rename_to_english` が自動で WebP 化するため、
+このスクリプトは旧データの一括移行用。
+
 ### 6. 静的サイトを生成して GitHub Pages へ
 ```bash
-python -m scripts.export_static                 # docs/ に全生成 (~125MB + 元画像)
-python -m scripts.export_static --no-originals  # 元画像コピーを省く (~135MB)
+python -m scripts.export_static                 # docs/ に全生成 (約 310 MB)
+python -m scripts.export_static --no-originals  # 元画像コピーを省く (約 150 MB)
 python -m scripts.export_static --no-images     # JSON/HTML のみ更新
 
 # ローカル確認
@@ -162,6 +178,20 @@ python -m http.server -d docs 8080
 # 公開
 git push origin main
 # GitHub Settings → Pages → Source: main / /docs
+```
+生成される `docs/` は以下の構成:
+- `docs/images/thumb/*.jpg` (400px JPEG, 約 13 MB)
+- `docs/images/mid/*.jpg` (1280px JPEG, 約 135 MB)
+- `docs/originals/*.webp` (元解像度 WebP, 約 160 MB)
+
+### 7. 一連の処理を順番に実行 (新規画像追加時)
+```bash
+# 1. maps/before_process/ に画像を投入したら:
+python -m scripts.build_db          # AI 解析
+python -m scripts.rename_to_english --only-hash  # 英語名 + WebP 化
+python -m scripts.normalize_db      # タグ正規化
+python -m scripts.translate_tags    # 新タグ英訳
+python -m scripts.export_static     # 静的サイト再生成
 ```
 
 ---
@@ -241,7 +271,8 @@ trpg-map-organizer/
 │   ├── normalize_db.py            # 既存 DB にエイリアスを適用
 │   ├── suggest_aliases.py         # Gemini に統合候補を提案させる
 │   ├── translate_tags.py          # タグを英訳して i18n.json を更新
-│   ├── rename_to_english.py       # 英語ファイル名へリネーム
+│   ├── rename_to_english.py       # 英語名にリネーム + WebP 変換
+│   ├── convert_to_webp.py         # 既存 PNG/JPG を一括 WebP 化 (移行用)
 │   ├── migrate_paths.py           # 旧 DB を相対パスへ移行 (一度きり)
 │   ├── export_static.py           # 静的サイト生成
 │   └── take_screenshots.py        # README 用スクショ撮影
@@ -262,7 +293,8 @@ trpg-map-organizer/
 - **タグの表記揺れ**: AI 出力は表記が安定しないため、`tag_aliases.yaml` で variant → canonical の置換辞書を持ち、挿入時 + 既存 DB 一括更新の両方をサポート。`scripts/suggest_aliases.py` で AI に統合候補を提案させて人間がレビュー。
 - **DB のパス**: GitHub Pages へポータブルにするため、`file_path` は `target_folder` からの相対パスで保存。ローカル実行時は `db.resolve_path()` で絶対化。
 - **静的サイト**: ビルド工程不要のバニラ JS。`docs/data/maps.json` を fetch して動的にレンダリング。
-- **画像サイズ**: 元 PNG を `docs/originals/` にそのままコピー、グリッド用に 400px JPEG、プレビュー用に 1280px JPEG を生成。サイズが気になる場合は `--no-originals` で 135MB 程度に抑えられる。
+- **画像形式**: ソース画像は WebP (Quality=85, Effort=4) に統一。`rename_to_english` がリネーム時に自動変換するため、新規 PNG/JPG を投入してもパイプライン通過後は WebP になる。元 PNG (~3MB/枚) から WebP (~0.5MB/枚) で平均 **85% サイズ削減**。
+- **画像サイズ**: 元画像 (WebP) を `docs/originals/` にコピー、グリッド用に 400px JPEG、プレビュー用に 1280px JPEG を生成。総容量は 338 枚で約 **310 MB**。`--no-originals` で約 150 MB に抑えられる。
 - **i18n**: ブラウザ `navigator.language` で自動切替。手動切替は `localStorage` に保存。URL ハッシュ内のタグは canonical (日本語) で保持し、表示時に翻訳。
 
 ---

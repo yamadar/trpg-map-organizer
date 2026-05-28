@@ -22,6 +22,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from google import genai  # noqa: E402
 from google.genai import types  # noqa: E402
+from PIL import Image  # noqa: E402
 from tenacity import (  # noqa: E402
     retry,
     stop_after_attempt,
@@ -32,6 +33,11 @@ from src import db  # noqa: E402
 from src.config import load_config  # noqa: E402
 
 logger = logging.getLogger("rename_to_english")
+
+# 出力は常に WebP に統一する (画像配信の標準フォーマット)
+TARGET_EXT = ".webp"
+WEBP_QUALITY = 85
+WEBP_METHOD = 4  # libwebp effort: 0-6 (高いほど圧縮率良いが遅い)
 
 
 _PROMPT_TEMPLATE = """\
@@ -100,6 +106,11 @@ def parse_args() -> argparse.Namespace:
         type=int,
         default=None,
         help="処理件数の上限 (テスト用)",
+    )
+    parser.add_argument(
+        "--keep-format",
+        action="store_true",
+        help="ファイル形式を WebP に変換せず元の拡張子のまま保持する",
     )
     parser.add_argument("-v", "--verbose", action="store_true")
     return parser.parse_args()
@@ -226,7 +237,9 @@ def main() -> int:
         if m.id not in proposals:
             continue
         stem = proposals[m.id]
-        ext = Path(m.file_name).suffix.lower() or ".png"
+        src_ext = Path(m.file_name).suffix.lower() or ".png"
+        # --keep-format でなければ常に WebP 出力 (画像配信の標準フォーマット)
+        ext = src_ext if args.keep_format else TARGET_EXT
         base = f"{stem}{ext}"
         candidate = base
         n = 1
@@ -257,12 +270,29 @@ def main() -> int:
             if not old_abs.exists():
                 logger.warning("元ファイルなし、DB のみ更新: %s", old_abs)
             else:
-                try:
-                    old_abs.rename(new_abs)
-                except OSError as e:
-                    fs_failed += 1
-                    logger.error("FS rename 失敗 %s: %s", old_abs, e)
-                    continue
+                # 入力が WebP 以外なら WebP に変換しつつリネーム
+                src_ext = old_abs.suffix.lower()
+                if args.keep_format or src_ext == ".webp":
+                    try:
+                        old_abs.rename(new_abs)
+                    except OSError as e:
+                        fs_failed += 1
+                        logger.error("FS rename 失敗 %s: %s", old_abs, e)
+                        continue
+                else:
+                    try:
+                        with Image.open(old_abs) as img:
+                            img.save(
+                                new_abs,
+                                format="WEBP",
+                                quality=WEBP_QUALITY,
+                                method=WEBP_METHOD,
+                            )
+                        old_abs.unlink()
+                    except Exception as e:  # noqa: BLE001
+                        fs_failed += 1
+                        logger.error("WebP 変換失敗 %s: %s", old_abs, e)
+                        continue
 
             db.update_file_path(
                 conn,
