@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-29 02:46:45",
-  "total": 338,
+  "generated_at": "2026-05-29 20:55:15",
+  "total": 369,
   "has_originals": true,
   "tags": {
     "theme": [
@@ -17,7 +17,9 @@
       "北欧",
       "南米",
       "古代",
+      "和風",
       "大航海時代",
+      "幻想",
       "東洋",
       "汎用",
       "洞窟",
@@ -37,6 +39,7 @@
       "乾燥地",
       "乾燥地帯",
       "公園",
+      "古木",
       "噴水",
       "土",
       "地下",
@@ -48,6 +51,7 @@
       "坂道",
       "城",
       "塔",
+      "壁",
       "夜",
       "夜空",
       "大理石",
@@ -83,7 +87,10 @@
       "根",
       "桜",
       "森",
+      "植え込み",
       "植物",
+      "構造物",
+      "樹上",
       "橋",
       "水",
       "水中",
@@ -122,6 +129,7 @@
       "瓦礫",
       "畑",
       "異世界",
+      "畳",
       "石",
       "石垣",
       "石壁",
@@ -139,6 +147,7 @@
       "絨毯",
       "緑",
       "緑地",
+      "線路",
       "自然",
       "舗装",
       "船",
@@ -149,6 +158,7 @@
       "草原",
       "荒地",
       "蔓",
+      "藤",
       "装飾的な床",
       "触手",
       "谷",
@@ -156,7 +166,9 @@
       "道",
       "遺跡",
       "都市",
+      "鉄道",
       "鉱山",
+      "門",
       "陸地",
       "階段",
       "雪",
@@ -182,6 +194,7 @@
       "光る",
       "冒険",
       "冬",
+      "冷たい",
       "凄惨",
       "創造",
       "危険",
@@ -211,6 +224,7 @@
       "工業",
       "平和",
       "平穏",
+      "幻惑的",
       "幻想",
       "広大",
       "廃墟",
@@ -220,8 +234,10 @@
       "戦禍",
       "探索",
       "整然",
+      "旅",
       "日常",
       "明るい",
+      "春",
       "暖かい",
       "暗い",
       "東洋",
@@ -256,6 +272,7 @@
       "神秘",
       "神聖",
       "禍々しい",
+      "秋",
       "穏やか",
       "精密",
       "精緻",
@@ -289,10 +306,15 @@
       "険しい",
       "隠された",
       "隠れ家",
+      "雅",
+      "雅やか",
       "雑然",
       "霊",
+      "静か",
       "静寂",
       "風光明媚",
+      "風情がある",
+      "高級",
       "高貴",
       "魅力",
       "魔法",
@@ -317,14 +339,17 @@
       "井戸",
       "交易所",
       "仙境",
+      "個室",
       "停泊所",
       "入口",
       "公園",
       "分岐点",
+      "列車",
       "劇場",
       "区画",
       "古代都市",
       "台所",
+      "和室",
       "和風",
       "商館",
       "図書館",
@@ -341,12 +366,17 @@
       "塔",
       "墓地",
       "夜",
+      "夜道",
+      "大邸宅",
       "天空",
       "孤島",
+      "学校",
       "学術施設",
       "宝物庫",
+      "客車",
       "室内",
       "家",
+      "宿",
       "宿場町",
       "宿屋",
       "寺院",
@@ -370,21 +400,30 @@
       "広大な屋外",
       "広間",
       "店",
+      "座敷",
+      "庭",
       "庭園",
       "廃墟",
+      "廊下",
       "建物",
+      "応接間",
       "戦場",
       "拠点",
       "拷問室",
       "教会",
       "教室",
+      "料亭",
       "施設",
+      "旅館",
+      "日本家屋",
       "星空",
       "村",
       "東屋",
       "東洋",
       "林道",
+      "桜並木",
       "森",
+      "森の奥",
       "森の道",
       "樹上都市",
       "樹内住居",
@@ -400,6 +439,7 @@
       "沿岸都市",
       "洞窟",
       "洞窟入口",
+      "浮遊建築",
       "海",
       "海上",
       "海辺",
@@ -416,6 +456,7 @@
       "異世界",
       "砂漠",
       "砂漠の都市",
+      "研究施設",
       "砦",
       "神殿",
       "神殿都市",
@@ -444,6 +485,7 @@
       "谷",
       "農場",
       "辺境",
+      "迷路",
       "運河",
       "道",
       "道場",
@@ -469,6 +511,7 @@
       "風車",
       "風車小屋",
       "食堂",
+      "飲食店",
       "駅",
       "駐屯地",
       "高所",
@@ -3124,6 +3167,38 @@
       "has_original": true
     },
     {
+      "id": 349,
+      "file": "bustling_traditional_riverside_town.webp",
+      "thumb": "bustling_traditional_riverside_town.jpg",
+      "mid": "bustling_traditional_riverside_town.jpg",
+      "desc": "鳥瞰視点で描かれた、川沿いの賑やかな和風の町並み。伝統的な家屋が立ち並び、人々や馬車が行き交う。",
+      "theme": [
+        "東洋",
+        "中世",
+        "汎用"
+      ],
+      "terrain": [
+        "川",
+        "道",
+        "木",
+        "橋"
+      ],
+      "mood": [
+        "賑やか",
+        "のどか",
+        "伝統",
+        "歴史"
+      ],
+      "location": [
+        "町",
+        "道",
+        "川辺",
+        "港",
+        "屋外"
+      ],
+      "has_original": true
+    },
+    {
       "id": 203,
       "file": "bustling_traditional_town.webp",
       "thumb": "bustling_traditional_town.jpg",
@@ -3524,6 +3599,35 @@
         "酒場",
         "室内",
         "森"
+      ],
+      "has_original": true
+    },
+    {
+      "id": 345,
+      "file": "cozy_retro_train_interior.webp",
+      "thumb": "cozy_retro_train_interior.jpg",
+      "mid": "cozy_retro_train_interior.jpg",
+      "desc": "木製の内装と柔らかい光が特徴的な、古い客車の車内。旅情を誘う静かで落ち着いた空間です。",
+      "theme": [
+        "スチームパンク",
+        "汎用",
+        "現代",
+        "ポストアポカリプス"
+      ],
+      "terrain": [
+        "鉄道"
+      ],
+      "mood": [
+        "温かい",
+        "静寂",
+        "落ち着いた",
+        "レトロ",
+        "旅"
+      ],
+      "location": [
+        "列車",
+        "室内",
+        "客車"
       ],
       "has_original": true
     },
@@ -4386,6 +4490,36 @@
       "has_original": true
     },
     {
+      "id": 359,
+      "file": "eerie_shoji_corridor.webp",
+      "thumb": "eerie_shoji_corridor.jpg",
+      "mid": "eerie_shoji_corridor.jpg",
+      "desc": "障子と行灯が並び、無限に続く和風の廊下。静寂で神秘的ながらも、どこか不穏な印象を与える幾何学的な空間。",
+      "theme": [
+        "東洋",
+        "クトゥルフ",
+        "汎用"
+      ],
+      "terrain": [
+        "床",
+        "壁"
+      ],
+      "mood": [
+        "幻惑的",
+        "静寂",
+        "神秘",
+        "薄暗い",
+        "不気味"
+      ],
+      "location": [
+        "廊下",
+        "室内",
+        "日本家屋",
+        "ダンジョン"
+      ],
+      "has_original": true
+    },
+    {
       "id": 236,
       "file": "eerie_spiral_nest.webp",
       "thumb": "eerie_spiral_nest.jpg",
@@ -4414,6 +4548,34 @@
         "ダンジョン",
         "巣",
         "屋外"
+      ],
+      "has_original": true
+    },
+    {
+      "id": 367,
+      "file": "eerie_tatami_labyrinth.webp",
+      "thumb": "eerie_tatami_labyrinth.jpg",
+      "mid": "eerie_tatami_labyrinth.jpg",
+      "desc": "無限に続く日本の伝統的な室内空間。畳と障子、木製の構造が繰り返され、提灯の光が神秘的で不気味な雰囲気を醸し出している。",
+      "theme": [
+        "東洋",
+        "クトゥルフ"
+      ],
+      "terrain": [
+        "畳",
+        "木"
+      ],
+      "mood": [
+        "神秘",
+        "静寂",
+        "不気味",
+        "幻想",
+        "暗い"
+      ],
+      "location": [
+        "室内",
+        "ダンジョン",
+        "寺院"
       ],
       "has_original": true
     },
@@ -4545,6 +4707,40 @@
         "室内",
         "建物",
         "井戸"
+      ],
+      "has_original": true
+    },
+    {
+      "id": 346,
+      "file": "enchanted_blossom_garden.webp",
+      "thumb": "enchanted_blossom_garden.jpg",
+      "mid": "enchanted_blossom_garden.jpg",
+      "desc": "桜が咲き誇る美しい日本庭園。池には鯉が泳ぎ、小川や滝、石畳の道が巡る。伝統的な建物や亭も点在し、静かで雅やかな風景。",
+      "theme": [
+        "東洋",
+        "中世",
+        "メルヘン",
+        "汎用"
+      ],
+      "terrain": [
+        "庭園",
+        "池",
+        "川",
+        "滝",
+        "桜"
+      ],
+      "mood": [
+        "静寂",
+        "美しい",
+        "穏やか",
+        "雅やか",
+        "幻想"
+      ],
+      "location": [
+        "庭園",
+        "屋外",
+        "邸宅",
+        "寺院"
       ],
       "has_original": true
     },
@@ -4835,6 +5031,39 @@
       "has_original": true
     },
     {
+      "id": 362,
+      "file": "enchanted_riverside_forest_lodge.webp",
+      "thumb": "enchanted_riverside_forest_lodge.jpg",
+      "mid": "enchanted_riverside_forest_lodge.jpg",
+      "desc": "鬱蒼とした森と渓流に囲まれた、暖かな光が灯る多層構造の幻想的な宿屋またはレストランの俯瞰図。",
+      "theme": [
+        "中世",
+        "メルヘン",
+        "汎用"
+      ],
+      "terrain": [
+        "森",
+        "川",
+        "滝",
+        "植物"
+      ],
+      "mood": [
+        "幻想",
+        "神秘",
+        "温かい",
+        "賑やか",
+        "静寂"
+      ],
+      "location": [
+        "飲食店",
+        "宿",
+        "森",
+        "屋外",
+        "テラス"
+      ],
+      "has_original": true
+    },
+    {
       "id": 166,
       "file": "enchanted_root_home.webp",
       "thumb": "enchanted_root_home.jpg",
@@ -4863,6 +5092,41 @@
         "森",
         "隠れ家",
         "家"
+      ],
+      "has_original": true
+    },
+    {
+      "id": 342,
+      "file": "enchanted_wisteria_grove.webp",
+      "thumb": "enchanted_wisteria_grove.jpg",
+      "mid": "enchanted_wisteria_grove.jpg",
+      "desc": "藤の花が咲き誇る古木と、花びらが舞い散る静かで幻想的な森の広場。穏やかな光が差し込み、神秘的な雰囲気が漂う。",
+      "theme": [
+        "東洋",
+        "中世",
+        "メルヘン",
+        "汎用"
+      ],
+      "terrain": [
+        "藤",
+        "古木",
+        "花",
+        "草原",
+        "岩"
+      ],
+      "mood": [
+        "幻想",
+        "静寂",
+        "神秘",
+        "穏やか",
+        "明るい"
+      ],
+      "location": [
+        "屋外",
+        "森",
+        "広場",
+        "庭園",
+        "道"
       ],
       "has_original": true
     },
@@ -5596,6 +5860,41 @@
       "has_original": true
     },
     {
+      "id": 351,
+      "file": "glowing_blossom_canal_town.webp",
+      "thumb": "glowing_blossom_canal_town.jpg",
+      "mid": "glowing_blossom_canal_town.jpg",
+      "desc": "夜桜と灯りに彩られた運河沿いの美しい町並み。飛行船やレトロな建物が幻想的な雰囲気を醸し出す。",
+      "theme": [
+        "スチームパンク",
+        "中世",
+        "汎用",
+        "大航海時代",
+        "メルヘン"
+      ],
+      "terrain": [
+        "川",
+        "桜",
+        "石畳",
+        "広場"
+      ],
+      "mood": [
+        "賑やか",
+        "温かい",
+        "幻想",
+        "華やか",
+        "ロマンチック"
+      ],
+      "location": [
+        "町",
+        "運河",
+        "港",
+        "広場",
+        "橋"
+      ],
+      "has_original": true
+    },
+    {
       "id": 319,
       "file": "glowing_root_dungeon.webp",
       "thumb": "glowing_root_dungeon.jpg",
@@ -5692,40 +5991,6 @@
         "庭園",
         "塔",
         "橋"
-      ],
-      "has_original": true
-    },
-    {
-      "id": 324,
-      "file": "golden_bridged_valley_town.webp",
-      "thumb": "golden_bridged_valley_town.jpg",
-      "mid": "golden_bridged_valley_town.jpg",
-      "desc": "険しい山間の渓谷に、何層もの巨大な橋と家々が密集して築かれた壮大な町。黄金色の光が差し込む幻想的な景色。",
-      "theme": [
-        "中世",
-        "汎用",
-        "メルヘン",
-        "ファンタジー"
-      ],
-      "terrain": [
-        "山",
-        "谷",
-        "川",
-        "崖"
-      ],
-      "mood": [
-        "壮大",
-        "幻想",
-        "賑やか",
-        "温かい",
-        "冒険"
-      ],
-      "location": [
-        "町",
-        "谷",
-        "集落",
-        "橋",
-        "屋外"
       ],
       "has_original": true
     },
@@ -6796,6 +7061,41 @@
       "has_original": true
     },
     {
+      "id": 354,
+      "file": "lantern_lit_ryokan_garden.webp",
+      "thumb": "lantern_lit_ryokan_garden.jpg",
+      "mid": "lantern_lit_ryokan_garden.jpg",
+      "desc": "夜の和風旅館の俯瞰図。多くの部屋、美しい庭園、露天風呂が提灯の光に照らされ、静かで温かい雰囲気。",
+      "theme": [
+        "東洋",
+        "汎用",
+        "中世",
+        "ファンタジー"
+      ],
+      "terrain": [
+        "庭",
+        "池",
+        "滝",
+        "石畳",
+        "木"
+      ],
+      "mood": [
+        "静寂",
+        "温かい",
+        "幻想",
+        "落ち着いた",
+        "風情がある"
+      ],
+      "location": [
+        "室内",
+        "屋外",
+        "邸宅",
+        "旅館",
+        "庭園"
+      ],
+      "has_original": true
+    },
+    {
       "id": 83,
       "file": "lavish_castle_banquet.webp",
       "thumb": "lavish_castle_banquet.jpg",
@@ -7199,6 +7499,37 @@
       "has_original": true
     },
     {
+      "id": 370,
+      "file": "mysterious_dungeon_labyrinth.webp",
+      "thumb": "mysterious_dungeon_labyrinth.jpg",
+      "mid": "mysterious_dungeon_labyrinth.jpg",
+      "desc": "薄暗い松明の光が照らす、多数の部屋と複雑な通路を持つ巨大な構造物の俯瞰図。神秘的で壮大なダンジョンマップ。",
+      "theme": [
+        "中世",
+        "汎用",
+        "クトゥルフ",
+        "古代"
+      ],
+      "terrain": [
+        "洞窟"
+      ],
+      "mood": [
+        "薄暗い",
+        "荘厳",
+        "神秘",
+        "複雑",
+        "冒険"
+      ],
+      "location": [
+        "ダンジョン",
+        "室内",
+        "地下",
+        "城",
+        "研究施設"
+      ],
+      "has_original": true
+    },
+    {
       "id": 20,
       "file": "mysterious_library_archives.webp",
       "thumb": "mysterious_library_archives.jpg",
@@ -7222,6 +7553,40 @@
         "室内",
         "広間",
         "建物"
+      ],
+      "has_original": true
+    },
+    {
+      "id": 361,
+      "file": "mysterious_mansion_maze.webp",
+      "thumb": "mysterious_mansion_maze.jpg",
+      "mid": "mysterious_mansion_maze.jpg",
+      "desc": "暖炉や豪華な家具、絨毯が配置された、複雑に入り組んだ広大な屋敷の俯瞰マップ。薄暗い照明が神秘的な雰囲気を醸し出す。",
+      "theme": [
+        "汎用",
+        "中世",
+        "クトゥルフ",
+        "スチームパンク",
+        "大航海時代"
+      ],
+      "terrain": [
+        "床",
+        "壁",
+        "階段"
+      ],
+      "mood": [
+        "高級",
+        "複雑",
+        "不気味",
+        "静寂",
+        "温かい"
+      ],
+      "location": [
+        "邸宅",
+        "室内",
+        "建物",
+        "迷路",
+        "道"
       ],
       "has_original": true
     },
@@ -7280,6 +7645,40 @@
         "室内",
         "庭園",
         "建物"
+      ],
+      "has_original": true
+    },
+    {
+      "id": 366,
+      "file": "mystic_forest_railway.webp",
+      "thumb": "mystic_forest_railway.jpg",
+      "mid": "mystic_forest_railway.jpg",
+      "desc": "夜の森を進む蒸気機関車を上空から捉えた画像。車両の窓明かりと線路沿いの街灯が暗闇を照らし、隣には静かな川が流れる。",
+      "theme": [
+        "汎用",
+        "スチームパンク",
+        "中世"
+      ],
+      "terrain": [
+        "森",
+        "川",
+        "線路",
+        "道",
+        "水辺"
+      ],
+      "mood": [
+        "静寂",
+        "暗い",
+        "神秘",
+        "夜",
+        "冒険"
+      ],
+      "location": [
+        "屋外",
+        "森",
+        "道",
+        "川辺",
+        "夜道"
       ],
       "has_original": true
     },
@@ -7557,6 +7956,35 @@
         "森",
         "屋外",
         "都市"
+      ],
+      "has_original": true
+    },
+    {
+      "id": 369,
+      "file": "mystical_candlelit_dungeon.webp",
+      "thumb": "mystical_candlelit_dungeon.jpg",
+      "mid": "mystical_candlelit_dungeon.jpg",
+      "desc": "暗闇に浮かぶ、ロウソクで照らされた複雑な多層ダンジョンマップ。食堂、寝室、浴室など多様な部屋が繋がり、中世ファンタジーの雰囲気を持つ。",
+      "theme": [
+        "中世",
+        "汎用"
+      ],
+      "terrain": [
+        "地下"
+      ],
+      "mood": [
+        "温かい",
+        "神秘",
+        "冒険",
+        "豪華",
+        "静寂"
+      ],
+      "location": [
+        "ダンジョン",
+        "室内",
+        "城",
+        "邸宅",
+        "地下"
       ],
       "has_original": true
     },
@@ -8104,6 +8532,39 @@
       "has_original": true
     },
     {
+      "id": 344,
+      "file": "mystical_floating_labyrinth.webp",
+      "thumb": "mystical_floating_labyrinth.jpg",
+      "mid": "mystical_floating_labyrinth.jpg",
+      "desc": "暗闇に無数の部屋と階段が複雑に絡み合い浮遊する、幻想的な巨大建築の俯瞰図。暖色の灯りが各部屋を照らし、迷宮のような世界が広がる。",
+      "theme": [
+        "中世",
+        "スチームパンク",
+        "メルヘン",
+        "クトゥルフ"
+      ],
+      "terrain": [
+        "構造物",
+        "階段",
+        "道"
+      ],
+      "mood": [
+        "神秘",
+        "幻想",
+        "壮大",
+        "複雑",
+        "静寂"
+      ],
+      "location": [
+        "異世界",
+        "ダンジョン",
+        "室内",
+        "邸宅",
+        "浮遊建築"
+      ],
+      "has_original": true
+    },
+    {
       "id": 338,
       "file": "mystical_forest_marketplace.webp",
       "thumb": "mystical_forest_marketplace.jpg",
@@ -8356,6 +8817,38 @@
         "屋外",
         "森",
         "集落"
+      ],
+      "has_original": true
+    },
+    {
+      "id": 368,
+      "file": "mystical_glowing_caverns.webp",
+      "thumb": "mystical_glowing_caverns.jpg",
+      "mid": "mystical_glowing_caverns.jpg",
+      "desc": "複雑に入り組んだ洞窟のダンジョンマップ。青や紫に光る地下水、木製の橋、そして複数の野営地が見られ、冒険心をくすぐる地下世界が描かれています。",
+      "theme": [
+        "汎用",
+        "中世",
+        "幻想"
+      ],
+      "terrain": [
+        "洞窟",
+        "岩",
+        "地下水",
+        "水辺"
+      ],
+      "mood": [
+        "神秘",
+        "冒険",
+        "幻想",
+        "暗い",
+        "危険"
+      ],
+      "location": [
+        "ダンジョン",
+        "地下",
+        "洞窟",
+        "野営地"
       ],
       "has_original": true
     },
@@ -8797,6 +9290,39 @@
       "has_original": true
     },
     {
+      "id": 356,
+      "file": "mystical_snowy_tree_temple.webp",
+      "thumb": "mystical_snowy_tree_temple.jpg",
+      "mid": "mystical_snowy_tree_temple.jpg",
+      "desc": "雪に覆われた神秘的な森に広がる、巨大な木々と一体化した幻想的な建造物の空中都市。青い光が輝く。",
+      "theme": [
+        "中世",
+        "メルヘン",
+        "北欧",
+        "汎用"
+      ],
+      "terrain": [
+        "雪原",
+        "森",
+        "木",
+        "川"
+      ],
+      "mood": [
+        "神秘",
+        "静寂",
+        "幻想",
+        "冷たい",
+        "壮大"
+      ],
+      "location": [
+        "屋外",
+        "集落",
+        "神殿",
+        "拠点"
+      ],
+      "has_original": true
+    },
+    {
       "id": 121,
       "file": "mystical_tower_ruins.webp",
       "thumb": "mystical_tower_ruins.jpg",
@@ -8952,6 +9478,39 @@
       "has_original": true
     },
     {
+      "id": 340,
+      "file": "mystical_treetop_village.webp",
+      "thumb": "mystical_treetop_village.jpg",
+      "mid": "mystical_treetop_village.jpg",
+      "desc": "巨大な古木に築かれた幻想的な樹上集落。無数の小家屋が木々を縫うように連なり、温かい光を放ち森を照らす情景。",
+      "theme": [
+        "中世",
+        "メルヘン",
+        "汎用"
+      ],
+      "terrain": [
+        "木",
+        "森",
+        "谷",
+        "川",
+        "樹上"
+      ],
+      "mood": [
+        "神秘",
+        "幻想",
+        "温かい",
+        "静寂",
+        "冒険"
+      ],
+      "location": [
+        "集落",
+        "村",
+        "居住区",
+        "屋外"
+      ],
+      "has_original": true
+    },
+    {
       "id": 37,
       "file": "mystical_underwater_ruins.webp",
       "thumb": "mystical_underwater_ruins.jpg",
@@ -8979,6 +9538,75 @@
         "遺跡",
         "神殿",
         "地下"
+      ],
+      "has_original": true
+    },
+    {
+      "id": 341,
+      "file": "mystical_winter_estate.webp",
+      "thumb": "mystical_winter_estate.jpg",
+      "mid": "mystical_winter_estate.jpg",
+      "desc": "雪が降り積もった広大な日本庭園の俯瞰図。伝統的な建築物、凍った池、赤い橋、石畳の道が特徴的な、静かで優雅な冬の風景。",
+      "theme": [
+        "東洋",
+        "汎用",
+        "ファンタジー",
+        "中世"
+      ],
+      "terrain": [
+        "雪原",
+        "庭園",
+        "池",
+        "木",
+        "滝"
+      ],
+      "mood": [
+        "静寂",
+        "落ち着いた",
+        "冬",
+        "優雅",
+        "幻想"
+      ],
+      "location": [
+        "屋外",
+        "庭園",
+        "邸宅",
+        "建物",
+        "道"
+      ],
+      "has_original": true
+    },
+    {
+      "id": 355,
+      "file": "mystical_wisteria_plaza.webp",
+      "thumb": "mystical_wisteria_plaza.jpg",
+      "mid": "mystical_wisteria_plaza.jpg",
+      "desc": "夜の森、紫色の藤の花が幻想的に咲き誇る古木と広場。神秘的で静寂な雰囲気が漂う。",
+      "theme": [
+        "汎用",
+        "中世",
+        "メルヘン",
+        "東洋"
+      ],
+      "terrain": [
+        "藤",
+        "木",
+        "森",
+        "草原",
+        "岩"
+      ],
+      "mood": [
+        "神秘",
+        "幻想",
+        "静寂",
+        "美しい",
+        "穏やか"
+      ],
+      "location": [
+        "聖域",
+        "森の奥",
+        "広場",
+        "庭園"
       ],
       "has_original": true
     },
@@ -9625,6 +10253,72 @@
       "has_original": true
     },
     {
+      "id": 348,
+      "file": "serene_academy_grounds.webp",
+      "thumb": "serene_academy_grounds.jpg",
+      "mid": "serene_academy_grounds.jpg",
+      "desc": "伝統的なスタイルの学校の俯瞰図。複数の教室、図書館、実験室、音楽室を備え、広々とした庭園と運動場を持つ、落ち着いた学究的な雰囲気。",
+      "theme": [
+        "汎用",
+        "中世",
+        "大航海時代",
+        "スチームパンク"
+      ],
+      "terrain": [
+        "庭園",
+        "道",
+        "土",
+        "草"
+      ],
+      "mood": [
+        "落ち着いた",
+        "知的",
+        "静寂",
+        "古い",
+        "穏やか"
+      ],
+      "location": [
+        "学校",
+        "室内",
+        "屋外",
+        "建物",
+        "庭"
+      ],
+      "has_original": true
+    },
+    {
+      "id": 358,
+      "file": "serene_blossom_river.webp",
+      "thumb": "serene_blossom_river.jpg",
+      "mid": "serene_blossom_river.jpg",
+      "desc": "満開の桜並木に囲まれた、清らかな川が流れる美しい春の風景を上空から見たTRPGマップ。",
+      "theme": [
+        "東洋",
+        "汎用",
+        "中世",
+        "メルヘン"
+      ],
+      "terrain": [
+        "川",
+        "桜",
+        "森",
+        "岩"
+      ],
+      "mood": [
+        "穏やか",
+        "美しい",
+        "明るい",
+        "春",
+        "静寂"
+      ],
+      "location": [
+        "屋外",
+        "川辺",
+        "自然"
+      ],
+      "has_original": true
+    },
+    {
       "id": 145,
       "file": "serene_forest_lake.webp",
       "thumb": "serene_forest_lake.jpg",
@@ -9719,6 +10413,71 @@
       "has_original": true
     },
     {
+      "id": 347,
+      "file": "serene_japanese_homestead.webp",
+      "thumb": "serene_japanese_homestead.jpg",
+      "mid": "serene_japanese_homestead.jpg",
+      "desc": "伝統的な日本の家屋の俯瞰図。畳の部屋、台所、風呂、物置があり、外には庭と小道が広がる。",
+      "theme": [
+        "東洋",
+        "和風",
+        "汎用",
+        "中世"
+      ],
+      "terrain": [
+        "庭",
+        "道",
+        "植物"
+      ],
+      "mood": [
+        "静寂",
+        "温かい",
+        "伝統",
+        "素朴"
+      ],
+      "location": [
+        "室内",
+        "家",
+        "村",
+        "居住区"
+      ],
+      "has_original": true
+    },
+    {
+      "id": 360,
+      "file": "serene_japanese_river_estate.webp",
+      "thumb": "serene_japanese_river_estate.jpg",
+      "mid": "serene_japanese_river_estate.jpg",
+      "desc": "川辺に佇む伝統的な日本家屋の屋敷。豊かな緑と畑に囲まれた、静かで穏やかな田園風景が広がる。",
+      "theme": [
+        "東洋",
+        "汎用",
+        "中世"
+      ],
+      "terrain": [
+        "川",
+        "木",
+        "畑",
+        "庭園",
+        "石畳"
+      ],
+      "mood": [
+        "静寂",
+        "温かい",
+        "穏やか",
+        "伝統",
+        "自然"
+      ],
+      "location": [
+        "邸宅",
+        "村",
+        "屋外",
+        "庭",
+        "川辺"
+      ],
+      "has_original": true
+    },
+    {
       "id": 218,
       "file": "serene_oriental_garden_teahouse.webp",
       "thumb": "serene_oriental_garden_teahouse.jpg",
@@ -9747,6 +10506,130 @@
         "水辺",
         "屋外",
         "道"
+      ],
+      "has_original": true
+    },
+    {
+      "id": 365,
+      "file": "serene_ryokan_gardens.webp",
+      "thumb": "serene_ryokan_gardens.jpg",
+      "mid": "serene_ryokan_gardens.jpg",
+      "desc": "夜の帳が下り、灯籠の明かりが美しい日本家屋の複合施設。複数の庭園と池、客室や広間を備え、静かで趣のある雰囲気が漂う。",
+      "theme": [
+        "東洋",
+        "中世",
+        "現代"
+      ],
+      "terrain": [
+        "庭園",
+        "池",
+        "桜",
+        "石畳",
+        "木"
+      ],
+      "mood": [
+        "静寂",
+        "温かい",
+        "神秘",
+        "雅",
+        "落ち着いた"
+      ],
+      "location": [
+        "旅館",
+        "邸宅",
+        "庭園",
+        "室内",
+        "町"
+      ],
+      "has_original": true
+    },
+    {
+      "id": 352,
+      "file": "serene_spring_blossom_forest.webp",
+      "thumb": "serene_spring_blossom_forest.jpg",
+      "mid": "serene_spring_blossom_forest.jpg",
+      "desc": "満開の桜が咲き誇る森林の空撮マップ。緑の草地と小石の合間に小道が続き、春の陽光が降り注ぐ、穏やかで美しい風景。",
+      "theme": [
+        "汎用",
+        "東洋",
+        "中世",
+        "メルヘン"
+      ],
+      "terrain": [
+        "桜",
+        "森",
+        "草原",
+        "道",
+        "岩"
+      ],
+      "mood": [
+        "華やか",
+        "明るい",
+        "静寂",
+        "温かい",
+        "美しい"
+      ],
+      "location": [
+        "森",
+        "屋外",
+        "道",
+        "桜並木"
+      ],
+      "has_original": true
+    },
+    {
+      "id": 353,
+      "file": "serene_tatami_chamber.webp",
+      "thumb": "serene_tatami_chamber.jpg",
+      "mid": "serene_tatami_chamber.jpg",
+      "desc": "畳が敷き詰められた伝統的な和室の俯瞰図。障子窓と温かい光の行灯が落ち着いた空間を演出する。",
+      "theme": [
+        "東洋",
+        "現代",
+        "中世"
+      ],
+      "terrain": [
+        "畳"
+      ],
+      "mood": [
+        "静寂",
+        "落ち着いた",
+        "伝統",
+        "温かい"
+      ],
+      "location": [
+        "室内",
+        "和室",
+        "部屋"
+      ],
+      "has_original": true
+    },
+    {
+      "id": 350,
+      "file": "serene_tatami_retreat.webp",
+      "thumb": "serene_tatami_retreat.jpg",
+      "mid": "serene_tatami_retreat.jpg",
+      "desc": "畳の敷かれた個室が整然と並ぶ、日本の伝統的な料亭や旅館の広間。温かい光が灯り、静かで落ち着いた空間を演出しています。",
+      "theme": [
+        "東洋",
+        "中世",
+        "ファンタジー"
+      ],
+      "terrain": [
+        "畳",
+        "木"
+      ],
+      "mood": [
+        "静寂",
+        "温かい",
+        "落ち着いた",
+        "伝統"
+      ],
+      "location": [
+        "室内",
+        "料亭",
+        "旅館",
+        "個室"
       ],
       "has_original": true
     },
@@ -9780,6 +10663,41 @@
         "港",
         "海辺",
         "屋外"
+      ],
+      "has_original": true
+    },
+    {
+      "id": 343,
+      "file": "shadowy_mansion_garden.webp",
+      "thumb": "shadowy_mansion_garden.jpg",
+      "mid": "shadowy_mansion_garden.jpg",
+      "desc": "夜の豪華な邸宅の俯瞰マップ。広大な庭園には噴水や温室があり、邸内は暖かく照らされ多くの部屋が配置されている。",
+      "theme": [
+        "汎用",
+        "中世",
+        "スチームパンク",
+        "クトゥルフ",
+        "大航海時代"
+      ],
+      "terrain": [
+        "庭園",
+        "噴水",
+        "道",
+        "植え込み",
+        "門"
+      ],
+      "mood": [
+        "優雅",
+        "豪華",
+        "静寂",
+        "薄暗い",
+        "神秘"
+      ],
+      "location": [
+        "邸宅",
+        "室内",
+        "庭園",
+        "温室"
       ],
       "has_original": true
     },
@@ -9897,6 +10815,39 @@
         "スラム街",
         "居住区",
         "集落"
+      ],
+      "has_original": true
+    },
+    {
+      "id": 363,
+      "file": "stately_mansion_library.webp",
+      "thumb": "stately_mansion_library.jpg",
+      "mid": "stately_mansion_library.jpg",
+      "desc": "豪華な内装を持つ大邸宅の鳥瞰図。らせん階段のある円形図書館、書斎、応接間、広間などが配置され、知的で重厚な雰囲気を醸し出している。",
+      "theme": [
+        "中世",
+        "スチームパンク",
+        "汎用",
+        "大航海時代"
+      ],
+      "terrain": [
+        "庭園",
+        "木",
+        "石畳"
+      ],
+      "mood": [
+        "豪華",
+        "知的",
+        "落ち着いた",
+        "温かい",
+        "荘厳"
+      ],
+      "location": [
+        "室内",
+        "大邸宅",
+        "図書館",
+        "部屋",
+        "応接間"
       ],
       "has_original": true
     },
@@ -10209,6 +11160,33 @@
         "屋外",
         "里山",
         "集落"
+      ],
+      "has_original": true
+    },
+    {
+      "id": 364,
+      "file": "tranquil_tatami_hall.webp",
+      "thumb": "tranquil_tatami_hall.jpg",
+      "mid": "tranquil_tatami_hall.jpg",
+      "desc": "和風の座敷が連なる空間。畳と低い卓、座布団が配置され、提灯の温かい光が落ち着いた雰囲気を醸し出している。",
+      "theme": [
+        "東洋",
+        "汎用",
+        "中世"
+      ],
+      "terrain": [],
+      "mood": [
+        "落ち着いた",
+        "静か",
+        "温かい",
+        "伝統"
+      ],
+      "location": [
+        "室内",
+        "和室",
+        "座敷",
+        "料亭",
+        "旅館"
       ],
       "has_original": true
     },
@@ -10666,6 +11644,37 @@
       "has_original": true
     },
     {
+      "id": 357,
+      "file": "warm_luxurious_carriage.webp",
+      "thumb": "warm_luxurious_carriage.jpg",
+      "mid": "warm_luxurious_carriage.jpg",
+      "desc": "緑の座席が並ぶ、クラシックな列車の客車内部を上から見たマップ。木製の壁、豪華なカーペット、温かい照明が特徴で、旅やミステリーの舞台に最適です。",
+      "theme": [
+        "スチームパンク",
+        "クトゥルフ",
+        "現代",
+        "汎用"
+      ],
+      "terrain": [
+        "線路",
+        "地面"
+      ],
+      "mood": [
+        "温かい",
+        "静寂",
+        "豪華",
+        "古い",
+        "旅"
+      ],
+      "location": [
+        "室内",
+        "列車",
+        "客車",
+        "道"
+      ],
+      "has_original": true
+    },
+    {
       "id": 247,
       "file": "warm_luxurious_theater.webp",
       "thumb": "warm_luxurious_theater.jpg",
@@ -10875,6 +11884,40 @@
         "拠点",
         "集落",
         "港"
+      ],
+      "has_original": true
+    },
+    {
+      "id": 339,
+      "file": "winding_autumn_forest.webp",
+      "thumb": "winding_autumn_forest.jpg",
+      "mid": "winding_autumn_forest.jpg",
+      "desc": "紅葉に染まる広大な森を上空から捉えた俯瞰図。曲がりくねった小道と小川が景色を彩り、静かで美しい秋の情景が広がる。",
+      "theme": [
+        "汎用",
+        "中世",
+        "メルヘン",
+        "北欧"
+      ],
+      "terrain": [
+        "森",
+        "紅葉",
+        "川",
+        "道",
+        "岩"
+      ],
+      "mood": [
+        "秋",
+        "鮮やか",
+        "静寂",
+        "穏やか",
+        "冒険"
+      ],
+      "location": [
+        "屋外",
+        "森",
+        "道",
+        "自然"
       ],
       "has_original": true
     },
