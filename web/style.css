@@ -739,6 +739,24 @@ body.scroll-locked {
     pointer-events: auto;
   }
 
+  /* グリッドはモバイルで 2 列、コンパクトな余白に */
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    padding: 0.5rem 0.6rem;
+  }
+  .card-body {
+    padding: 0.4rem 0.5rem 0.55rem;
+  }
+  .card-title {
+    font-size: 0.72rem;
+    margin: 0;
+  }
+  /* サムネイルにはタグを表示しない (省スペース化) */
+  .card-tags {
+    display: none;
+  }
+
   .preview {
     /* iOS Safari でアドレスバー出入りに追従するよう dvh を使い、
        inset: 0 で常にビューポート全面を覆う */
