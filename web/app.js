@@ -436,13 +436,17 @@ function setPreviewImage(newSrc, fallbackAlt) {
 // 前後の画像をブラウザキャッシュにプリフェッチ
 function prefetchAround(index, radius = PREFETCH_RADIUS) {
   if (index < 0) return;
+  const hasOriginals = state.data.has_originals;
   for (let d = 1; d <= radius; d++) {
     for (const k of [index + d, index - d]) {
       if (k < 0 || k >= state.filtered.length) continue;
       const m = state.filtered[k];
       if (!m) continue;
+      const url = hasOriginals && m.has_original !== false
+        ? `originals/${encodeURIComponent(m.file)}`
+        : `images/thumb/${encodeURIComponent(m.thumb)}`;
       const img = new Image();
-      img.src = `images/mid/${m.mid}`;
+      img.src = url;
     }
   }
 }
@@ -456,7 +460,11 @@ function renderPreview() {
 
 // 個別マップを引数で受け取って描画 (フィルタ外 id 表示用にも使う)
 function renderPreviewOf(m) {
-  setPreviewImage(`images/mid/${m.mid}`, m.file);
+  // originals (WebP) を直接表示する。--no-originals 時は thumb で代用。
+  const previewUrl = state.data.has_originals && m.has_original !== false
+    ? `originals/${encodeURIComponent(m.file)}`
+    : `images/thumb/${encodeURIComponent(m.thumb)}`;
+  setPreviewImage(previewUrl, m.file);
   document.getElementById('preview-title').textContent = m.file;
   document.getElementById('preview-desc').textContent = m.desc || '';
 
@@ -470,7 +478,6 @@ function renderPreviewOf(m) {
 
   // ダウンロードリンク (元画像は file_level + per-map の両方で存在確認)
   const orig = document.getElementById('download-original');
-  const jpeg = document.getElementById('download-jpeg');
   if (state.data.has_originals && m.has_original !== false) {
     orig.hidden = false;
     orig.href = `originals/${encodeURIComponent(m.file)}`;
@@ -478,8 +485,6 @@ function renderPreviewOf(m) {
   } else {
     orig.hidden = true;
   }
-  jpeg.href = `images/mid/${encodeURIComponent(m.mid)}`;
-  jpeg.setAttribute('download', m.mid);
 
   // 位置インジケータと prev/next の状態
   // previewIndex=-1 (フィルタ外を URL 経由で表示) のときは位置表示・ナビを抑制
@@ -532,7 +537,7 @@ function copyCurrentImageUrl() {
   const useOriginal = state.data.has_originals && m.has_original !== false;
   const path = useOriginal
     ? `originals/${encodeURIComponent(m.file)}`
-    : `images/mid/${encodeURIComponent(m.mid)}`;
+    : `images/thumb/${encodeURIComponent(m.thumb)}`;
   const url = new URL(path, location.href).href;
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(url)

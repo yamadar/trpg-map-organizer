@@ -180,9 +180,11 @@ git push origin main
 # GitHub Settings → Pages → Source: main / /docs
 ```
 生成される `docs/` は以下の構成:
-- `docs/images/thumb/*.jpg` (400px JPEG, 約 13 MB)
-- `docs/images/mid/*.jpg` (1280px JPEG, 約 135 MB)
-- `docs/originals/*.webp` (元解像度 WebP, 約 160 MB)
+- `docs/images/thumb/*.jpg` (400px JPEG, 約 14 MB) — グリッド表示用
+- `docs/originals/*.webp` (元解像度 WebP, 約 170 MB) — プレビュー / ダウンロード用
+
+元解像度 WebP は十分軽量なため、中間サイズの JPEG (旧 `images/mid/`) は廃止して
+プレビューにも `originals/` を直接使う構成にした。
 
 ### 7. 一連の処理を順番に実行 (新規画像追加時)
 ```bash
@@ -294,7 +296,7 @@ trpg-map-organizer/
 - **DB のパス**: GitHub Pages へポータブルにするため、`file_path` は `target_folder` からの相対パスで保存。ローカル実行時は `db.resolve_path()` で絶対化。
 - **静的サイト**: ビルド工程不要のバニラ JS。`docs/data/maps.json` を fetch して動的にレンダリング。
 - **画像形式**: ソース画像は WebP (Quality=85, Effort=4) に統一。`rename_to_english` がリネーム時に自動変換するため、新規 PNG/JPG を投入してもパイプライン通過後は WebP になる。元 PNG (~3MB/枚) から WebP (~0.5MB/枚) で平均 **85% サイズ削減**。
-- **画像サイズ**: 元画像 (WebP) を `docs/originals/` にコピー、グリッド用に 400px JPEG、プレビュー用に 1280px JPEG を生成。総容量は 338 枚で約 **310 MB**。`--no-originals` で約 150 MB に抑えられる。
+- **画像サイズ**: 元画像 (WebP) を `docs/originals/` にコピーし、グリッド用に 400px JPEG サムネを生成する。プレビュー (モーダル) は `originals/*.webp` を直接表示する (元解像度 WebP が小さいため中間サイズの JPEG は不要)。総容量は 369 枚で約 **185 MB**。`--no-originals` で約 15 MB に抑えられる (プレビューはサムネ画質にフォールバック)。
 - **i18n**: ブラウザ `navigator.language` で自動切替。手動切替は `localStorage` に保存。URL ハッシュ内のタグは canonical (日本語) で保持し、表示時に翻訳。
 
 ---
