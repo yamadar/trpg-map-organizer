@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-29 20:55:15",
+  "generated_at": "2026-05-29 23:14:45",
   "total": 369,
   "has_originals": true,
   "tags": {
@@ -524,7 +524,6 @@
       "id": 28,
       "file": "abandoned_sewer_labyrinth.webp",
       "thumb": "abandoned_sewer_labyrinth.jpg",
-      "mid": "abandoned_sewer_labyrinth.jpg",
       "desc": "薄暗く不気味な雰囲気の地下ダンジョンマップ。石造りの通路と汚れた水路が複雑に絡み合い、ランタンの光が辛うじて道を照らしている。",
       "theme": [
         "汎用",
@@ -554,7 +553,6 @@
       "id": 206,
       "file": "ambushed_forest_road.webp",
       "thumb": "ambushed_forest_road.jpg",
-      "mid": "ambushed_forest_road.jpg",
       "desc": "馬車と護衛が岩や木々に囲まれた未舗装の道を移動している、俯瞰視点のマップ。道の脇には壊れた荷車の残骸が見え、冒険の旅路を感じさせる。",
       "theme": [
         "汎用",
@@ -582,7 +580,6 @@
       "id": 79,
       "file": "ancient_arcane_stone_chambers.webp",
       "thumb": "ancient_arcane_stone_chambers.jpg",
-      "mid": "ancient_arcane_stone_chambers.jpg",
       "desc": "様々な色の光を放つ魔法装置が点在する、複雑な構造の石造り地下ダンジョンマップ。神秘的で暗く、古代の遺跡のような雰囲気を醸し出す。",
       "theme": [
         "中世",
@@ -613,7 +610,6 @@
       "id": 180,
       "file": "ancient_bone_wasteland.webp",
       "thumb": "ancient_bone_wasteland.jpg",
-      "mid": "ancient_bone_wasteland.jpg",
       "desc": "砂漠に広がる荒涼とした土地。巨大な骨のような構造物、深い穴、古代の遺跡が不気味に点在する。",
       "theme": [
         "アラビアン",
@@ -648,7 +644,6 @@
       "id": 254,
       "file": "ancient_bustling_waterfall_town.webp",
       "thumb": "ancient_bustling_waterfall_town.jpg",
-      "mid": "ancient_bustling_waterfall_town.jpg",
       "desc": "川と橋、滝が織りなす、石畳の道と階段が入り組んだ中世ファンタジーの町。活気と冒険を感じさせる。",
       "theme": [
         "中世",
@@ -679,7 +674,6 @@
       "id": 197,
       "file": "ancient_canyon_pass.webp",
       "thumb": "ancient_canyon_pass.jpg",
-      "mid": "ancient_canyon_pass.jpg",
       "desc": "険しい渓谷を流れる川に橋が架かり、道が続く屋外マップ。古い遺跡も見え、冒険心をくすぐる。",
       "theme": [
         "汎用",
@@ -710,7 +704,6 @@
       "id": 109,
       "file": "ancient_cliff_fortress.webp",
       "thumb": "ancient_cliff_fortress.jpg",
-      "mid": "ancient_cliff_fortress.jpg",
       "desc": "海岸沿いの崖に築かれた大規模な要塞またはダンジョンのマップ。砂地から橋で繋がり、内部には複数の部屋や広場が配置されている。",
       "theme": [
         "中世",
@@ -743,7 +736,6 @@
       "id": 304,
       "file": "ancient_desert_temple_ruins.webp",
       "thumb": "ancient_desert_temple_ruins.jpg",
-      "mid": "ancient_desert_temple_ruins.jpg",
       "desc": "砂漠の広大な領域に広がる、円形構造を持つ巨大な古代都市の廃墟。砂に埋もれた壮麗な建築物や石像が、かつての文明の神秘と荒廃した美しさを物語る。",
       "theme": [
         "アラビアン",
@@ -776,7 +768,6 @@
       "id": 257,
       "file": "ancient_eastern_forest_arena.webp",
       "thumb": "ancient_eastern_forest_arena.jpg",
-      "mid": "ancient_eastern_forest_arena.jpg",
       "desc": "古代東洋の様式を持つ、壮大な円形闘技場。周囲を深い森と小川に囲まれ、観客席と堂々たる門が印象的。",
       "theme": [
         "東洋"
@@ -805,7 +796,6 @@
       "id": 45,
       "file": "ancient_eerie_golem_ruins.webp",
       "thumb": "ancient_eerie_golem_ruins.jpg",
-      "mid": "ancient_eerie_golem_ruins.jpg",
       "desc": "巨大な石造りのゴーレムが横たわる、苔と瓦礫に覆われた古代遺跡のダンジョンマップ。不気味で神秘的な雰囲気が漂う。",
       "theme": [
         "中世",
@@ -839,7 +829,6 @@
       "id": 296,
       "file": "ancient_jungle_sanctuary.webp",
       "thumb": "ancient_jungle_sanctuary.jpg",
-      "mid": "ancient_jungle_sanctuary.jpg",
       "desc": "鬱蒼とした密林に埋もれた古代の巨大な神殿を鳥瞰した画像。霧が立ち込め、神秘的で静寂な雰囲気が漂う。",
       "theme": [
         "南米",
@@ -870,7 +859,6 @@
       "id": 298,
       "file": "ancient_labyrinth_town.webp",
       "thumb": "ancient_labyrinth_town.jpg",
-      "mid": "ancient_labyrinth_town.jpg",
       "desc": "石造りの建物が密集し、複雑な路地と階段が続く古代の集落の鳥瞰図。異国情緒ある絨毯が飾られ、静かで冒険的な雰囲気が漂う。",
       "theme": [
         "古代",
@@ -903,7 +891,6 @@
       "id": 19,
       "file": "ancient_misty_harbor.webp",
       "thumb": "ancient_misty_harbor.jpg",
-      "mid": "ancient_misty_harbor.jpg",
       "desc": "霧が立ち込める夜の港町の鳥瞰図。古い建物が密集し、街灯が通りをぼんやりと照らしている。港、教会、墓地が確認できる。",
       "theme": [
         "中世",
@@ -935,7 +922,6 @@
       "id": 61,
       "file": "ancient_misty_lakeside_village.webp",
       "thumb": "ancient_misty_lakeside_village.jpg",
-      "mid": "ancient_misty_lakeside_village.jpg",
       "desc": "霧に覆われた湖畔の小さな村を上空から見た景色。古びた家屋や教会、桟橋があり、静寂と神秘が感じられる。",
       "theme": [
         "中世",
@@ -967,7 +953,6 @@
       "id": 122,
       "file": "ancient_mountain_citadel.webp",
       "thumb": "ancient_mountain_citadel.jpg",
-      "mid": "ancient_mountain_citadel.jpg",
       "desc": "険しい山岳地帯に築かれた、城壁に囲まれた町を上空から見た俯瞰図。規則的に並ぶ建物群と、岩肌を流れる川が特徴的。",
       "theme": [
         "中世",
@@ -998,7 +983,6 @@
       "id": 289,
       "file": "ancient_mystical_forest_ruins.webp",
       "thumb": "ancient_mystical_forest_ruins.jpg",
-      "mid": "ancient_mystical_forest_ruins.jpg",
       "desc": "鬱蒼とした森に埋もれた古代の神秘的な遺跡。歯車や水路、巨大な天体盤が複雑に配置された、上空からの眺め。",
       "theme": [
         "古代",
@@ -1030,7 +1014,6 @@
       "id": 41,
       "file": "ancient_mystical_temple_ruins.webp",
       "thumb": "ancient_mystical_temple_ruins.jpg",
-      "mid": "ancient_mystical_temple_ruins.jpg",
       "desc": "青い光を放つクリスタルと植物に覆われた古代の遺跡。複雑な水路と構造が神秘的なダンジョンを思わせる俯瞰図。",
       "theme": [
         "中世"
@@ -1060,7 +1043,6 @@
       "id": 156,
       "file": "ancient_mystical_underground_ruins.webp",
       "thumb": "ancient_mystical_underground_ruins.jpg",
-      "mid": "ancient_mystical_underground_ruins.jpg",
       "desc": "古代の石造り地下ダンジョン。神秘的な輝きを放つ祭壇や水路が点在し、冒険を誘う廃墟のマップ。",
       "theme": [
         "中世",
@@ -1094,7 +1076,6 @@
       "id": 227,
       "file": "ancient_oriental_waterfall_town.webp",
       "thumb": "ancient_oriental_waterfall_town.jpg",
-      "mid": "ancient_oriental_waterfall_town.jpg",
       "desc": "水辺に広がる東洋風の町並み。伝統的な建物が並び、桜が咲き、小舟や水車がのどかな風景を彩る。滝や渓谷が背景にある幻想的な光景。",
       "theme": [
         "東洋"
@@ -1123,7 +1104,6 @@
       "id": 195,
       "file": "ancient_overgrown_river_ruins.webp",
       "thumb": "ancient_overgrown_river_ruins.jpg",
-      "mid": "ancient_overgrown_river_ruins.jpg",
       "desc": "草木に覆われた古代の石造り遺跡が広がるダンジョンマップ。曲がりくねった道と小川が特徴で、神秘的な冒険の舞台となる。",
       "theme": [
         "古代",
@@ -1155,7 +1135,6 @@
       "id": 270,
       "file": "ancient_royal_throne_room.webp",
       "thumb": "ancient_royal_throne_room.jpg",
-      "mid": "ancient_royal_throne_room.jpg",
       "desc": "豪華な装飾が施された玉座と会議用の机が並ぶ、荘厳な雰囲気の広間。金色の龍のモチーフと暖かな提灯の光が特徴です。",
       "theme": [
         "東洋"
@@ -1184,7 +1163,6 @@
       "id": 267,
       "file": "ancient_skeletal_temple.webp",
       "thumb": "ancient_skeletal_temple.jpg",
-      "mid": "ancient_skeletal_temple.jpg",
       "desc": "古代の遺物や巨大な骨格標本が展示された、神秘的で壮大な石造りのダンジョン内部。薄暗い照明が冒険的な雰囲気を醸し出す。",
       "theme": [
         "中世",
@@ -1214,7 +1192,6 @@
       "id": 118,
       "file": "ancient_sorcery_dungeon.webp",
       "thumb": "ancient_sorcery_dungeon.jpg",
-      "mid": "ancient_sorcery_dungeon.jpg",
       "desc": "古代の地下ダンジョン。邪悪な儀式を行う祭壇、書斎、牢獄、そして神秘的な洞窟が広がる。危険な雰囲気が漂う魔術師の隠れ家。",
       "theme": [
         "中世",
@@ -1246,7 +1223,6 @@
       "id": 88,
       "file": "arcane_botanical_lab.webp",
       "thumb": "arcane_botanical_lab.jpg",
-      "mid": "arcane_botanical_lab.jpg",
       "desc": "様々な植物、魔法薬、古書が並ぶ、幻想的な錬金術の研究所。ステンドグラスの窓から光が差し込み、活気に満ちた知的な雰囲気が漂う。",
       "theme": [
         "中世",
@@ -1276,7 +1252,6 @@
       "id": 209,
       "file": "arcane_forest_spire.webp",
       "thumb": "arcane_forest_spire.jpg",
-      "mid": "arcane_forest_spire.jpg",
       "desc": "暗い森の中にそびえ立つ、複数の円形階層を持つ壮大な魔法の塔。書斎、天文台、魔法の実験室など、学術的な部屋が多数ある高所からの俯瞰図。",
       "theme": [
         "中世",
@@ -1307,7 +1282,6 @@
       "id": 168,
       "file": "arcane_garden_complex.webp",
       "thumb": "arcane_garden_complex.jpg",
-      "mid": "arcane_garden_complex.jpg",
       "desc": "古代魔導文明の壮大な遺跡マップ。輝く魔力水晶と複雑な機械が神秘的な雰囲気を醸し出す。光庭を中心に詳細な部屋と通路を持つ多層ダンジョン。",
       "theme": [
         "古代",
@@ -1338,7 +1312,6 @@
       "id": 34,
       "file": "arcane_tower_classroom.webp",
       "thumb": "arcane_tower_classroom.jpg",
-      "mid": "arcane_tower_classroom.jpg",
       "desc": "魔法の授業が行われるような、石と木でできた古風な教室。多くの本や錬金術の道具が並び、神秘的な雰囲気が漂う。",
       "theme": [
         "中世"
@@ -1367,7 +1340,6 @@
       "id": 102,
       "file": "bloodstained_dungeon_cells.webp",
       "thumb": "bloodstained_dungeon_cells.jpg",
-      "mid": "bloodstained_dungeon_cells.jpg",
       "desc": "ランタンの光で照らされた暗い石造りのダンジョンマップ。多数の牢屋と、血痕のある拷問部屋がある地下監獄の風景。",
       "theme": [
         "中世",
@@ -1396,7 +1368,6 @@
       "id": 84,
       "file": "bright_waterside_path.webp",
       "thumb": "bright_waterside_path.jpg",
-      "mid": "bright_waterside_path.jpg",
       "desc": "明るい日差しの下、清らかな水辺に沿って続く小道。岩や草木、花々が茂る穏やかで美しい自然の風景。",
       "theme": [
         "汎用",
@@ -1428,7 +1399,6 @@
       "id": 38,
       "file": "burning_city_ruins.webp",
       "thumb": "burning_city_ruins.jpg",
-      "mid": "burning_city_ruins.jpg",
       "desc": "炎と煙が立ち上る、上空から見た廃墟と化した都市の鳥瞰図。瓦礫に覆われた街路と崩壊した建物が広がる荒涼とした風景。",
       "theme": [
         "中世",
@@ -1459,7 +1429,6 @@
       "id": 170,
       "file": "bustling_ancient_crossing.webp",
       "thumb": "bustling_ancient_crossing.jpg",
-      "mid": "bustling_ancient_crossing.jpg",
       "desc": "美しい川と歴史を感じさせる石橋が中央に架かり、片側には活気ある村、もう片側には豊かな自然が広がる鳥瞰図。",
       "theme": [
         "汎用",
@@ -1492,7 +1461,6 @@
       "id": 290,
       "file": "bustling_ancient_inn_yard.webp",
       "thumb": "bustling_ancient_inn_yard.jpg",
-      "mid": "bustling_ancient_inn_yard.jpg",
       "desc": "石畳の敷かれた中庭を持つ、古風な石造りの建物。暖かな光が灯る室内には商品や道具が並び、活気ある冒険の拠点のような雰囲気を醸し出している。",
       "theme": [
         "中世",
@@ -1524,7 +1492,6 @@
       "id": 303,
       "file": "bustling_ancient_marketplace.webp",
       "thumb": "bustling_ancient_marketplace.jpg",
-      "mid": "bustling_ancient_marketplace.jpg",
       "desc": "上空から見下ろした、石造りの建物が密集する古代の市場。人々が行き交い、カラフルな品々が並ぶ活気ある町の様子。",
       "theme": [
         "アラビアン",
@@ -1554,7 +1521,6 @@
       "id": 240,
       "file": "bustling_arabian_bazaar.webp",
       "thumb": "bustling_arabian_bazaar.jpg",
-      "mid": "bustling_arabian_bazaar.jpg",
       "desc": "アラビアン様式の豪華な都市広場の俯瞰図。中央の噴水を中心に、精巧なタイルや植物、市場の屋台、ドーム状の建物が並び、異国情緒あふれる賑やかな情景を描いている。",
       "theme": [
         "アラビアン"
@@ -1583,7 +1549,6 @@
       "id": 220,
       "file": "bustling_arena_camp.webp",
       "thumb": "bustling_arena_camp.jpg",
-      "mid": "bustling_arena_camp.jpg",
       "desc": "鳥瞰視点で捉えられた、広大な砂地の円形闘技場。観客席と色とりどりのテントが周囲を取り囲み、大規模なイベントの開催を予感させる。",
       "theme": [
         "中世",
@@ -1612,7 +1577,6 @@
       "id": 221,
       "file": "bustling_asian_marketplace.webp",
       "thumb": "bustling_asian_marketplace.jpg",
-      "mid": "bustling_asian_marketplace.jpg",
       "desc": "古き良きアジア風の賑やかな町並み。市場の屋台、桜、小川にかかる橋が見え、活気ある日常が描かれている。",
       "theme": [
         "東洋"
@@ -1640,7 +1604,6 @@
       "id": 244,
       "file": "bustling_asian_night_market.webp",
       "thumb": "bustling_asian_night_market.jpg",
-      "mid": "bustling_asian_night_market.jpg",
       "desc": "上空から見下ろしたアジア風の石畳の町並み。提灯が灯り、桜や柳の木が彩る、活気ある夜の商店街の様子。",
       "theme": [
         "東洋"
@@ -1670,7 +1633,6 @@
       "id": 81,
       "file": "bustling_bread_village_port.webp",
       "thumb": "bustling_bread_village_port.jpg",
-      "mid": "bustling_bread_village_port.jpg",
       "desc": "パンの形をしたユニークな建物が円形に並ぶ、牧歌的な村の俯瞰図。畑と水辺に囲まれ、パンの船が浮かぶ、温かく賑やかなファンタジーの世界。",
       "theme": [
         "メルヘン",
@@ -1702,7 +1664,6 @@
       "id": 103,
       "file": "bustling_cavern_fortress.webp",
       "thumb": "bustling_cavern_fortress.jpg",
-      "mid": "bustling_cavern_fortress.jpg",
       "desc": "山岳地帯に築かれた、複雑な構造を持つ幻想的な地下都市。無数の提灯と滝が光を放ち、賑やかな雰囲気を醸し出している。",
       "theme": [
         "中世",
@@ -1733,7 +1694,6 @@
       "id": 258,
       "file": "bustling_coastal_bazaar.webp",
       "thumb": "bustling_coastal_bazaar.jpg",
-      "mid": "bustling_coastal_bazaar.jpg",
       "desc": "中東風の壮麗な建物が海岸線に広がる賑やかな湾岸都市を俯瞰した画像。人々が行き交い、活気に満ちた市場や水路、高い塔が見える。",
       "theme": [
         "アラビアン",
@@ -1766,7 +1726,6 @@
       "id": 141,
       "file": "bustling_desert_city.webp",
       "thumb": "bustling_desert_city.jpg",
-      "mid": "bustling_desert_city.jpg",
       "desc": "砂漠に囲まれた壮麗な城壁都市の空撮。中央には巨大な宮殿があり、活気ある市場と豊かなオアシスが点在する。",
       "theme": [
         "アラビアン"
@@ -1796,7 +1755,6 @@
       "id": 233,
       "file": "bustling_desert_market.webp",
       "thumb": "bustling_desert_market.jpg",
-      "mid": "bustling_desert_market.jpg",
       "desc": "砂漠の都市と街道を隊商が行き交う賑やかな光景。異国情緒あふれる古代の街並み。",
       "theme": [
         "アラビアン"
@@ -1825,7 +1783,6 @@
       "id": 216,
       "file": "bustling_desert_marketplace.webp",
       "thumb": "bustling_desert_marketplace.jpg",
-      "mid": "bustling_desert_marketplace.jpg",
       "desc": "砂漠に築かれた壮大な城壁都市を俯瞰した画像。内部は市場などで賑わい、異国情緒あふれる風景が広がる。",
       "theme": [
         "アラビアン"
@@ -1856,7 +1813,6 @@
       "id": 272,
       "file": "bustling_desert_oasis_market.webp",
       "thumb": "bustling_desert_oasis_market.jpg",
-      "mid": "bustling_desert_oasis_market.jpg",
       "desc": "砂漠のオアシスに広がる活気ある野営地と市場。隊商が行き交い、様々な人々が取引をする賑やかな風景。",
       "theme": [
         "アラビアン",
@@ -1889,7 +1845,6 @@
       "id": 314,
       "file": "bustling_enchanted_coral_port.webp",
       "thumb": "bustling_enchanted_coral_port.jpg",
-      "mid": "bustling_enchanted_coral_port.jpg",
       "desc": "美しい砂浜に貝殻をモチーフにした家々や露店が並び、賑やかな港町の風景が広がる。珊瑚やヒトデで飾られた幻想的な雰囲気のマップ。",
       "theme": [
         "メルヘン",
@@ -1923,7 +1878,6 @@
       "id": 302,
       "file": "bustling_exotic_inn_marketplace.webp",
       "thumb": "bustling_exotic_inn_marketplace.jpg",
-      "mid": "bustling_exotic_inn_marketplace.jpg",
       "desc": "石造りの宿屋の鳥瞰図。暖炉やろうそくの光で暖かく照らされた食堂、客室、厨房があり、屋外には市場のような屋台も並ぶ。異国情緒あふれる賑やかな雰囲気が特徴。",
       "theme": [
         "アラビアン",
@@ -1953,7 +1907,6 @@
       "id": 235,
       "file": "bustling_exotic_mansion_market.webp",
       "thumb": "bustling_exotic_mansion_market.jpg",
-      "mid": "bustling_exotic_mansion_market.jpg",
       "desc": "暖かなランタンの光が灯る、異国情緒あふれる豪華な邸宅の俯瞰図。噴水のある中庭を中心に、多数の部屋や市場が描かれ、賑やかさと神秘的な雰囲気が漂う。",
       "theme": [
         "アラビアン"
@@ -1984,7 +1937,6 @@
       "id": 3,
       "file": "bustling_exotic_oasis_market.webp",
       "thumb": "bustling_exotic_oasis_market.jpg",
-      "mid": "bustling_exotic_oasis_market.jpg",
       "desc": "砂漠の中に広がる、広場と市場を持つ活気あるオアシスの町。土色の建物とヤシの木が異国情緒を醸し出す鳥瞰図です。",
       "theme": [
         "アラビアン"
@@ -2011,7 +1963,6 @@
       "id": 306,
       "file": "bustling_fairy_forest_village.webp",
       "thumb": "bustling_fairy_forest_village.jpg",
-      "mid": "bustling_fairy_forest_village.jpg",
       "desc": "ランプが灯るドングリ型の家々が並ぶ、緑豊かな森の中のメルヘンな村。中央広場や市場があり、小川には水車が回る鳥瞰図。",
       "theme": [
         "メルヘン",
@@ -2046,7 +1997,6 @@
       "id": 70,
       "file": "bustling_fantasy_night_market.webp",
       "thumb": "bustling_fantasy_night_market.jpg",
-      "mid": "bustling_fantasy_night_market.jpg",
       "desc": "夜のファンタジーの町並みを鳥瞰したマップ。石畳の街道沿いに建物と露店が立ち並び、暖かい明かりが灯り、人々が行き交う賑やかな様子が描かれている。",
       "theme": [
         "中世",
@@ -2077,7 +2027,6 @@
       "id": 185,
       "file": "bustling_fantasy_night_market_2.webp",
       "thumb": "bustling_fantasy_night_market_2.jpg",
-      "mid": "bustling_fantasy_night_market_2.jpg",
       "desc": "夜のファンタジー世界の町を上空から見た俯瞰図。多くの建物と賑やかな市場の屋台が石畳の街路沿いに並び、街灯が活気を照らしている。",
       "theme": [
         "中世",
@@ -2105,7 +2054,6 @@
       "id": 212,
       "file": "bustling_fantasy_night_square.webp",
       "thumb": "bustling_fantasy_night_square.jpg",
-      "mid": "bustling_fantasy_night_square.jpg",
       "desc": "夜のファンタジーの町並み。中央広場を囲むように、様々なギルドや商店が温かい光を放ち、活気に満ちた冒険の拠点となっている。",
       "theme": [
         "中世"
@@ -2133,7 +2081,6 @@
       "id": 49,
       "file": "bustling_fantasy_river_town.webp",
       "thumb": "bustling_fantasy_river_town.jpg",
-      "mid": "bustling_fantasy_river_town.jpg",
       "desc": "複数の橋がかかる川が流れる、活気あるファンタジー風の町。パン屋や農園、水車が点在し、賑やかで温かい雰囲気に満ちている。",
       "theme": [
         "中世",
@@ -2164,7 +2111,6 @@
       "id": 30,
       "file": "bustling_fantasy_tavern.webp",
       "thumb": "bustling_fantasy_tavern.jpg",
-      "mid": "bustling_fantasy_tavern.jpg",
       "desc": "石畳の道に囲まれた、細部まで作り込まれたファンタジー世界の酒場の俯瞰図。バーカウンターや複数のテーブル、暖炉がある賑やかな室内風景。",
       "theme": [
         "中世",
@@ -2192,7 +2138,6 @@
       "id": 78,
       "file": "bustling_fishing_port.webp",
       "thumb": "bustling_fishing_port.jpg",
-      "mid": "bustling_fishing_port.jpg",
       "desc": "青い海に面した賑やかな港町を鳥瞰したイラスト。多くの船が停泊し、建物が密集する活気ある漁村と市場が描かれている。",
       "theme": [
         "大航海時代",
@@ -2223,7 +2168,6 @@
       "id": 326,
       "file": "bustling_floating_city.webp",
       "thumb": "bustling_floating_city.jpg",
-      "mid": "bustling_floating_city.jpg",
       "desc": "空に浮かぶ複数の木製プラットフォームが橋で繋がり、気球や飛行船が繋がれた空中都市。雲が広がる明るい背景に、市場や庭園のような施設が見える幻想的な光景。",
       "theme": [
         "スチームパンク",
@@ -2257,7 +2201,6 @@
       "id": 148,
       "file": "bustling_forest_camp.webp",
       "thumb": "bustling_forest_camp.jpg",
-      "mid": "bustling_forest_camp.jpg",
       "desc": "森の奥深く、多くの馬車とテントが広がる野営地の俯瞰図。焚き火を囲む人々が賑やかに集い、旅の隊商や冒険者たちが一時的な休息を取っている情景。",
       "theme": [
         "汎用",
@@ -2285,7 +2228,6 @@
       "id": 162,
       "file": "bustling_forest_tavern.webp",
       "thumb": "bustling_forest_tavern.jpg",
-      "mid": "bustling_forest_tavern.jpg",
       "desc": "森林に囲まれた石造りの宿屋の鳥瞰図。広々とした酒場、ダイニング、快適な客室があり、賑やかで温かい雰囲気を醸し出している。TRPGマップとして最適。",
       "theme": [
         "中世",
@@ -2315,7 +2257,6 @@
       "id": 99,
       "file": "bustling_grimy_medieval_district.webp",
       "thumb": "bustling_grimy_medieval_district.jpg",
-      "mid": "bustling_grimy_medieval_district.jpg",
       "desc": "中世風の石畳の町並みを俯瞰で捉えた画像。賑やかな市場の露店と、一部に見られる荒廃した区画が混在し、人々の生活感が漂う。",
       "theme": [
         "中世"
@@ -2342,7 +2283,6 @@
       "id": 215,
       "file": "bustling_harbor_town.webp",
       "thumb": "bustling_harbor_town.jpg",
-      "mid": "bustling_harbor_town.jpg",
       "desc": "入り組んだ海岸線に沿って築かれた、活気ある日本の港町。木造の家々が密集し、多くの船が停泊する。丘へと続く曲がりくねった道が特徴的。",
       "theme": [
         "東洋",
@@ -2373,7 +2313,6 @@
       "id": 32,
       "file": "bustling_hilly_plaza.webp",
       "thumb": "bustling_hilly_plaza.jpg",
-      "mid": "bustling_hilly_plaza.jpg",
       "desc": "緑豊かな多層構造のファンタジー町並み。石畳の道や階段が巡り、色とりどりの建物と噴水、庭園が賑やかで温かい雰囲気を醸し出す。",
       "theme": [
         "中世",
@@ -2406,7 +2345,6 @@
       "id": 120,
       "file": "bustling_medieval_industrial_town.webp",
       "thumb": "bustling_medieval_industrial_town.jpg",
-      "mid": "bustling_medieval_industrial_town.jpg",
       "desc": "山々と森林に囲まれ、川が流れる中世風の活気ある町。鉱山や工業施設、市場があり、人々の営みが緻密に描かれている。",
       "theme": [
         "中世",
@@ -2439,7 +2377,6 @@
       "id": 24,
       "file": "bustling_medieval_marketplace.webp",
       "thumb": "bustling_medieval_marketplace.jpg",
-      "mid": "bustling_medieval_marketplace.jpg",
       "desc": "中世の町にある活気あふれる市場広場。石畳の広場には様々な商品を並べた露店や屋台が立ち並び、噴水と大きな木が彩りを添えている。",
       "theme": [
         "中世",
@@ -2467,7 +2404,6 @@
       "id": 219,
       "file": "bustling_medieval_marketplace_2.webp",
       "thumb": "bustling_medieval_marketplace_2.jpg",
-      "mid": "bustling_medieval_marketplace_2.jpg",
       "desc": "鳥瞰視点で描かれた活気ある中世の町。石畳の広場には噴水があり、市場の露店が並ぶ。色とりどりの屋根の家々が立ち並び、小川には石橋がかかる。",
       "theme": [
         "中世"
@@ -2497,7 +2433,6 @@
       "id": 97,
       "file": "bustling_medieval_marketplace_3.webp",
       "thumb": "bustling_medieval_marketplace_3.jpg",
-      "mid": "bustling_medieval_marketplace_3.jpg",
       "desc": "夕暮れ時、暖かな光が灯る中世の賑やかな町を俯瞰。細い路地と密集した家々が活気ある情景を織りなす。",
       "theme": [
         "中世",
@@ -2525,7 +2460,6 @@
       "id": 279,
       "file": "bustling_medieval_marketplace_4.webp",
       "thumb": "bustling_medieval_marketplace_4.jpg",
-      "mid": "bustling_medieval_marketplace_4.jpg",
       "desc": "中世の要塞都市の俯瞰マップ。石畳の通りには市場が並び、運河には船が停泊している。",
       "theme": [
         "中世",
@@ -2556,7 +2490,6 @@
       "id": 17,
       "file": "bustling_medieval_night_market.webp",
       "thumb": "bustling_medieval_night_market.jpg",
-      "mid": "bustling_medieval_night_market.jpg",
       "desc": "夜の賑やかな中世の町並み。ランタンの光が石畳の広場と露店を照らし、活気あふれる市場の様子を上空から描いている。",
       "theme": [
         "中世"
@@ -2582,7 +2515,6 @@
       "id": 9,
       "file": "bustling_night_forest_fort.webp",
       "thumb": "bustling_night_forest_fort.jpg",
-      "mid": "bustling_night_forest_fort.jpg",
       "desc": "夜の森の奥深く、川をまたぐ木製の橋と街道に設けられた関所兼要塞。物資を積んだ荷車や焚き火が見られ、交易や宿泊の拠点として活気に満ちている様子。",
       "theme": [
         "汎用",
@@ -2613,7 +2545,6 @@
       "id": 57,
       "file": "bustling_night_tavern.webp",
       "thumb": "bustling_night_tavern.jpg",
-      "mid": "bustling_night_tavern.jpg",
       "desc": "夜の町に佇む活気ある酒場の俯瞰図。温かい光が漏れる室内にはテーブルが並び、外は石畳の街道が広がる。",
       "theme": [
         "中世",
@@ -2643,7 +2574,6 @@
       "id": 107,
       "file": "bustling_oasis_market.webp",
       "thumb": "bustling_oasis_market.jpg",
-      "mid": "bustling_oasis_market.jpg",
       "desc": "広大な砂漠に点在する岩山に囲まれた、オアシスを中心とした活気ある町。キャラバンと人々で賑わう交易の拠点。",
       "theme": [
         "アラビアン"
@@ -2672,7 +2602,6 @@
       "id": 245,
       "file": "bustling_oasis_market_2.webp",
       "thumb": "bustling_oasis_market_2.jpg",
-      "mid": "bustling_oasis_market_2.jpg",
       "desc": "砂漠の中央に位置する、城壁に囲まれた活気あるオアシスの町。青いドームの建物や多くの商店が立ち並び、人々が行き交う賑やかな光景が広がる。",
       "theme": [
         "アラビアン"
@@ -2704,7 +2633,6 @@
       "id": 274,
       "file": "bustling_oasis_market_3.webp",
       "thumb": "bustling_oasis_market_3.jpg",
-      "mid": "bustling_oasis_market_3.jpg",
       "desc": "砂漠の中にそびえ立つ、堅固な城壁に囲まれた異国情緒あふれる都市。運河が流れ、ヤシの木が点在し、活気ある市場が描かれている。",
       "theme": [
         "アラビアン",
@@ -2735,7 +2663,6 @@
       "id": 297,
       "file": "bustling_oasis_market_4.webp",
       "thumb": "bustling_oasis_market_4.jpg",
-      "mid": "bustling_oasis_market_4.jpg",
       "desc": "砂漠のオアシスに栄える活気ある集落の鳥瞰図。隊商が往来する街道、賑やかな市場、そして川に架かる橋が描かれている。",
       "theme": [
         "アラビアン",
@@ -2769,7 +2696,6 @@
       "id": 112,
       "file": "bustling_old_inn.webp",
       "thumb": "bustling_old_inn.jpg",
-      "mid": "bustling_old_inn.jpg",
       "desc": "中世ファンタジー風の建物内部マップ。宿屋、酒場、執務室、寝室などがあり、活気と生活感に満ちた賑やかな雰囲気が漂う。石畳の道に面している。",
       "theme": [
         "中世",
@@ -2800,7 +2726,6 @@
       "id": 63,
       "file": "bustling_old_port_market.webp",
       "thumb": "bustling_old_port_market.jpg",
-      "mid": "bustling_old_port_market.jpg",
       "desc": "古い建物や市場の露店が並び、木製の桟橋と帆船が停泊する活気ある港町の鳥瞰図。",
       "theme": [
         "中世",
@@ -2830,7 +2755,6 @@
       "id": 222,
       "file": "bustling_oriental_inn_night.webp",
       "thumb": "bustling_oriental_inn_night.jpg",
-      "mid": "bustling_oriental_inn_night.jpg",
       "desc": "東洋風の豪華な宿屋の夜景を俯瞰で捉えたマップ。提灯の明かりが温かく、活気ある広間と個室、周囲の川や木々が詳細に描かれている。",
       "theme": [
         "東洋"
@@ -2858,7 +2782,6 @@
       "id": 288,
       "file": "bustling_otherworldly_market_ruins.webp",
       "thumb": "bustling_otherworldly_market_ruins.jpg",
-      "mid": "bustling_otherworldly_market_ruins.jpg",
       "desc": "草木に覆われた石造りの路地に幻想的な市場が広がる情景。怪しげな品々が並び、ローブ姿の人物が行き交う、神秘的で賑やかな異世界の集落。",
       "theme": [
         "南米",
@@ -2891,7 +2814,6 @@
       "id": 101,
       "file": "bustling_portside_tavern.webp",
       "thumb": "bustling_portside_tavern.jpg",
-      "mid": "bustling_portside_tavern.jpg",
       "desc": "海沿いの賑やかな酒場と港のマップ。暖炉が灯る室内には席が多く、外には桟橋と船がある。",
       "theme": [
         "中世",
@@ -2922,7 +2844,6 @@
       "id": 16,
       "file": "bustling_riverside_brewery_courtyard.webp",
       "thumb": "bustling_riverside_brewery_courtyard.jpg",
-      "mid": "bustling_riverside_brewery_courtyard.jpg",
       "desc": "川沿いに建つ、石造りのファンタジー醸造所の鳥瞰マップ。巨大な釜や樽、中庭、煙突があり、活気ある生産施設が描かれている。",
       "theme": [
         "中世",
@@ -2952,7 +2873,6 @@
       "id": 278,
       "file": "bustling_rocky_port_market.webp",
       "thumb": "bustling_rocky_port_market.jpg",
-      "mid": "bustling_rocky_port_market.jpg",
       "desc": "岩場に囲まれた海岸沿いの活気ある港町。多数の露店と停泊する船が賑わいを創り出す、冒険の始まりを感じさせる風景。",
       "theme": [
         "東洋",
@@ -2981,7 +2901,6 @@
       "id": 271,
       "file": "bustling_sakura_river_town.webp",
       "thumb": "bustling_sakura_river_town.jpg",
-      "mid": "bustling_sakura_river_town.jpg",
       "desc": "川沿いに広がる東洋風の宿場町。隊商が街道を行き交い、桜が咲き乱れる中、人々が賑わう風光明媚な情景。",
       "theme": [
         "東洋",
@@ -3014,7 +2933,6 @@
       "id": 320,
       "file": "bustling_shipwreck_cove.webp",
       "thumb": "bustling_shipwreck_cove.jpg",
-      "mid": "bustling_shipwreck_cove.jpg",
       "desc": "難破船を再利用して作られた、活気ある海岸の集落。多くの桟橋と小舟が浮かび、冒険的な雰囲気が漂う。",
       "theme": [
         "大航海時代",
@@ -3049,7 +2967,6 @@
       "id": 325,
       "file": "bustling_steampunk_canopy_falls.webp",
       "thumb": "bustling_steampunk_canopy_falls.jpg",
-      "mid": "bustling_steampunk_canopy_falls.jpg",
       "desc": "巨大な樹木と滝の中に広がる、歯車と蒸気機関が織りなすスチームパンクな樹上都市。精巧な建物と橋が複雑に絡み合う幻想的な景観。",
       "theme": [
         "スチームパンク",
@@ -3082,7 +2999,6 @@
       "id": 22,
       "file": "bustling_steampunk_city.webp",
       "thumb": "bustling_steampunk_city.jpg",
-      "mid": "bustling_steampunk_city.jpg",
       "desc": "スチームパンク様式の精緻な都市の鳥瞰図。複雑なパイプや歯車が張り巡らされ、活気ある街路には車両と人々が行き交う。",
       "theme": [
         "スチームパンク"
@@ -3110,7 +3026,6 @@
       "id": 323,
       "file": "bustling_steampunk_city_2.webp",
       "thumb": "bustling_steampunk_city_2.jpg",
-      "mid": "bustling_steampunk_city_2.jpg",
       "desc": "歯車と蒸気機関が複雑に絡み合う、スチームパンク様式の巨大都市の俯瞰図。川や橋が巡り、活気あふれる工業地帯を描く。",
       "theme": [
         "スチームパンク",
@@ -3139,7 +3054,6 @@
       "id": 301,
       "file": "bustling_stone_marketplace.webp",
       "thumb": "bustling_stone_marketplace.jpg",
-      "mid": "bustling_stone_marketplace.jpg",
       "desc": "酒場、宿屋、そして市場が一体となった石造りの建物群を上空から見たマップ。温かい光が灯り、賑やかな雰囲気が漂う。",
       "theme": [
         "中世",
@@ -3170,7 +3084,6 @@
       "id": 349,
       "file": "bustling_traditional_riverside_town.webp",
       "thumb": "bustling_traditional_riverside_town.jpg",
-      "mid": "bustling_traditional_riverside_town.jpg",
       "desc": "鳥瞰視点で描かれた、川沿いの賑やかな和風の町並み。伝統的な家屋が立ち並び、人々や馬車が行き交う。",
       "theme": [
         "東洋",
@@ -3202,7 +3115,6 @@
       "id": 203,
       "file": "bustling_traditional_town.webp",
       "thumb": "bustling_traditional_town.jpg",
-      "mid": "bustling_traditional_town.jpg",
       "desc": "伝統的な日本家屋が立ち並ぶ、鳥瞰視点の賑やかな町並み。水路には舟が浮かび、桜が彩りを添える。",
       "theme": [
         "東洋"
@@ -3230,7 +3142,6 @@
       "id": 95,
       "file": "bustling_village_square.webp",
       "thumb": "bustling_village_square.jpg",
-      "mid": "bustling_village_square.jpg",
       "desc": "噴水のある中央広場を中心に広がる、中世ののどかな村。畑や森、川に囲まれ、賑やかな生活が垣間見える鳥瞰図。",
       "theme": [
         "中世",
@@ -3262,7 +3173,6 @@
       "id": 173,
       "file": "bustling_walled_town.webp",
       "thumb": "bustling_walled_town.jpg",
-      "mid": "bustling_walled_town.jpg",
       "desc": "城壁に囲まれた、格子状に建物が並ぶ中世風の町並み。周囲には川、森、農地が広がる俯瞰マップ。",
       "theme": [
         "汎用",
@@ -3294,7 +3204,6 @@
       "id": 116,
       "file": "bustling_whimsical_patchwork_town.webp",
       "thumb": "bustling_whimsical_patchwork_town.jpg",
-      "mid": "bustling_whimsical_patchwork_town.jpg",
       "desc": "パッチワークとボタンで表現された、川と橋が巡る賑やかな町並みの俯瞰図。温かく可愛らしい、手作りのような幻想的な風景です。",
       "theme": [
         "メルヘン",
@@ -3326,7 +3235,6 @@
       "id": 217,
       "file": "candlelit_mysterious_chambers.webp",
       "thumb": "candlelit_mysterious_chambers.jpg",
-      "mid": "candlelit_mysterious_chambers.jpg",
       "desc": "キャンドルの光に照らされた、複数の部屋と階段がある石造りの建物内部マップ。書斎や応接間らしき空間があり、神秘的で重厚な雰囲気が漂う。",
       "theme": [
         "中世"
@@ -3356,7 +3264,6 @@
       "id": 64,
       "file": "candlelit_sacred_church.webp",
       "thumb": "candlelit_sacred_church.jpg",
-      "mid": "candlelit_sacred_church.jpg",
       "desc": "石造りの壁に囲まれた静かで厳かな教会内部。祭壇、長椅子、ろうそくの光が神聖な雰囲気を醸し出している。",
       "theme": [
         "中世"
@@ -3382,7 +3289,6 @@
       "id": 132,
       "file": "candlelit_sacred_church_2.webp",
       "thumb": "candlelit_sacred_church_2.jpg",
-      "mid": "candlelit_sacred_church_2.jpg",
       "desc": "キャンドルとステンドグラスの光に照らされた荘厳な教会内部の俯瞰図。祭壇と長い赤絨毯、木製の長いすが並び、神聖な静寂に包まれている。",
       "theme": [
         "中世",
@@ -3412,7 +3318,6 @@
       "id": 155,
       "file": "celestial_floating_city.webp",
       "thumb": "celestial_floating_city.jpg",
-      "mid": "celestial_floating_city.jpg",
       "desc": "宇宙に浮かぶ多数の島々が橋で繋がり、建物や緑豊かな景色が広がる幻想的な空中都市。星空とクリスタルが神秘的な雰囲気を醸し出す。",
       "theme": [
         "メルヘン",
@@ -3446,7 +3351,6 @@
       "id": 276,
       "file": "celestial_garden_sanctuary.webp",
       "thumb": "celestial_garden_sanctuary.jpg",
-      "mid": "celestial_garden_sanctuary.jpg",
       "desc": "中国神話の四神像が鎮座する壮麗な聖域。中央広場を中心に、美しい庭園と伝統的な建造物が広がる。",
       "theme": [
         "東洋"
@@ -3476,7 +3380,6 @@
       "id": 50,
       "file": "celestial_mountain_observatory.webp",
       "thumb": "celestial_mountain_observatory.jpg",
-      "mid": "celestial_mountain_observatory.jpg",
       "desc": "山頂に建つ壮麗な天文台の塔。満天の星空と流星が輝く夜、遠くの湖と山々を見下ろす神秘的で幻想的な風景。",
       "theme": [
         "中世",
@@ -3508,7 +3411,6 @@
       "id": 266,
       "file": "cloud_shrouded_sakura_temple.webp",
       "thumb": "cloud_shrouded_sakura_temple.jpg",
-      "mid": "cloud_shrouded_sakura_temple.jpg",
       "desc": "桜が咲き乱れ、滝と川が流れる幻想的な東洋風の景色。雲に囲まれた美しい庭園と集落が描かれている。",
       "theme": [
         "東洋",
@@ -3541,7 +3443,6 @@
       "id": 56,
       "file": "cozy_beach_hideout.webp",
       "thumb": "cozy_beach_hideout.jpg",
-      "mid": "cozy_beach_hideout.jpg",
       "desc": "夜の砂浜に広がる臨時の野営地。焚き火が灯り、椰子の木が茂る岩山に囲まれた隠れ家のような空間。波打ち際が穏やかに光る。",
       "theme": [
         "大航海時代",
@@ -3575,7 +3476,6 @@
       "id": 335,
       "file": "cozy_mushroom_inn.webp",
       "thumb": "cozy_mushroom_inn.jpg",
-      "mid": "cozy_mushroom_inn.jpg",
       "desc": "森の中に佇むキノコ型の宿屋を俯瞰したファンタジーマップ。バー、食堂、寝室があり、温かく居心地の良い雰囲気が漂う。",
       "theme": [
         "メルヘン",
@@ -3606,7 +3506,6 @@
       "id": 345,
       "file": "cozy_retro_train_interior.webp",
       "thumb": "cozy_retro_train_interior.jpg",
-      "mid": "cozy_retro_train_interior.jpg",
       "desc": "木製の内装と柔らかい光が特徴的な、古い客車の車内。旅情を誘う静かで落ち着いた空間です。",
       "theme": [
         "スチームパンク",
@@ -3635,7 +3534,6 @@
       "id": 125,
       "file": "cozy_winter_cabin.webp",
       "thumb": "cozy_winter_cabin.jpg",
-      "mid": "cozy_winter_cabin.jpg",
       "desc": "雪に覆われた針葉樹林の中に佇む山小屋。暖かな光が漏れる静かな冬の情景。",
       "theme": [
         "中世",
@@ -3666,7 +3564,6 @@
       "id": 82,
       "file": "creepy_night_forest_mansion.webp",
       "thumb": "creepy_night_forest_mansion.jpg",
-      "mid": "creepy_night_forest_mansion.jpg",
       "desc": "夜の森に佇む不気味な邸宅のフロアマップ。薄暗い室内は豪華さと廃れた雰囲気が混在し、血痕が危険を暗示する。",
       "theme": [
         "クトゥルフ",
@@ -3693,7 +3590,6 @@
       "id": 139,
       "file": "dark_arcane_harbor_keep.webp",
       "thumb": "dark_arcane_harbor_keep.jpg",
-      "mid": "dark_arcane_harbor_keep.jpg",
       "desc": "暗く神秘的な雰囲気の城塞マップ。魔法陣や錬金術の部屋、船着き場など、様々な要素が詰まった複雑な構造を持つ。",
       "theme": [
         "中世",
@@ -3725,7 +3621,6 @@
       "id": 200,
       "file": "dark_crypt_waterways.webp",
       "thumb": "dark_crypt_waterways.jpg",
-      "mid": "dark_crypt_waterways.jpg",
       "desc": "提灯の灯りが仄かに照らす、石造りの通路と天然の洞窟が入り組んだ地下ダンジョンマップ。水路や埋葬室、中央の広間が探索者を待ち受ける。",
       "theme": [
         "汎用",
@@ -3756,7 +3651,6 @@
       "id": 332,
       "file": "dark_glowing_forest.webp",
       "thumb": "dark_glowing_forest.jpg",
-      "mid": "dark_glowing_forest.jpg",
       "desc": "根が絡み合う暗い森の奥、中央には巨大な古木がそびえ、光る植物が不気味な雰囲気を醸し出す。",
       "theme": [
         "汎用",
@@ -3788,7 +3682,6 @@
       "id": 60,
       "file": "dark_graveyard_ruins.webp",
       "thumb": "dark_graveyard_ruins.jpg",
-      "mid": "dark_graveyard_ruins.jpg",
       "desc": "暗闇に包まれた広大な墓地。無数の墓石、古い廟、そして石畳の道がランタンの微かな光に照らされ、不気味で静寂な雰囲気を醸し出している。",
       "theme": [
         "中世",
@@ -3818,7 +3711,6 @@
       "id": 313,
       "file": "dark_lava_citadel.webp",
       "thumb": "dark_lava_citadel.jpg",
-      "mid": "dark_lava_citadel.jpg",
       "desc": "溶岩に囲まれた巨大な城塞都市。炎と暗闇に包まれ、不気味な尖塔がそびえ立つ、魔界の風景。",
       "theme": [
         "中世",
@@ -3850,7 +3742,6 @@
       "id": 77,
       "file": "decaying_village_ruins.webp",
       "thumb": "decaying_village_ruins.jpg",
-      "mid": "decaying_village_ruins.jpg",
       "desc": "廃墟と化した村の鳥瞰図。崩れかけた木造の家屋が立ち並び、荒れた石畳の道を数人の人々が往来する、退廃的な光景。",
       "theme": [
         "中世",
@@ -3879,7 +3770,6 @@
       "id": 94,
       "file": "desolate_bone_fort.webp",
       "thumb": "desolate_bone_fort.jpg",
-      "mid": "desolate_bone_fort.jpg",
       "desc": "骨と木材で築かれた無骨な集落の俯瞰図。荒涼とした土地に建てられ、中央には大きなテントがあり、周囲には無数のとがった防御施設が点在する。薄暗く危険な雰囲気が漂う。",
       "theme": [
         "ダークファンタジー",
@@ -3912,7 +3802,6 @@
       "id": 175,
       "file": "desolate_golden_dunes.webp",
       "thumb": "desolate_golden_dunes.jpg",
-      "mid": "desolate_golden_dunes.jpg",
       "desc": "金色の砂丘が広がる荒涼とした砂漠の空撮。風に舞う砂と点在する岩が、壮大な自然の景観を作り出している。",
       "theme": [
         "アラビアン",
@@ -3944,7 +3833,6 @@
       "id": 243,
       "file": "desolate_misty_cliffs_ruins.webp",
       "thumb": "desolate_misty_cliffs_ruins.jpg",
-      "mid": "desolate_misty_cliffs_ruins.jpg",
       "desc": "霧に包まれた広大な岩場の断崖に、草地と朽ちた廃墟が点在する荒涼とした高所の戦場マップ。",
       "theme": [
         "汎用",
@@ -3976,7 +3864,6 @@
       "id": 259,
       "file": "dim_bustling_emporium.webp",
       "thumb": "dim_bustling_emporium.jpg",
-      "mid": "dim_bustling_emporium.jpg",
       "desc": "薄暗い照明が雰囲気を作る、ファンタジー世界の複数部屋からなる商店マップ。様々な商品が並び、活気と生活感が漂う。",
       "theme": [
         "中世",
@@ -4007,7 +3894,6 @@
       "id": 242,
       "file": "dusky_bustling_stilt_village.webp",
       "thumb": "dusky_bustling_stilt_village.jpg",
-      "mid": "dusky_bustling_stilt_village.jpg",
       "desc": "提灯の明かりが灯る薄暗い水上集落の俯瞰図。木造の家々が密集し、複雑な水路と木道が入り組んでいる。水上にはいくつかの船が停泊しており、生活感が感じられる。",
       "theme": [
         "東洋",
@@ -4036,7 +3922,6 @@
       "id": 223,
       "file": "eastern_mountain_fortress.webp",
       "thumb": "eastern_mountain_fortress.jpg",
-      "mid": "eastern_mountain_fortress.jpg",
       "desc": "東洋風の八角形の城壁に囲まれた砦。山間の川沿いに位置し、内部には複数の建物や施設が見える。堅牢で歴史的な雰囲気を持つ戦略的な場所。",
       "theme": [
         "東洋"
@@ -4066,7 +3951,6 @@
       "id": 96,
       "file": "eerie_abyssal_village.webp",
       "thumb": "eerie_abyssal_village.jpg",
-      "mid": "eerie_abyssal_village.jpg",
       "desc": "巨大な深淵の縁に築かれた村。多くの家屋と採掘施設が不気味な穴を取り囲む、危険と神秘に満ちた風景。",
       "theme": [
         "中世",
@@ -4099,7 +3983,6 @@
       "id": 129,
       "file": "eerie_bustling_district.webp",
       "thumb": "eerie_bustling_district.jpg",
-      "mid": "eerie_bustling_district.jpg",
       "desc": "夜の石畳の通りに古い建物が建ち並び、人々が行き交う薄暗い歓楽街の風景。提灯の光が妖しげな雰囲気を醸し出す。",
       "theme": [
         "中世",
@@ -4126,7 +4009,6 @@
       "id": 6,
       "file": "eerie_cracked_wasteland.webp",
       "thumb": "eerie_cracked_wasteland.jpg",
-      "mid": "eerie_cracked_wasteland.jpg",
       "desc": "ひび割れた乾燥した大地に尖った岩や枯れ木が点在する、荒涼とした不毛の風景。",
       "theme": [
         "汎用",
@@ -4157,7 +4039,6 @@
       "id": 134,
       "file": "eerie_dark_sea_ships.webp",
       "thumb": "eerie_dark_sea_ships.jpg",
-      "mid": "eerie_dark_sea_ships.jpg",
       "desc": "暗い海に浮かぶ二隻の廃船の俯瞰マップ。船上や船内は詳細に描かれ、触手のようなものが周囲の海や一方の船の船底に見え、不気味で危険な雰囲気を醸し出している。",
       "theme": [
         "大航海時代",
@@ -4188,7 +4069,6 @@
       "id": 13,
       "file": "eerie_dungeon_complex.webp",
       "thumb": "eerie_dungeon_complex.jpg",
-      "mid": "eerie_dungeon_complex.jpg",
       "desc": "松明の光に照らされた石造りの複雑なダンジョンマップ。宝物、水場、牢屋、そして不気味な魔法陣のある部屋が見られます。",
       "theme": [
         "汎用",
@@ -4219,7 +4099,6 @@
       "id": 158,
       "file": "eerie_floating_ruins.webp",
       "thumb": "eerie_floating_ruins.jpg",
-      "mid": "eerie_floating_ruins.jpg",
       "desc": "古代の遺跡が浮遊し、紫の光が不気味に輝く複雑なダンジョン。崩壊した構造物が無限に広がる異空間。",
       "theme": [
         "中世",
@@ -4248,7 +4127,6 @@
       "id": 172,
       "file": "eerie_foggy_harbor.webp",
       "thumb": "eerie_foggy_harbor.jpg",
-      "mid": "eerie_foggy_harbor.jpg",
       "desc": "濃い霧に覆われた薄暗い港町の鳥瞰図。石畳の通りと古い建物が並び、街灯が仄かに照らす不気味で神秘的な夜の情景。",
       "theme": [
         "中世",
@@ -4278,7 +4156,6 @@
       "id": 133,
       "file": "eerie_foggy_port_village.webp",
       "thumb": "eerie_foggy_port_village.jpg",
-      "mid": "eerie_foggy_port_village.jpg",
       "desc": "霧に包まれた中世ファンタジー風の村の俯瞰図。中心には井戸、周りには家々が並び、教会や水車、小さな港も見える。灯りが暖かく輝く静かな夜景。",
       "theme": [
         "中世"
@@ -4310,7 +4187,6 @@
       "id": 106,
       "file": "eerie_foggy_ruined_village.webp",
       "thumb": "eerie_foggy_ruined_village.jpg",
-      "mid": "eerie_foggy_ruined_village.jpg",
       "desc": "霧に包まれた森の中に、朽ちかけた家屋や小屋が点在する廃村。泥濘んだ小道が広がり、荒涼とした不気味な雰囲気が漂う。",
       "theme": [
         "中世",
@@ -4341,7 +4217,6 @@
       "id": 87,
       "file": "eerie_gargoyle_chamber.webp",
       "thumb": "eerie_gargoyle_chamber.jpg",
-      "mid": "eerie_gargoyle_chamber.jpg",
       "desc": "薄暗い八角形の石造りの部屋で、中央に巨大なガーゴイル像が鎮座している。ろうそくの光が壁や柱を照らし、神秘的で不気味な雰囲気を醸し出している。",
       "theme": [
         "中世",
@@ -4368,7 +4243,6 @@
       "id": 25,
       "file": "eerie_lakeside_manor_grounds.webp",
       "thumb": "eerie_lakeside_manor_grounds.jpg",
-      "mid": "eerie_lakeside_manor_grounds.jpg",
       "desc": "夜の闇に包まれた、湖畔に建つ広大な邸宅の俯瞰図。薄暗い室内には様々な部屋があり、周囲には荒れた庭園と小道が広がっている。",
       "theme": [
         "中世",
@@ -4400,7 +4274,6 @@
       "id": 21,
       "file": "eerie_lantern_graveyard.webp",
       "thumb": "eerie_lantern_graveyard.jpg",
-      "mid": "eerie_lantern_graveyard.jpg",
       "desc": "上空から見た、夜の古びた墓地。多数の墓石、霊廟、暗い小道がランタンの光で不気味に照らされている。",
       "theme": [
         "中世",
@@ -4432,7 +4305,6 @@
       "id": 184,
       "file": "eerie_mansion_chambers.webp",
       "thumb": "eerie_mansion_chambers.jpg",
-      "mid": "eerie_mansion_chambers.jpg",
       "desc": "暗い照明の古い屋敷の俯瞰マップ。ビリヤード台、食堂、寝室、書斎など豪華な部屋が多数あり、不気味で静寂な雰囲気が漂う。",
       "theme": [
         "クトゥルフ",
@@ -4462,7 +4334,6 @@
       "id": 151,
       "file": "eerie_misty_temple_hall.webp",
       "thumb": "eerie_misty_temple_hall.jpg",
-      "mid": "eerie_misty_temple_hall.jpg",
       "desc": "暗く霞がかった石造りの広間。多数の像が並び、薄明かりが神秘的で不気味な雰囲気のダンジョンマップ。",
       "theme": [
         "中世",
@@ -4493,7 +4364,6 @@
       "id": 359,
       "file": "eerie_shoji_corridor.webp",
       "thumb": "eerie_shoji_corridor.jpg",
-      "mid": "eerie_shoji_corridor.jpg",
       "desc": "障子と行灯が並び、無限に続く和風の廊下。静寂で神秘的ながらも、どこか不穏な印象を与える幾何学的な空間。",
       "theme": [
         "東洋",
@@ -4523,7 +4393,6 @@
       "id": 236,
       "file": "eerie_spiral_nest.webp",
       "thumb": "eerie_spiral_nest.jpg",
-      "mid": "eerie_spiral_nest.jpg",
       "desc": "巨大な螺旋状の穴が広がる乾燥した砂地。無数の蟻と小さな骨が散らばり、不気味で危険な地下世界への入り口を感じさせる。",
       "theme": [
         "汎用",
@@ -4555,7 +4424,6 @@
       "id": 367,
       "file": "eerie_tatami_labyrinth.webp",
       "thumb": "eerie_tatami_labyrinth.jpg",
-      "mid": "eerie_tatami_labyrinth.jpg",
       "desc": "無限に続く日本の伝統的な室内空間。畳と障子、木製の構造が繰り返され、提灯の光が神秘的で不気味な雰囲気を醸し出している。",
       "theme": [
         "東洋",
@@ -4583,7 +4451,6 @@
       "id": 318,
       "file": "eerie_twisted_path.webp",
       "thumb": "eerie_twisted_path.jpg",
-      "mid": "eerie_twisted_path.jpg",
       "desc": "ねじれた木々が立ち並び、怪しく光る目が潜む、暗く不気味な森の道。幻想的で危険な雰囲気。",
       "theme": [
         "汎用",
@@ -4617,7 +4484,6 @@
       "id": 108,
       "file": "eerie_underground_prison.webp",
       "thumb": "eerie_underground_prison.jpg",
-      "mid": "eerie_underground_prison.jpg",
       "desc": "薄暗い石造りの地下ダンジョンマップ。中央に通路、両側に部屋が並び、たいまつの光が不気味に照らす。ベッドや樽、骸骨があり、牢獄や隠された場所を思わせる。",
       "theme": [
         "汎用",
@@ -4646,7 +4512,6 @@
       "id": 135,
       "file": "eerie_village_graveyard.webp",
       "thumb": "eerie_village_graveyard.jpg",
-      "mid": "eerie_village_graveyard.jpg",
       "desc": "霧に包まれた夜の村の俯瞰図。古い家々が立ち並び、曲がりくねった道が川沿いに続く。不気味で静寂な雰囲気が漂う。",
       "theme": [
         "中世",
@@ -4681,7 +4546,6 @@
       "id": 152,
       "file": "eerie_well_shack.webp",
       "thumb": "eerie_well_shack.jpg",
-      "mid": "eerie_well_shack.jpg",
       "desc": "荒廃した廃屋の俯瞰図。崩れた屋根や壁、散乱した家具が荒涼とした雰囲気を醸し出し、不気味な静寂に包まれている。",
       "theme": [
         "中世",
@@ -4714,7 +4578,6 @@
       "id": 346,
       "file": "enchanted_blossom_garden.webp",
       "thumb": "enchanted_blossom_garden.jpg",
-      "mid": "enchanted_blossom_garden.jpg",
       "desc": "桜が咲き誇る美しい日本庭園。池には鯉が泳ぎ、小川や滝、石畳の道が巡る。伝統的な建物や亭も点在し、静かで雅やかな風景。",
       "theme": [
         "東洋",
@@ -4748,7 +4611,6 @@
       "id": 90,
       "file": "enchanted_canal_town.webp",
       "thumb": "enchanted_canal_town.jpg",
-      "mid": "enchanted_canal_town.jpg",
       "desc": "運河と橋で繋がれた島々に広がる美しい町。緑豊かな自然と調和した、幻想的で穏やかな風景。",
       "theme": [
         "中世",
@@ -4780,7 +4642,6 @@
       "id": 232,
       "file": "enchanted_crystal_dungeon.webp",
       "thumb": "enchanted_crystal_dungeon.jpg",
-      "mid": "enchanted_crystal_dungeon.jpg",
       "desc": "鮮やかな光を放つ巨大な結晶が点在する地下洞窟。水路、滝、複雑な通路が神秘的な雰囲気を醸し出し、冒険の舞台に最適。",
       "theme": [
         "汎用",
@@ -4813,7 +4674,6 @@
       "id": 171,
       "file": "enchanted_crystal_grove.webp",
       "thumb": "enchanted_crystal_grove.jpg",
-      "mid": "enchanted_crystal_grove.jpg",
       "desc": "輝く水晶が点在し、神秘的な小川と滝が流れる幻想的な森の俯瞰図。魔法に満ちた静寂な聖域。",
       "theme": [
         "ファンタジー",
@@ -4844,7 +4704,6 @@
       "id": 228,
       "file": "enchanted_farm_village.webp",
       "thumb": "enchanted_farm_village.jpg",
-      "mid": "enchanted_farm_village.jpg",
       "desc": "緑豊かな自然の中に、複数の家屋や畑、水田が点在するのどかな農村の俯瞰図。川や滝、大きな木が特徴的で、幻想的な雰囲気のイラスト。",
       "theme": [
         "東洋"
@@ -4873,7 +4732,6 @@
       "id": 214,
       "file": "enchanted_floating_shrine.webp",
       "thumb": "enchanted_floating_shrine.jpg",
-      "mid": "enchanted_floating_shrine.jpg",
       "desc": "水面に浮かぶ小島に石造りの美しい聖堂が建つ幻想的な風景。花々が咲き乱れ、穏やかな水辺に小舟が漂う。",
       "theme": [
         "中世",
@@ -4906,7 +4764,6 @@
       "id": 310,
       "file": "enchanted_forest_inn.webp",
       "thumb": "enchanted_forest_inn.jpg",
-      "mid": "enchanted_forest_inn.jpg",
       "desc": "森の中に佇む、緑に囲まれた豪華な宿屋の俯瞰マップ。温かい光が灯り、複雑な木製の建築と植物が調和した幻想的な空間。",
       "theme": [
         "汎用",
@@ -4937,7 +4794,6 @@
       "id": 65,
       "file": "enchanted_forest_village.webp",
       "thumb": "enchanted_forest_village.jpg",
-      "mid": "enchanted_forest_village.jpg",
       "desc": "森と川に囲まれた円形の幻想的な村の鳥瞰図。色鮮やかな丸屋根の家々、中央の噴水、そして滝が見える。",
       "theme": [
         "メルヘン",
@@ -4969,7 +4825,6 @@
       "id": 309,
       "file": "enchanted_mushroom_village_path.webp",
       "thumb": "enchanted_mushroom_village_path.jpg",
-      "mid": "enchanted_mushroom_village_path.jpg",
       "desc": "巨大なキノコの家々が点在し、小川と花々に囲まれた幻想的な森の小道。神秘的な冒険の舞台。",
       "theme": [
         "メルヘン",
@@ -5004,7 +4859,6 @@
       "id": 11,
       "file": "enchanted_night_plaza.webp",
       "thumb": "enchanted_night_plaza.jpg",
-      "mid": "enchanted_night_plaza.jpg",
       "desc": "夜のファンタジーの町並みを鳥瞰した画像。建物から漏れる温かい光と、輝く花々が石畳の道を照らし、神秘的で賑やかな雰囲気を醸し出している。",
       "theme": [
         "中世",
@@ -5034,7 +4888,6 @@
       "id": 362,
       "file": "enchanted_riverside_forest_lodge.webp",
       "thumb": "enchanted_riverside_forest_lodge.jpg",
-      "mid": "enchanted_riverside_forest_lodge.jpg",
       "desc": "鬱蒼とした森と渓流に囲まれた、暖かな光が灯る多層構造の幻想的な宿屋またはレストランの俯瞰図。",
       "theme": [
         "中世",
@@ -5067,7 +4920,6 @@
       "id": 166,
       "file": "enchanted_root_home.webp",
       "thumb": "enchanted_root_home.jpg",
-      "mid": "enchanted_root_home.jpg",
       "desc": "巨大な木の根の中に作られた、ファンタジーな住居の俯瞰図。温かい光が灯り、寝室や書斎、台所など複数の部屋が見える。",
       "theme": [
         "中世",
@@ -5099,7 +4951,6 @@
       "id": 342,
       "file": "enchanted_wisteria_grove.webp",
       "thumb": "enchanted_wisteria_grove.jpg",
-      "mid": "enchanted_wisteria_grove.jpg",
       "desc": "藤の花が咲き誇る古木と、花びらが舞い散る静かで幻想的な森の広場。穏やかな光が差し込み、神秘的な雰囲気が漂う。",
       "theme": [
         "東洋",
@@ -5134,7 +4985,6 @@
       "id": 273,
       "file": "ethereal_floating_haven.webp",
       "thumb": "ethereal_floating_haven.jpg",
-      "mid": "ethereal_floating_haven.jpg",
       "desc": "雲海に浮かぶ巨大な浮島。東洋風の楼閣や美しい庭園、池、滝が配され、神秘的で幻想的な仙境の風景が広がる。",
       "theme": [
         "東洋",
@@ -5167,7 +5017,6 @@
       "id": 269,
       "file": "exotic_desert_marketplace.webp",
       "thumb": "exotic_desert_marketplace.jpg",
-      "mid": "exotic_desert_marketplace.jpg",
       "desc": "砂漠の真ん中にある、壮大な城壁に囲まれた異国情緒あふれる都市。活気ある市場や美しい建築物が特徴で、水路が流れ、オアシスのように緑が点在する。",
       "theme": [
         "アラビアン"
@@ -5198,7 +5047,6 @@
       "id": 250,
       "file": "exotic_grand_plaza.webp",
       "thumb": "exotic_grand_plaza.jpg",
-      "mid": "exotic_grand_plaza.jpg",
       "desc": "豪華なモザイクとドームが特徴の、異国情緒あふれる壮麗な広場の俯瞰図。噴水や市場の屋台、豊かな植物が配され、活気と神秘性が漂う。",
       "theme": [
         "アラビアン"
@@ -5227,7 +5075,6 @@
       "id": 292,
       "file": "exotic_inn_courtyard.webp",
       "thumb": "exotic_inn_courtyard.jpg",
-      "mid": "exotic_inn_courtyard.jpg",
       "desc": "豪華な装飾と温かい光に包まれた、中庭のある宿屋または邸宅の俯瞰図。ダイニングエリアと厨房が描かれ、異国情緒あふれる空間。",
       "theme": [
         "アラビアン",
@@ -5256,7 +5103,6 @@
       "id": 291,
       "file": "exotic_library_courtyard.webp",
       "thumb": "exotic_library_courtyard.jpg",
-      "mid": "exotic_library_courtyard.jpg",
       "desc": "上空から見下ろした、中央に中庭と噴水がある異国情緒あふれる壮麗な建築物。多くの部屋には書物や机が並び、学術施設や宮殿の一部を思わせる。",
       "theme": [
         "アラビアン"
@@ -5286,7 +5132,6 @@
       "id": 287,
       "file": "exotic_night_market.webp",
       "thumb": "exotic_night_market.jpg",
-      "mid": "exotic_night_market.jpg",
       "desc": "夜の異国情緒あふれる市場。色とりどりの提灯と明かりが石畳の広場を照らし、賑やかで幻想的な雰囲気を醸し出している。多くの露店が立ち並ぶ。",
       "theme": [
         "アラビアン"
@@ -5314,7 +5159,6 @@
       "id": 256,
       "file": "exotic_palace_courtyard.webp",
       "thumb": "exotic_palace_courtyard.jpg",
-      "mid": "exotic_palace_courtyard.jpg",
       "desc": "豪華な装飾が施された、異国情緒あふれる美しい宮殿の中庭。中央の噴水と青いドームが特徴的で、豊かな緑と水辺が静謐な雰囲気を作り出している。",
       "theme": [
         "アラビアン",
@@ -5345,7 +5189,6 @@
       "id": 207,
       "file": "exotic_treasure_bazaar.webp",
       "thumb": "exotic_treasure_bazaar.jpg",
-      "mid": "exotic_treasure_bazaar.jpg",
       "desc": "無数の煌びやかなランプと豪華な装飾品が並ぶ、異国情緒あふれる室内。温かい神秘的な光が満ち、宝物庫のような商店の俯瞰図。",
       "theme": [
         "アラビアン",
@@ -5370,7 +5213,6 @@
       "id": 281,
       "file": "exotic_tropical_port.webp",
       "thumb": "exotic_tropical_port.jpg",
-      "mid": "exotic_tropical_port.jpg",
       "desc": "青いドームが目を引く、異国情緒漂う賑やかな沿岸都市。白い建物とヤシの木、停泊する船が美しい景観を織りなす。",
       "theme": [
         "アラビアン",
@@ -5402,7 +5244,6 @@
       "id": 36,
       "file": "fantastical_bridge_city.webp",
       "thumb": "fantastical_bridge_city.jpg",
-      "mid": "fantastical_bridge_city.jpg",
       "desc": "巨大な川に架かる無数の橋の上に広がる、壮麗な都市の鳥瞰図。周囲には豊かな緑と農地が広がる幻想的な風景。",
       "theme": [
         "中世",
@@ -5432,7 +5273,6 @@
       "id": 91,
       "file": "fantastical_dragon_ruins.webp",
       "thumb": "fantastical_dragon_ruins.jpg",
-      "mid": "fantastical_dragon_ruins.jpg",
       "desc": "巨大な竜の骨格に囲まれた幻想的な町。色鮮やかな家々が立ち並び、神秘的な輝きを放つクリスタルや水路が冒険的な雰囲気を醸し出す。",
       "theme": [
         "中世",
@@ -5465,7 +5305,6 @@
       "id": 104,
       "file": "festive_castle_hall.webp",
       "thumb": "festive_castle_hall.jpg",
-      "mid": "festive_castle_hall.jpg",
       "desc": "豪華な城の宴会場で、多くのテーブルに料理が並べられ、祝祭的な雰囲気が漂う壮大な広間の俯瞰図。",
       "theme": [
         "中世"
@@ -5491,7 +5330,6 @@
       "id": 126,
       "file": "firelit_forest_camp.webp",
       "thumb": "firelit_forest_camp.jpg",
-      "mid": "firelit_forest_camp.jpg",
       "desc": "夜の深い森、川のほとりに設けられた野営地の俯瞰図。焚き火とランタンの光が暗闇を照らし、静かで冒険的な雰囲気が漂う。",
       "theme": [
         "汎用",
@@ -5524,7 +5362,6 @@
       "id": 192,
       "file": "floating_sakura_shrine.webp",
       "thumb": "floating_sakura_shrine.jpg",
-      "mid": "floating_sakura_shrine.jpg",
       "desc": "桜が咲き誇る、雲海に浮かぶ神秘的な和風庭園。滝や池、複数の社殿が点在し、幻想的で神聖な風景が広がる。",
       "theme": [
         "東洋"
@@ -5556,7 +5393,6 @@
       "id": 35,
       "file": "floating_whale_village.webp",
       "thumb": "floating_whale_village.jpg",
-      "mid": "floating_whale_village.jpg",
       "desc": "巨大な空飛ぶクジラの背中に広がる村が、雲の海を航行する幻想的な情景。飛行船が停泊し、滝が流れ落ちる。",
       "theme": [
         "中世",
@@ -5589,7 +5425,6 @@
       "id": 71,
       "file": "flowery_canal_plaza.webp",
       "thumb": "flowery_canal_plaza.jpg",
-      "mid": "flowery_canal_plaza.jpg",
       "desc": "運河が流れ、花々に彩られた美しいファンタジー世界の町。石畳の広場には噴水があり、穏やかで華やかな雰囲気が漂う。",
       "theme": [
         "メルヘン",
@@ -5621,7 +5456,6 @@
       "id": 188,
       "file": "forgotten_forest_ruins.webp",
       "thumb": "forgotten_forest_ruins.jpg",
-      "mid": "forgotten_forest_ruins.jpg",
       "desc": "鬱蒼とした森の中に崩れた遺跡が点在し、小道と小川が交差する冒険マップ。荷車や古い石柱も見え、探索心をくすぐる。",
       "theme": [
         "汎用",
@@ -5654,7 +5488,6 @@
       "id": 72,
       "file": "fortified_forest_village.webp",
       "thumb": "fortified_forest_village.jpg",
-      "mid": "fortified_forest_village.jpg",
       "desc": "鬱蒼とした森に囲まれた、丸い木製の柵で防御された素朴な村の俯瞰図。いくつかの木造の家屋と見張り台が見える。",
       "theme": [
         "中世",
@@ -5683,7 +5516,6 @@
       "id": 58,
       "file": "fortified_hilltop_village.webp",
       "thumb": "fortified_hilltop_village.jpg",
-      "mid": "fortified_hilltop_village.jpg",
       "desc": "丘の頂上に木製の柵で囲まれた要塞化された村の空撮。多くの木造家屋が並び、周囲は岩肌と草地に覆われている。",
       "theme": [
         "汎用",
@@ -5715,7 +5547,6 @@
       "id": 147,
       "file": "frozen_cabin_path.webp",
       "thumb": "frozen_cabin_path.jpg",
-      "mid": "frozen_cabin_path.jpg",
       "desc": "雪に覆われた山岳地帯に佇む、木造の小屋と石畳の小道。静寂な冬の景色が広がる。",
       "theme": [
         "北欧",
@@ -5746,7 +5577,6 @@
       "id": 80,
       "file": "frozen_coastal_citadel.webp",
       "thumb": "frozen_coastal_citadel.jpg",
-      "mid": "frozen_coastal_citadel.jpg",
       "desc": "雪と氷に覆われた断崖絶壁に建つ壮大な要塞の空撮。荒れた冬の海に面し、孤独で厳しい雰囲気を漂わせる。",
       "theme": [
         "中世",
@@ -5778,7 +5608,6 @@
       "id": 179,
       "file": "glimmering_coral_city.webp",
       "thumb": "glimmering_coral_city.jpg",
-      "mid": "glimmering_coral_city.jpg",
       "desc": "光が差し込む神秘的な海底に広がる幻想的な水中都市。貝殻やサンゴで飾られた建物と豊かな海藻が織りなす壮麗な風景。",
       "theme": [
         "メルヘン",
@@ -5809,7 +5638,6 @@
       "id": 154,
       "file": "gloomy_pirate_decks.webp",
       "thumb": "gloomy_pirate_decks.jpg",
-      "mid": "gloomy_pirate_decks.jpg",
       "desc": "海賊船「黒鷲号」の複数デッキ構造を俯瞰で描いた詳細なマップ。甲板、居住区、貨物室が示され、大砲や操舵室、船室、監獄などが記されている。",
       "theme": [
         "大航海時代",
@@ -5835,7 +5663,6 @@
       "id": 127,
       "file": "gloomy_stone_labyrinth.webp",
       "thumb": "gloomy_stone_labyrinth.jpg",
-      "mid": "gloomy_stone_labyrinth.jpg",
       "desc": "松明の光が灯る、岩と石造りの入り組んだ地下迷宮。多数の部屋、水路、階段があり、冒険心を掻き立てる雰囲気のマップ。",
       "theme": [
         "汎用",
@@ -5863,7 +5690,6 @@
       "id": 351,
       "file": "glowing_blossom_canal_town.webp",
       "thumb": "glowing_blossom_canal_town.jpg",
-      "mid": "glowing_blossom_canal_town.jpg",
       "desc": "夜桜と灯りに彩られた運河沿いの美しい町並み。飛行船やレトロな建物が幻想的な雰囲気を醸し出す。",
       "theme": [
         "スチームパンク",
@@ -5898,7 +5724,6 @@
       "id": 319,
       "file": "glowing_root_dungeon.webp",
       "thumb": "glowing_root_dungeon.jpg",
-      "mid": "glowing_root_dungeon.jpg",
       "desc": "巨大な樹木の根と幹に築かれた、複雑な構造を持つ幻想的なマップ。光り輝く魔法の空間や滝が点在し、冒険心を刺激する。",
       "theme": [
         "汎用",
@@ -5932,7 +5757,6 @@
       "id": 164,
       "file": "glowing_swamp_path.webp",
       "thumb": "glowing_swamp_path.jpg",
-      "mid": "glowing_swamp_path.jpg",
       "desc": "幻想的な光を放つ植物やクリスタルが点在する、神秘的な沼地。木製の小道が入り組んでおり、魔法に満ちた異世界の風景を描写しています。",
       "theme": [
         "メルヘン",
@@ -5965,7 +5789,6 @@
       "id": 123,
       "file": "glowing_wetland_pathways.webp",
       "thumb": "glowing_wetland_pathways.jpg",
-      "mid": "glowing_wetland_pathways.jpg",
       "desc": "幻想的な光を放つ花や魔力の結晶が輝く神秘的な湿地。木道や橋が張り巡らされ、美しい景色が広がる。",
       "theme": [
         "ファンタジー",
@@ -5998,7 +5821,6 @@
       "id": 76,
       "file": "golden_harvest_fields.webp",
       "thumb": "golden_harvest_fields.jpg",
-      "mid": "golden_harvest_fields.jpg",
       "desc": "黄金色の麦畑が広がる、のどかで明るい農村風景。小道と木製の柵が巡り、収穫期の豊かな雰囲気を醸し出しています。",
       "theme": [
         "汎用",
@@ -6029,7 +5851,6 @@
       "id": 224,
       "file": "grand_bloody_arena.webp",
       "thumb": "grand_bloody_arena.jpg",
-      "mid": "grand_bloody_arena.jpg",
       "desc": "上空から見た古代の闘技場。砂地のフロアには血痕が残り、壮大な石造りの観客席が囲む。緊張感あふれる戦闘の舞台。",
       "theme": [
         "古代",
@@ -6057,7 +5878,6 @@
       "id": 176,
       "file": "grand_bustling_river_city.webp",
       "thumb": "grand_bustling_river_city.jpg",
-      "mid": "grand_bustling_river_city.jpg",
       "desc": "川と森、畑に囲まれた円形のファンタジー都市を上空から見た俯瞰図。中心には壮麗な建物があり、賑やかで平和な雰囲気が感じられる。",
       "theme": [
         "中世",
@@ -6090,7 +5910,6 @@
       "id": 204,
       "file": "grand_castle_ballroom.webp",
       "thumb": "grand_castle_ballroom.jpg",
-      "mid": "grand_castle_ballroom.jpg",
       "desc": "豪華な装飾が施された広々とした舞踏会場を上から見た画像。大理石の床には美しい模様があり、温かい照明が全体を照らしている。階段、舞台、多数のテーブルが配置されている。",
       "theme": [
         "中世",
@@ -6118,7 +5937,6 @@
       "id": 93,
       "file": "grand_cathedral_gardens.webp",
       "thumb": "grand_cathedral_gardens.jpg",
-      "mid": "grand_cathedral_gardens.jpg",
       "desc": "美しい青い屋根の大聖堂と、噴水や庭園が整備された広場が広がる、壮麗なファンタジー都市の鳥瞰図。",
       "theme": [
         "中世",
@@ -6149,7 +5967,6 @@
       "id": 124,
       "file": "grand_dark_chasm_ruins.webp",
       "thumb": "grand_dark_chasm_ruins.jpg",
-      "mid": "grand_dark_chasm_ruins.jpg",
       "desc": "巨大な縦穴の壁面に無数の建物がへばりつくように建設された、壮大で荒廃した都市の全景。底知れない闇が広がる。",
       "theme": [
         "中世",
@@ -6183,7 +6000,6 @@
       "id": 74,
       "file": "grand_fantasy_tower_city.webp",
       "thumb": "grand_fantasy_tower_city.jpg",
-      "mid": "grand_fantasy_tower_city.jpg",
       "desc": "巨大な塔を中心に広がる、賑やかで活気に満ちたファンタジーの町を俯瞰で捉えた画像。川や港、市場が見どころ。",
       "theme": [
         "中世",
@@ -6216,7 +6032,6 @@
       "id": 4,
       "file": "grand_fortress_canal_city.webp",
       "thumb": "grand_fortress_canal_city.jpg",
-      "mid": "grand_fortress_canal_city.jpg",
       "desc": "壮麗な城塞都市の俯瞰図。広大な庭園、運河、そして多様な建物が精緻に描かれた、活気あるファンタジーの世界。",
       "theme": [
         "中世",
@@ -6247,7 +6062,6 @@
       "id": 68,
       "file": "grand_glacial_citadel.webp",
       "thumb": "grand_glacial_citadel.jpg",
-      "mid": "grand_glacial_citadel.jpg",
       "desc": "氷に囲まれた孤島に築かれた、青い氷と石でできた壮大な城塞都市。厳寒のファンタジー世界観が特徴的。",
       "theme": [
         "中世",
@@ -6278,7 +6092,6 @@
       "id": 105,
       "file": "grand_gothic_library.webp",
       "thumb": "grand_gothic_library.jpg",
-      "mid": "grand_gothic_library.jpg",
       "desc": "ゴシック様式の壮大な多層図書館。螺旋階段と多数の書棚があり、暖かな光に包まれた静かで知的な空間が広がっている。",
       "theme": [
         "中世",
@@ -6306,7 +6119,6 @@
       "id": 255,
       "file": "grand_guild_plaza.webp",
       "thumb": "grand_guild_plaza.jpg",
-      "mid": "grand_guild_plaza.jpg",
       "desc": "中世ファンタジー風の二つの荘厳な建物が並ぶ俯瞰図。左は武器庫、右は紋章が飾られた広間。石畳の広場と緑に囲まれた、重厚で歴史を感じさせる景観。",
       "theme": [
         "中世"
@@ -6336,7 +6148,6 @@
       "id": 150,
       "file": "grand_mechanical_sand_ship.webp",
       "thumb": "grand_mechanical_sand_ship.jpg",
-      "mid": "grand_mechanical_sand_ship.jpg",
       "desc": "広大な砂漠を航行する巨大な砂上船の全体図。甲板や居住区、機関室などの詳細な内部構造が描かれ、冒険的な雰囲気を醸し出している。",
       "theme": [
         "スチームパンク",
@@ -6364,7 +6175,6 @@
       "id": 211,
       "file": "grand_mystical_courtyard.webp",
       "thumb": "grand_mystical_courtyard.jpg",
-      "mid": "grand_mystical_courtyard.jpg",
       "desc": "岩壁に囲まれた城塞の入り口。ランタンの光が石畳の中庭を照らし、神秘的で壮大な冒険の雰囲気を醸し出す。",
       "theme": [
         "中世"
@@ -6393,7 +6203,6 @@
       "id": 66,
       "file": "grand_mystical_observatory.webp",
       "thumb": "grand_mystical_observatory.jpg",
-      "mid": "grand_mystical_observatory.jpg",
       "desc": "満天の星空の下、壮麗な天文台の塔。巨大な望遠鏡や書物、輝く魔術的な水晶が並び、神秘的で幻想的な学術の空間が広がる。",
       "theme": [
         "中世",
@@ -6423,7 +6232,6 @@
       "id": 161,
       "file": "grand_night_castle_town.webp",
       "thumb": "grand_night_castle_town.jpg",
-      "mid": "grand_night_castle_town.jpg",
       "desc": "巨大な城と、その周囲を流れる川に沿って広がる幻想的な夜の町。無数の明かりが灯り、活気に満ちたファンタジー世界の風景を描いています。",
       "theme": [
         "中世"
@@ -6454,7 +6262,6 @@
       "id": 26,
       "file": "grand_palace_hall.webp",
       "thumb": "grand_palace_hall.jpg",
-      "mid": "grand_palace_hall.jpg",
       "desc": "豪華絢爛な宮殿または大邸宅の鳥瞰図。中央の広間を中心に、書斎、応接室、展示室など複数の部屋が詳細に描かれ、精巧な調度品や装飾が配置されている。",
       "theme": [
         "中世"
@@ -6483,7 +6290,6 @@
       "id": 329,
       "file": "grand_sunset_canyon_city.webp",
       "thumb": "grand_sunset_canyon_city.jpg",
-      "mid": "grand_sunset_canyon_city.jpg",
       "desc": "深い渓谷に築かれた巨大な多層都市の風景。夕焼けの光が多くの家屋を照らし、幻想的で壮大な雰囲気。風車と橋が特徴的です。",
       "theme": [
         "中世",
@@ -6515,7 +6321,6 @@
       "id": 1,
       "file": "grim_orc_camp.webp",
       "thumb": "grim_orc_camp.jpg",
-      "mid": "grim_orc_camp.jpg",
       "desc": "骨と木材でできた原始的な構造物で囲まれた、薄暗いオークの野営地。中央にはかがり火が燃え、危険で荒涼とした雰囲気を醸し出している。",
       "theme": [
         "中世",
@@ -6545,7 +6350,6 @@
       "id": 225,
       "file": "grimy_steampunk_station_plaza.webp",
       "thumb": "grimy_steampunk_station_plaza.jpg",
-      "mid": "grimy_steampunk_station_plaza.jpg",
       "desc": "スチームパンク様式の夜の駅と広場の鳥瞰図。蒸気を上げる列車と複雑な機械構造、暖色のガス灯が特徴的。",
       "theme": [
         "スチームパンク"
@@ -6573,7 +6377,6 @@
       "id": 52,
       "file": "gruesome_mansion_hall.webp",
       "thumb": "gruesome_mansion_hall.jpg",
-      "mid": "gruesome_mansion_hall.jpg",
       "desc": "ロウソクの明かりが薄暗い豪華な邸宅の内部マップ。血痕が飛び散り、凄惨な事件の痕跡が生々しく残る、不気味で陰惨な空間。",
       "theme": [
         "クトゥルフ",
@@ -6600,7 +6403,6 @@
       "id": 165,
       "file": "hallowed_candlelit_sanctuary.webp",
       "thumb": "hallowed_candlelit_sanctuary.jpg",
-      "mid": "hallowed_candlelit_sanctuary.jpg",
       "desc": "豪華なステンドグラスと多数のロウソクで照らされた、荘厳な教会の内部。祭壇へ続く赤い絨毯と、整然と並ぶ会衆席が特徴。",
       "theme": [
         "中世"
@@ -6627,7 +6429,6 @@
       "id": 62,
       "file": "hallowed_stone_sanctuary.webp",
       "thumb": "hallowed_stone_sanctuary.jpg",
-      "mid": "hallowed_stone_sanctuary.jpg",
       "desc": "上空から見た石造りの荘厳な教会内部。中央に祭壇と礼拝席が並び、ステンドグラスや蝋燭の光が温かく灯り、神聖で静謐な雰囲気を醸し出す。",
       "theme": [
         "中世"
@@ -6654,7 +6455,6 @@
       "id": 59,
       "file": "haunted_foggy_graveyard.webp",
       "thumb": "haunted_foggy_graveyard.jpg",
-      "mid": "haunted_foggy_graveyard.jpg",
       "desc": "霧に包まれた、荒廃した不気味な墓地の俯瞰図。多くの墓石や納骨堂、枯れ木が立ち並び、曲がりくねった道が続く。",
       "theme": [
         "中世",
@@ -6684,7 +6484,6 @@
       "id": 149,
       "file": "haunted_mansion_graveyard.webp",
       "thumb": "haunted_mansion_graveyard.jpg",
-      "mid": "haunted_mansion_graveyard.jpg",
       "desc": "夜霧に包まれ、森に囲まれた古びた豪邸の俯瞰図。敷地内には噴水や墓地があり、窓の明かりが不気味で神秘的な雰囲気を醸し出している。",
       "theme": [
         "クトゥルフ",
@@ -6716,7 +6515,6 @@
       "id": 146,
       "file": "haunted_mansion_halls.webp",
       "thumb": "haunted_mansion_halls.jpg",
-      "mid": "haunted_mansion_halls.jpg",
       "desc": "夜の闇に包まれた、多くの部屋と広間を持つ古びた邸宅の内部マップ。薄明かりの照明が神秘的で不気味な雰囲気を醸し出している。",
       "theme": [
         "中世",
@@ -6746,7 +6544,6 @@
       "id": 113,
       "file": "haunted_misty_fishing_village.webp",
       "thumb": "haunted_misty_fishing_village.jpg",
-      "mid": "haunted_misty_fishing_village.jpg",
       "desc": "深い霧に包まれた薄暗い村の俯瞰図。古びた家々が立ち並び、中央には井戸、端には小さな桟橋と船が見える。不気味で神秘的な雰囲気が漂う。",
       "theme": [
         "中世",
@@ -6778,7 +6575,6 @@
       "id": 8,
       "file": "haunted_shipwreck_ruins.webp",
       "thumb": "haunted_shipwreck_ruins.jpg",
-      "mid": "haunted_shipwreck_ruins.jpg",
       "desc": "深海に沈んだ無数の難破船と、緑色の光を放つ古代遺跡が広がる海底。神秘的で不気味な、冒険心をくすぐる光景。",
       "theme": [
         "クトゥルフ",
@@ -6811,7 +6607,6 @@
       "id": 114,
       "file": "haunted_underground_crypt.webp",
       "thumb": "haunted_underground_crypt.jpg",
-      "mid": "haunted_underground_crypt.jpg",
       "desc": "薄暗く不気味な地下ダンジョンのマップ。石造りの通路が複雑に分岐し、玉座の間、野営地、墓所などが点在する冒険的な空間。",
       "theme": [
         "汎用",
@@ -6841,7 +6636,6 @@
       "id": 75,
       "file": "idyllic_country_farm.webp",
       "thumb": "idyllic_country_farm.jpg",
-      "mid": "idyllic_country_farm.jpg",
       "desc": "自然豊かな田園地帯に広がる、牧歌的な農場の鳥瞰図。畑、家屋、羊の飼育場があり、川と池が穏やかな風景を彩る。",
       "theme": [
         "汎用",
@@ -6874,7 +6668,6 @@
       "id": 115,
       "file": "idyllic_lakeside_cottage.webp",
       "thumb": "idyllic_lakeside_cottage.jpg",
-      "mid": "idyllic_lakeside_cottage.jpg",
       "desc": "湖畔に建つ木造の家の俯瞰図。室内は温かく快適な雰囲気で、外には桟橋と小舟が浮かぶ穏やかな水辺が広がる。明るくのどかな風景。",
       "theme": [
         "汎用",
@@ -6908,7 +6701,6 @@
       "id": 89,
       "file": "idyllic_lakeside_hut.webp",
       "thumb": "idyllic_lakeside_hut.jpg",
-      "mid": "idyllic_lakeside_hut.jpg",
       "desc": "緑豊かな森と湖畔に佇む、石畳の道に囲まれた居心地の良い小屋の俯瞰図。室内には寝室、リビング、キッチンが見える。",
       "theme": [
         "汎用",
@@ -6941,7 +6733,6 @@
       "id": 199,
       "file": "idyllic_river_village.webp",
       "thumb": "idyllic_river_village.jpg",
-      "mid": "idyllic_river_village.jpg",
       "desc": "水田と畑が広がる豊かな自然の中に、伝統的な家屋が点在するのどかな日本の村。曲がりくねった川には小さな橋がかかり、穏やかな日常が感じられる。",
       "theme": [
         "東洋"
@@ -6972,7 +6763,6 @@
       "id": 7,
       "file": "imposing_fortress_port.webp",
       "thumb": "imposing_fortress_port.jpg",
-      "mid": "imposing_fortress_port.jpg",
       "desc": "岩場の水辺に築かれた堅牢な要塞都市。中央に巨大なドーム型建築物があり、多くの建物や港、船が見える。冒険的で物々しい雰囲気が漂う。",
       "theme": [
         "中世",
@@ -7003,7 +6793,6 @@
       "id": 51,
       "file": "industrial_port_at_dusk.webp",
       "thumb": "industrial_port_at_dusk.jpg",
-      "mid": "industrial_port_at_dusk.jpg",
       "desc": "鉱山、工場、港を持つ、中世ファンタジー風の賑やかな町並みを俯瞰で捉えたイラスト。夜の帳が下り、建物や通りに灯りが輝いている。",
       "theme": [
         "スチームパンク",
@@ -7036,7 +6825,6 @@
       "id": 189,
       "file": "lantern_lit_canal_market.webp",
       "thumb": "lantern_lit_canal_market.jpg",
-      "mid": "lantern_lit_canal_market.jpg",
       "desc": "夜の運河沿いの町。提灯の明かりが水面に映り、活気ある市場や水上集落の幻想的な雰囲気が漂う。伝統的な建物と橋が特徴的。",
       "theme": [
         "東洋"
@@ -7064,7 +6852,6 @@
       "id": 354,
       "file": "lantern_lit_ryokan_garden.webp",
       "thumb": "lantern_lit_ryokan_garden.jpg",
-      "mid": "lantern_lit_ryokan_garden.jpg",
       "desc": "夜の和風旅館の俯瞰図。多くの部屋、美しい庭園、露天風呂が提灯の光に照らされ、静かで温かい雰囲気。",
       "theme": [
         "東洋",
@@ -7099,7 +6886,6 @@
       "id": 83,
       "file": "lavish_castle_banquet.webp",
       "thumb": "lavish_castle_banquet.jpg",
-      "mid": "lavish_castle_banquet.jpg",
       "desc": "豪華な装飾と無数のキャンドルが輝く広大な宴会場。複数の円卓が並び、舞台や休憩スペースも完備された、宮殿や城での祝祭に最適な空間。",
       "theme": [
         "中世",
@@ -7127,7 +6913,6 @@
       "id": 317,
       "file": "lively_fairy_village_green.webp",
       "thumb": "lively_fairy_village_green.jpg",
-      "mid": "lively_fairy_village_green.jpg",
       "desc": "ティーカップやティーポットの形をした建物が円形に並ぶメルヘンな村の俯瞰図。緑豊かな草原と小川に囲まれ、中央には美しい噴水がある。",
       "theme": [
         "メルヘン",
@@ -7160,7 +6945,6 @@
       "id": 92,
       "file": "lively_music_village.webp",
       "thumb": "lively_music_village.jpg",
-      "mid": "lively_music_village.jpg",
       "desc": "緑豊かな森と川に囲まれた、音楽をテーマにした建物が並ぶファンタジー調の村の俯瞰図。中央には広場と大きな音楽堂がある。",
       "theme": [
         "中世",
@@ -7192,7 +6976,6 @@
       "id": 316,
       "file": "lively_pirate_port.webp",
       "thumb": "lively_pirate_port.jpg",
-      "mid": "lively_pirate_port.jpg",
       "desc": "海賊船や木造の建物が入り組んだ活気ある港町の俯瞰図。青い海に船が停泊し、灯台が港を守る冒険的な風景です。",
       "theme": [
         "大航海時代",
@@ -7222,7 +7005,6 @@
       "id": 293,
       "file": "lively_terraced_village.webp",
       "thumb": "lively_terraced_village.jpg",
-      "mid": "lively_terraced_village.jpg",
       "desc": "段々畑が広がる丘陵地帯に、小川が流れる牧歌的な村の鳥瞰図。伝統的な家屋が点在し、人々の暮らしの活気が感じられる。",
       "theme": [
         "南米",
@@ -7255,7 +7037,6 @@
       "id": 190,
       "file": "luminous_palace_festival.webp",
       "thumb": "luminous_palace_festival.jpg",
-      "mid": "luminous_palace_festival.jpg",
       "desc": "夜の宮殿の中庭で、提灯が輝き、多くの人々が華やかな宴を楽しむ様子を鳥瞰で捉えた。中央では女性たちが優雅に舞い、桜の木や池が彩る幻想的な祝祭の情景。",
       "theme": [
         "東洋"
@@ -7285,7 +7066,6 @@
       "id": 249,
       "file": "luxurious_mystic_throne_hall.webp",
       "thumb": "luxurious_mystic_throne_hall.jpg",
-      "mid": "luxurious_mystic_throne_hall.jpg",
       "desc": "豪華な装飾と多数の提灯が輝く、広大な宮殿の広間。玉座が中央に配され、神秘的で荘厳な雰囲気を醸し出している。",
       "theme": [
         "アラビアン"
@@ -7314,7 +7094,6 @@
       "id": 263,
       "file": "magical_academic_hall.webp",
       "thumb": "magical_academic_hall.jpg",
-      "mid": "magical_academic_hall.jpg",
       "desc": "魔法陣が描かれた中央広間を中心に、書庫や研究室、会議室が配置された壮麗な城内。暖かな光が灯り、神秘的で厳粛な雰囲気を醸し出す。",
       "theme": [
         "中世"
@@ -7344,7 +7123,6 @@
       "id": 234,
       "file": "magical_crystal_sanctuary.webp",
       "thumb": "magical_crystal_sanctuary.jpg",
-      "mid": "magical_crystal_sanctuary.jpg",
       "desc": "光り輝く神秘的な水晶が点在する地下洞窟。青く澄んだ水面と小さな滝が幻想的な雰囲気を醸し出す。",
       "theme": [
         "汎用",
@@ -7377,7 +7155,6 @@
       "id": 169,
       "file": "magical_forest_festival.webp",
       "thumb": "magical_forest_festival.jpg",
-      "mid": "magical_forest_festival.jpg",
       "desc": "夜の森で、焚き火とランタンに照らされた賑やかな祭りの様子。人々が歌い踊り、食事を楽しむ幻想的な光景。",
       "theme": [
         "中世"
@@ -7407,7 +7184,6 @@
       "id": 69,
       "file": "magical_night_market.webp",
       "thumb": "magical_night_market.jpg",
-      "mid": "magical_night_market.jpg",
       "desc": "ランタンの温かい光に包まれた賑やかな夜の祭り。ステージ、屋台、多くの人々が集まり、活気と幻想的な雰囲気を醸し出している。",
       "theme": [
         "中世",
@@ -7439,7 +7215,6 @@
       "id": 111,
       "file": "misty_port_graveyard.webp",
       "thumb": "misty_port_graveyard.jpg",
-      "mid": "misty_port_graveyard.jpg",
       "desc": "薄暗く荒涼とした雰囲気の港町。多数の桟橋と船が並び、町中には教会と墓地が見える。霧に包まれた湾岸風景。",
       "theme": [
         "中世",
@@ -7472,7 +7247,6 @@
       "id": 85,
       "file": "moonlit_tentacled_sea.webp",
       "thumb": "moonlit_tentacled_sea.jpg",
-      "mid": "moonlit_tentacled_sea.jpg",
       "desc": "月明かりの夜、荒れる海を進む帆船。その周囲には巨大な触手と不気味に光る目を持つ深海の生物が潜む、危険で神秘的な情景。",
       "theme": [
         "大航海時代",
@@ -7502,7 +7276,6 @@
       "id": 370,
       "file": "mysterious_dungeon_labyrinth.webp",
       "thumb": "mysterious_dungeon_labyrinth.jpg",
-      "mid": "mysterious_dungeon_labyrinth.jpg",
       "desc": "薄暗い松明の光が照らす、多数の部屋と複雑な通路を持つ巨大な構造物の俯瞰図。神秘的で壮大なダンジョンマップ。",
       "theme": [
         "中世",
@@ -7533,7 +7306,6 @@
       "id": 20,
       "file": "mysterious_library_archives.webp",
       "thumb": "mysterious_library_archives.jpg",
-      "mid": "mysterious_library_archives.jpg",
       "desc": "無数の書架と暖かな提灯の光に満ちた、壮麗な大図書館の内部。静寂な学術空間が広がる。",
       "theme": [
         "中世"
@@ -7560,7 +7332,6 @@
       "id": 361,
       "file": "mysterious_mansion_maze.webp",
       "thumb": "mysterious_mansion_maze.jpg",
-      "mid": "mysterious_mansion_maze.jpg",
       "desc": "暖炉や豪華な家具、絨毯が配置された、複雑に入り組んだ広大な屋敷の俯瞰マップ。薄暗い照明が神秘的な雰囲気を醸し出す。",
       "theme": [
         "汎用",
@@ -7594,7 +7365,6 @@
       "id": 183,
       "file": "mystic_candlelit_church.webp",
       "thumb": "mystic_candlelit_church.jpg",
-      "mid": "mystic_candlelit_church.jpg",
       "desc": "キャンドルの灯りとステンドグラスの光が幻想的な、厳粛な雰囲気の教会内部の俯瞰図。長い赤い絨毯が祭壇へと続く。",
       "theme": [
         "中世",
@@ -7620,7 +7390,6 @@
       "id": 230,
       "file": "mystic_dusk_garden_inn.webp",
       "thumb": "mystic_dusk_garden_inn.jpg",
-      "mid": "mystic_dusk_garden_inn.jpg",
       "desc": "美しい庭園と小川に囲まれた、伝統的な東洋風の宿。夜の帳が下り、温かい光が静かで幻想的な雰囲気を醸し出す。",
       "theme": [
         "東洋"
@@ -7652,7 +7421,6 @@
       "id": 366,
       "file": "mystic_forest_railway.webp",
       "thumb": "mystic_forest_railway.jpg",
-      "mid": "mystic_forest_railway.jpg",
       "desc": "夜の森を進む蒸気機関車を上空から捉えた画像。車両の窓明かりと線路沿いの街灯が暗闇を照らし、隣には静かな川が流れる。",
       "theme": [
         "汎用",
@@ -7686,7 +7454,6 @@
       "id": 117,
       "file": "mystic_frozen_temple.webp",
       "thumb": "mystic_frozen_temple.jpg",
-      "mid": "mystic_frozen_temple.jpg",
       "desc": "氷と石で造られた壮大な神殿またはダンジョン。青く光るクリスタルと精巧な模様が特徴的で、凍てつく雪原に囲まれている。",
       "theme": [
         "北欧",
@@ -7716,7 +7483,6 @@
       "id": 213,
       "file": "mystic_misty_fortress.webp",
       "thumb": "mystic_misty_fortress.jpg",
-      "mid": "mystic_misty_fortress.jpg",
       "desc": "霧に包まれた険しい山頂に築かれた日本の城郭と、麓に広がる集落。桜が咲き、滝が流れ、壮大で神秘的な雰囲気を醸し出している。",
       "theme": [
         "東洋"
@@ -7746,7 +7512,6 @@
       "id": 253,
       "file": "mystic_palace_courtyard.webp",
       "thumb": "mystic_palace_courtyard.jpg",
-      "mid": "mystic_palace_courtyard.jpg",
       "desc": "ランタンの温かい光に包まれた、豪華な宮殿または宿屋の俯瞰マップ。中央の中庭には噴水と植物があり、多くの部屋が配置された静かで神秘的な空間。",
       "theme": [
         "アラビアン"
@@ -7776,7 +7541,6 @@
       "id": 167,
       "file": "mystic_pond_glade.webp",
       "thumb": "mystic_pond_glade.jpg",
-      "mid": "mystic_pond_glade.jpg",
       "desc": "豊かな緑に囲まれた、透明な青い水が美しい池の全景。岩や木々が点在し、穏やかで自然豊かな冒険の舞台。",
       "theme": [
         "汎用",
@@ -7808,7 +7572,6 @@
       "id": 283,
       "file": "mystic_throne_hall.webp",
       "thumb": "mystic_throne_hall.jpg",
-      "mid": "mystic_throne_hall.jpg",
       "desc": "玉座、像、赤い絨毯が特徴的な石造りの荘厳な広間。松明の光が神秘的で重厚な雰囲気を演出するTRPGマップ。",
       "theme": [
         "中世"
@@ -7836,7 +7599,6 @@
       "id": 231,
       "file": "mystic_waterfall_grotto.webp",
       "thumb": "mystic_waterfall_grotto.jpg",
-      "mid": "mystic_waterfall_grotto.jpg",
       "desc": "切り立つ岩壁に囲まれ、複数の滝が流れ落ちる神秘的な洞窟の入り口。清らかな水が広がる隠れた秘境の景色。",
       "theme": [
         "汎用",
@@ -7869,7 +7631,6 @@
       "id": 196,
       "file": "mystic_waterfall_village.webp",
       "thumb": "mystic_waterfall_village.jpg",
-      "mid": "mystic_waterfall_village.jpg",
       "desc": "山間部に広がる村の俯瞰図。複数の滝や川が流れ、伝統的な家屋、棚田、見張り台が点在する幻想的な風景。",
       "theme": [
         "東洋"
@@ -7900,7 +7661,6 @@
       "id": 239,
       "file": "mystical_alchemist_cavern.webp",
       "thumb": "mystical_alchemist_cavern.jpg",
-      "mid": "mystical_alchemist_cavern.jpg",
       "desc": "薄暗い地下の神秘的な錬金術工房。多くの魔法の品々や研究道具が並び、冒険心をくすぐる空間。",
       "theme": [
         "中世",
@@ -7931,7 +7691,6 @@
       "id": 334,
       "file": "mystical_burning_elf_city.webp",
       "thumb": "mystical_burning_elf_city.jpg",
-      "mid": "mystical_burning_elf_city.jpg",
       "desc": "豊かな森の中に築かれたエルフの都市が、城壁の外で繰り広げられる激しい攻城戦によって炎上し、危険に晒されている様子。",
       "theme": [
         "中世",
@@ -7963,7 +7722,6 @@
       "id": 369,
       "file": "mystical_candlelit_dungeon.webp",
       "thumb": "mystical_candlelit_dungeon.jpg",
-      "mid": "mystical_candlelit_dungeon.jpg",
       "desc": "暗闇に浮かぶ、ロウソクで照らされた複雑な多層ダンジョンマップ。食堂、寝室、浴室など多様な部屋が繋がり、中世ファンタジーの雰囲気を持つ。",
       "theme": [
         "中世",
@@ -7992,7 +7750,6 @@
       "id": 286,
       "file": "mystical_celestial_observatory.webp",
       "thumb": "mystical_celestial_observatory.jpg",
-      "mid": "mystical_celestial_observatory.jpg",
       "desc": "星空の下、岩の島に立つ壮麗な古代の天文台。巨大な望遠鏡と学術的な部屋があり、神秘的な雰囲気を醸し出している。",
       "theme": [
         "ファンタジー",
@@ -8026,7 +7783,6 @@
       "id": 110,
       "file": "mystical_cloud_ruins.webp",
       "thumb": "mystical_cloud_ruins.jpg",
-      "mid": "mystical_cloud_ruins.jpg",
       "desc": "雲海に浮かぶ古代の石造り遺跡群。神秘的な青い光を放ち、幻想的な雰囲気を醸し出す壮大な光景。",
       "theme": [
         "中世",
@@ -8058,7 +7814,6 @@
       "id": 144,
       "file": "mystical_crypt_labyrinth.webp",
       "thumb": "mystical_crypt_labyrinth.jpg",
-      "mid": "mystical_crypt_labyrinth.jpg",
       "desc": "松明の明かりが照らす複雑な地下洞窟のダンジョンマップ。岩壁と曲がりくねった通路が特徴で、中央には祭壇のような構造物があり、探索心を刺激する。",
       "theme": [
         "汎用",
@@ -8086,7 +7841,6 @@
       "id": 187,
       "file": "mystical_crystal_caverns.webp",
       "thumb": "mystical_crystal_caverns.jpg",
-      "mid": "mystical_crystal_caverns.jpg",
       "desc": "松明の光と青く光る水面が神秘的な雰囲気を醸し出す、広大な地下洞窟のダンジョンマップ。冒険者を待ち受ける危険と謎に満ちた空間。",
       "theme": [
         "汎用",
@@ -8119,7 +7873,6 @@
       "id": 178,
       "file": "mystical_crystal_caverns_2.webp",
       "thumb": "mystical_crystal_caverns_2.jpg",
-      "mid": "mystical_crystal_caverns_2.jpg",
       "desc": "暗い地下空間に、色とりどりに発光するクリスタルや魔法陣、複雑な装置が配置された、神秘的で古代の魔法を感じさせるダンジョンマップ。",
       "theme": [
         "中世"
@@ -8149,7 +7902,6 @@
       "id": 73,
       "file": "mystical_crystal_city.webp",
       "thumb": "mystical_crystal_city.jpg",
-      "mid": "mystical_crystal_city.jpg",
       "desc": "巨大な洞窟の奥深く、青い光を放つ結晶と黄金色の灯りが幻想的な地下都市。複雑に連なる橋や建物が壮大な冒険の舞台を想起させる。",
       "theme": [
         "中世",
@@ -8182,7 +7934,6 @@
       "id": 31,
       "file": "mystical_crystal_dungeon.webp",
       "thumb": "mystical_crystal_dungeon.jpg",
-      "mid": "mystical_crystal_dungeon.jpg",
       "desc": "暗く広がる洞窟のダンジョンマップ。松明の光が岩壁や地底湖、神秘的な結晶を照らし、奥へと続く道には木製の橋や門が見える。",
       "theme": [
         "汎用",
@@ -8211,7 +7962,6 @@
       "id": 174,
       "file": "mystical_crystal_forest.webp",
       "thumb": "mystical_crystal_forest.jpg",
-      "mid": "mystical_crystal_forest.jpg",
       "desc": "クリスタルの木々が林立し、輝く植物と小さな滝が点在する、神秘的で幻想的なファンタジーの森。",
       "theme": [
         "ファンタジー",
@@ -8244,7 +7994,6 @@
       "id": 280,
       "file": "mystical_crystal_mine.webp",
       "thumb": "mystical_crystal_mine.jpg",
-      "mid": "mystical_crystal_mine.jpg",
       "desc": "薄暗い洞窟にトロッコの線路が入り組み、輝く結晶が神秘的な雰囲気を醸し出す地下鉱山のダンジョンマップ。",
       "theme": [
         "汎用",
@@ -8276,7 +8025,6 @@
       "id": 241,
       "file": "mystical_desert_bazaar.webp",
       "thumb": "mystical_desert_bazaar.jpg",
-      "mid": "mystical_desert_bazaar.jpg",
       "desc": "無数のランタンが石畳の道を暖かく照らす、異国情緒あふれる夜の町並み。賑やかな市場や商店が立ち並ぶ幻想的な風景が俯瞰で描かれている。",
       "theme": [
         "アラビアン"
@@ -8304,7 +8052,6 @@
       "id": 67,
       "file": "mystical_desert_oasis.webp",
       "thumb": "mystical_desert_oasis.jpg",
-      "mid": "mystical_desert_oasis.jpg",
       "desc": "広大な砂漠の中央に位置する、ヤシの木に囲まれた美しいオアシスの俯瞰図。水が豊かに湧き、生命感あふれる静寂な景色を描いている。",
       "theme": [
         "アラビアン",
@@ -8336,7 +8083,6 @@
       "id": 2,
       "file": "mystical_desolate_swamp.webp",
       "thumb": "mystical_desolate_swamp.jpg",
-      "mid": "mystical_desolate_swamp.jpg",
       "desc": "水と草木が入り混じる湿地帯の俯瞰図。静かで不気味な雰囲気が漂い、いくつかの倒木が見える。",
       "theme": [
         "汎用",
@@ -8368,7 +8114,6 @@
       "id": 130,
       "file": "mystical_dragon_skeleton_village.webp",
       "thumb": "mystical_dragon_skeleton_village.jpg",
-      "mid": "mystical_dragon_skeleton_village.jpg",
       "desc": "巨大な竜の骨格の中に広がる幻想的な村。青く輝く水晶と滝が流れ、暖かな光を放つ家々が並ぶ神秘的な風景です。",
       "theme": [
         "ファンタジー",
@@ -8401,7 +8146,6 @@
       "id": 336,
       "file": "mystical_elven_autumn_village.webp",
       "thumb": "mystical_elven_autumn_village.jpg",
-      "mid": "mystical_elven_autumn_village.jpg",
       "desc": "紅葉に囲まれた森の奥深くにある、エルフのような優雅な建築様式の集落。滝や小川が巡り、美しい石畳の道が続く幻想的な町並み。",
       "theme": [
         "中世",
@@ -8434,7 +8178,6 @@
       "id": 331,
       "file": "mystical_elven_palace.webp",
       "thumb": "mystical_elven_palace.jpg",
-      "mid": "mystical_elven_palace.jpg",
       "desc": "鬱蒼とした森と滝に囲まれた、神秘的なエルフの宮殿または神殿。中央には聖なる木があり、優雅な建築と水路が美しい幻想的な景観。",
       "theme": [
         "中世",
@@ -8466,7 +8209,6 @@
       "id": 333,
       "file": "mystical_elven_sanctuary.webp",
       "thumb": "mystical_elven_sanctuary.jpg",
-      "mid": "mystical_elven_sanctuary.jpg",
       "desc": "巨大な古木を中心に、滝や川が流れる緑豊かな森の奥深くに広がる、光り輝く神秘的な古代遺跡とエルフの集落のような幻想的な光景。",
       "theme": [
         "中世",
@@ -8501,7 +8243,6 @@
       "id": 322,
       "file": "mystical_emerald_palace.webp",
       "thumb": "mystical_emerald_palace.jpg",
-      "mid": "mystical_emerald_palace.jpg",
       "desc": "森深く、エメラルドの屋根が美しい幻想的な宮殿都市。滝と橋で結ばれた優雅な建物群が自然と調和する。",
       "theme": [
         "中世",
@@ -8535,7 +8276,6 @@
       "id": 344,
       "file": "mystical_floating_labyrinth.webp",
       "thumb": "mystical_floating_labyrinth.jpg",
-      "mid": "mystical_floating_labyrinth.jpg",
       "desc": "暗闇に無数の部屋と階段が複雑に絡み合い浮遊する、幻想的な巨大建築の俯瞰図。暖色の灯りが各部屋を照らし、迷宮のような世界が広がる。",
       "theme": [
         "中世",
@@ -8568,7 +8308,6 @@
       "id": 338,
       "file": "mystical_forest_marketplace.webp",
       "thumb": "mystical_forest_marketplace.jpg",
-      "mid": "mystical_forest_marketplace.jpg",
       "desc": "神秘的な森林都市の俯瞰図。木々や水路に囲まれた優雅な建物と、円形に広がる賑やかな市場が特徴的。",
       "theme": [
         "中世",
@@ -8599,7 +8338,6 @@
       "id": 327,
       "file": "mystical_forest_path.webp",
       "thumb": "mystical_forest_path.jpg",
-      "mid": "mystical_forest_path.jpg",
       "desc": "光る植物や神秘的な小川が点在する、鬱蒼とした幻想的な森の小道。魔法の世界への入り口のようだ。",
       "theme": [
         "汎用",
@@ -8633,7 +8371,6 @@
       "id": 238,
       "file": "mystical_forest_temple.webp",
       "thumb": "mystical_forest_temple.jpg",
-      "mid": "mystical_forest_temple.jpg",
       "desc": "山奥に位置する東洋風の八角形修練場または神殿複合施設。深い森と滝に囲まれ、静かで神秘的な雰囲気が漂う。",
       "theme": [
         "東洋"
@@ -8662,7 +8399,6 @@
       "id": 305,
       "file": "mystical_forest_temple_2.webp",
       "thumb": "mystical_forest_temple_2.jpg",
-      "mid": "mystical_forest_temple_2.jpg",
       "desc": "鬱蒼とした森と水辺に囲まれた、神秘的な古代神殿の鳥瞰図。豊かな緑と美しい装飾が特徴的。",
       "theme": [
         "中世",
@@ -8697,7 +8433,6 @@
       "id": 307,
       "file": "mystical_forest_temple_3.webp",
       "thumb": "mystical_forest_temple_3.jpg",
-      "mid": "mystical_forest_temple_3.jpg",
       "desc": "森の奥深く、生命の樹が中央に描かれた神秘的な古代神殿。豊かな緑と複雑な建築が融合した幻想的な風景。",
       "theme": [
         "中世",
@@ -8731,7 +8466,6 @@
       "id": 128,
       "file": "mystical_forest_treehouses.webp",
       "thumb": "mystical_forest_treehouses.jpg",
-      "mid": "mystical_forest_treehouses.jpg",
       "desc": "巨木の幹と枝に複数のツリーハウスが吊り橋で繋がれた幻想的な集落。木漏れ日が差し込む豊かな森の中、清らかな川が流れる穏やかな情景。",
       "theme": [
         "メルヘン",
@@ -8762,7 +8496,6 @@
       "id": 5,
       "file": "mystical_forest_village.webp",
       "thumb": "mystical_forest_village.jpg",
-      "mid": "mystical_forest_village.jpg",
       "desc": "巨大な樹木の根元に広がる、川と木々に囲まれた幻想的な集落。神秘的な光が差し込む明るく壮大な森の村の俯瞰図。",
       "theme": [
         "中世",
@@ -8793,7 +8526,6 @@
       "id": 54,
       "file": "mystical_forest_village_2.webp",
       "thumb": "mystical_forest_village_2.jpg",
-      "mid": "mystical_forest_village_2.jpg",
       "desc": "森と小川に囲まれた、バイオリンなどの弦楽器を模した家々が並ぶ幻想的な村の俯瞰図。中央には広場がある。",
       "theme": [
         "メルヘン",
@@ -8824,7 +8556,6 @@
       "id": 368,
       "file": "mystical_glowing_caverns.webp",
       "thumb": "mystical_glowing_caverns.jpg",
-      "mid": "mystical_glowing_caverns.jpg",
       "desc": "複雑に入り組んだ洞窟のダンジョンマップ。青や紫に光る地下水、木製の橋、そして複数の野営地が見られ、冒険心をくすぐる地下世界が描かれています。",
       "theme": [
         "汎用",
@@ -8856,7 +8587,6 @@
       "id": 308,
       "file": "mystical_gorge_bridge_town.webp",
       "thumb": "mystical_gorge_bridge_town.jpg",
-      "mid": "mystical_gorge_bridge_town.jpg",
       "desc": "霧深い巨大な峡谷に架かる壮大な石橋で結ばれた、両岸の絶壁に広がる中世風の町並み。冒険と幻想を感じさせる風景。",
       "theme": [
         "中世",
@@ -8890,7 +8620,6 @@
       "id": 210,
       "file": "mystical_grand_temple.webp",
       "thumb": "mystical_grand_temple.jpg",
-      "mid": "mystical_grand_temple.jpg",
       "desc": "豪華絢爛な装飾が施された、ドームと多数のランプが特徴的な宮殿の大広間。神秘的で荘厳な雰囲気が漂う。",
       "theme": [
         "アラビアン"
@@ -8918,7 +8647,6 @@
       "id": 294,
       "file": "mystical_jungle_plaza.webp",
       "thumb": "mystical_jungle_plaza.jpg",
-      "mid": "mystical_jungle_plaza.jpg",
       "desc": "熱帯の密林に囲まれた、古代文明の神殿都市。中央の広場には巨大な石盤が描かれ、精巧な石造りの建物が並ぶ。神秘的で壮大な雰囲気。",
       "theme": [
         "南米"
@@ -8946,7 +8674,6 @@
       "id": 285,
       "file": "mystical_jungle_ruins.webp",
       "thumb": "mystical_jungle_ruins.jpg",
-      "mid": "mystical_jungle_ruins.jpg",
       "desc": "熱帯のジャングルに埋もれた古代都市の鳥瞰図。石造りの複雑な建築群と水路が特徴的で、神秘的かつ冒険的な雰囲気を醸し出している。",
       "theme": [
         "南米",
@@ -8977,7 +8704,6 @@
       "id": 295,
       "file": "mystical_jungle_temple_ruins.webp",
       "thumb": "mystical_jungle_temple_ruins.jpg",
-      "mid": "mystical_jungle_temple_ruins.jpg",
       "desc": "鬱蒼としたジャングルに埋もれた、広大な古代石造神殿の遺跡。苔むした階段や広場、池が神秘的で冒険的な雰囲気を醸し出しています。",
       "theme": [
         "南米",
@@ -9010,7 +8736,6 @@
       "id": 136,
       "file": "mystical_lavish_hall.webp",
       "thumb": "mystical_lavish_hall.jpg",
-      "mid": "mystical_lavish_hall.jpg",
       "desc": "豪華な装飾が施された、暗く広々とした城や館の大広間の俯瞰マップ。シャンデリアや鏡、蝋燭の灯りが薄暗い空間を照らし、神秘的で静寂な雰囲気を醸し出す。",
       "theme": [
         "中世",
@@ -9039,7 +8764,6 @@
       "id": 159,
       "file": "mystical_manor_library.webp",
       "thumb": "mystical_manor_library.jpg",
-      "mid": "mystical_manor_library.jpg",
       "desc": "豪華な調度品と書籍が並ぶ、複数の部屋を持つ邸宅の俯瞰マップ。薄暗い照明が神秘的な雰囲気を醸し出す。",
       "theme": [
         "中世",
@@ -9070,7 +8794,6 @@
       "id": 299,
       "file": "mystical_moonlit_temple.webp",
       "thumb": "mystical_moonlit_temple.jpg",
-      "mid": "mystical_moonlit_temple.jpg",
       "desc": "夜の森に佇む、月を象徴する壮麗な神殿の俯瞰図。幻想的な光に満ち、神秘的で静寂な雰囲気を醸し出す。",
       "theme": [
         "アラビアン",
@@ -9101,7 +8824,6 @@
       "id": 246,
       "file": "mystical_mountain_library.webp",
       "thumb": "mystical_mountain_library.jpg",
-      "mid": "mystical_mountain_library.jpg",
       "desc": "霧に包まれた山頂に建つ、東洋風の壮麗な円形建築物の俯瞰図。内部には書棚や研究設備が並び、周囲は森林と滝に囲まれている。",
       "theme": [
         "東洋"
@@ -9133,7 +8855,6 @@
       "id": 315,
       "file": "mystical_mushroom_hideout.webp",
       "thumb": "mystical_mushroom_hideout.jpg",
-      "mid": "mystical_mushroom_hideout.jpg",
       "desc": "色鮮やかなキノコと植物に囲まれた、地下の隠れ家のような住居の鳥瞰図。暖かく幻想的な雰囲気。",
       "theme": [
         "メルヘン",
@@ -9166,7 +8887,6 @@
       "id": 265,
       "file": "mystical_oriental_garden.webp",
       "thumb": "mystical_oriental_garden.jpg",
-      "mid": "mystical_oriental_garden.jpg",
       "desc": "東洋風の優雅な庭園。複数の池と滝、石造りの小道、橋、東屋が点在し、豊かな緑と花々に囲まれた静寂な風景。",
       "theme": [
         "東洋"
@@ -9198,7 +8918,6 @@
       "id": 194,
       "file": "mystical_oriental_night_market.webp",
       "thumb": "mystical_oriental_night_market.jpg",
-      "mid": "mystical_oriental_night_market.jpg",
       "desc": "提灯の明かりが灯る夜の東洋風の町並みと広場。龍の紋章が中央にあり、市場の露店や伝統建築、池、桜が幻想的な静寂を醸し出す。",
       "theme": [
         "東洋"
@@ -9229,7 +8948,6 @@
       "id": 191,
       "file": "mystical_oriental_temple_garden.webp",
       "thumb": "mystical_oriental_temple_garden.jpg",
-      "mid": "mystical_oriental_temple_garden.jpg",
       "desc": "四神獣の像が配置された、東洋風の壮麗な神殿庭園。水路や石畳の道が巡り、神秘的な静寂に包まれている。",
       "theme": [
         "東洋",
@@ -9260,7 +8978,6 @@
       "id": 163,
       "file": "mystical_skull_forest.webp",
       "thumb": "mystical_skull_forest.jpg",
-      "mid": "mystical_skull_forest.jpg",
       "desc": "巨大な獣の頭蓋骨が横たわる鬱蒼とした森の地図。曲がりくねった小道が点在し、神秘的で不気味な雰囲気を醸し出している。",
       "theme": [
         "汎用",
@@ -9293,7 +9010,6 @@
       "id": 356,
       "file": "mystical_snowy_tree_temple.webp",
       "thumb": "mystical_snowy_tree_temple.jpg",
-      "mid": "mystical_snowy_tree_temple.jpg",
       "desc": "雪に覆われた神秘的な森に広がる、巨大な木々と一体化した幻想的な建造物の空中都市。青い光が輝く。",
       "theme": [
         "中世",
@@ -9326,7 +9042,6 @@
       "id": 121,
       "file": "mystical_tower_ruins.webp",
       "thumb": "mystical_tower_ruins.jpg",
-      "mid": "mystical_tower_ruins.jpg",
       "desc": "緑豊かな平原にそびえ立つ、石造りの古びた塔の入り口。苔むした岩と小道が神秘的な雰囲気を醸し出している。",
       "theme": [
         "中世",
@@ -9356,7 +9071,6 @@
       "id": 44,
       "file": "mystical_tree_city.webp",
       "thumb": "mystical_tree_city.jpg",
-      "mid": "mystical_tree_city.jpg",
       "desc": "巨大な樹木の上に築かれた神秘的な空中都市。複雑な通路と美しい建造物が緑豊かな森と滝に囲まれている、幻想的な風景。",
       "theme": [
         "中世",
@@ -9387,7 +9101,6 @@
       "id": 177,
       "file": "mystical_treehouse_village.webp",
       "thumb": "mystical_treehouse_village.jpg",
-      "mid": "mystical_treehouse_village.jpg",
       "desc": "巨大な樹木に複数の木造の居住区が吊り橋で繋がれたツリーハウスの村。深い森と霧に包まれた神秘的な光景。",
       "theme": [
         "汎用",
@@ -9418,7 +9131,6 @@
       "id": 181,
       "file": "mystical_treehouse_village_2.webp",
       "thumb": "mystical_treehouse_village_2.jpg",
-      "mid": "mystical_treehouse_village_2.jpg",
       "desc": "鬱蒼とした緑豊かな森の中、複数のツリーハウスが吊り橋で繋がれた幻想的な集落の俯瞰図。澄んだ小川と小さな滝が流れ、木漏れ日が降り注ぐ、平和で冒険的な雰囲気の場所。",
       "theme": [
         "中世",
@@ -9448,7 +9160,6 @@
       "id": 47,
       "file": "mystical_treetop_sanctuary.webp",
       "thumb": "mystical_treetop_sanctuary.jpg",
-      "mid": "mystical_treetop_sanctuary.jpg",
       "desc": "巨大な樹木と滝に囲まれた、幻想的で神秘的な樹上都市。優雅な建築と輝く光が特徴。",
       "theme": [
         "中世",
@@ -9481,7 +9192,6 @@
       "id": 340,
       "file": "mystical_treetop_village.webp",
       "thumb": "mystical_treetop_village.jpg",
-      "mid": "mystical_treetop_village.jpg",
       "desc": "巨大な古木に築かれた幻想的な樹上集落。無数の小家屋が木々を縫うように連なり、温かい光を放ち森を照らす情景。",
       "theme": [
         "中世",
@@ -9514,7 +9224,6 @@
       "id": 37,
       "file": "mystical_underwater_ruins.webp",
       "thumb": "mystical_underwater_ruins.jpg",
-      "mid": "mystical_underwater_ruins.jpg",
       "desc": "古代の石造りの地下ダンジョン。薄暗い通路、パズルが隠された部屋、そして神秘的な水場が特徴。危険と冒険が潜む場所。",
       "theme": [
         "中世",
@@ -9545,7 +9254,6 @@
       "id": 341,
       "file": "mystical_winter_estate.webp",
       "thumb": "mystical_winter_estate.jpg",
-      "mid": "mystical_winter_estate.jpg",
       "desc": "雪が降り積もった広大な日本庭園の俯瞰図。伝統的な建築物、凍った池、赤い橋、石畳の道が特徴的な、静かで優雅な冬の風景。",
       "theme": [
         "東洋",
@@ -9580,7 +9288,6 @@
       "id": 355,
       "file": "mystical_wisteria_plaza.webp",
       "thumb": "mystical_wisteria_plaza.jpg",
-      "mid": "mystical_wisteria_plaza.jpg",
       "desc": "夜の森、紫色の藤の花が幻想的に咲き誇る古木と広場。神秘的で静寂な雰囲気が漂う。",
       "theme": [
         "汎用",
@@ -9614,7 +9321,6 @@
       "id": 53,
       "file": "ominous_castle_courtyard.webp",
       "thumb": "ominous_castle_courtyard.jpg",
-      "mid": "ominous_castle_courtyard.jpg",
       "desc": "暗闇に包まれた、禍々しい装飾が施された城の中庭。紫と赤の光が不気味に灯り、神秘的で危険な雰囲気を漂わせる。",
       "theme": [
         "中世",
@@ -9643,7 +9349,6 @@
       "id": 262,
       "file": "opulent_arabian_palace.webp",
       "thumb": "opulent_arabian_palace.jpg",
-      "mid": "opulent_arabian_palace.jpg",
       "desc": "豪華なアラビア風宮殿の広間。精巧な絨毯と無数のランタンが煌めき、神秘的で温かい雰囲気を醸し出す。",
       "theme": [
         "アラビアン"
@@ -9673,7 +9378,6 @@
       "id": 201,
       "file": "opulent_exotic_night_garden.webp",
       "thumb": "opulent_exotic_night_garden.jpg",
-      "mid": "opulent_exotic_night_garden.jpg",
       "desc": "上空から見下ろした、夜の豪華な異国風庭園。中央の噴水と青いドーム、無数の灯りが幻想的な雰囲気を醸し出す。",
       "theme": [
         "アラビアン"
@@ -9703,7 +9407,6 @@
       "id": 284,
       "file": "ornate_candlelit_theater.webp",
       "thumb": "ornate_candlelit_theater.jpg",
-      "mid": "ornate_candlelit_theater.jpg",
       "desc": "豪華な装飾が施された、歴史を感じさせる劇場の客席と舞台を俯瞰で捉えた画像。薄暗いロウソクの光が静かで荘厳な雰囲気を醸し出す。",
       "theme": [
         "中世",
@@ -9733,7 +9436,6 @@
       "id": 275,
       "file": "ornate_palace_garden.webp",
       "thumb": "ornate_palace_garden.jpg",
-      "mid": "ornate_palace_garden.jpg",
       "desc": "豪華な宮殿の中庭と複数の部屋を鳥瞰で捉えた画像。豊かな植物、噴水、精緻な装飾が特徴的。",
       "theme": [
         "アラビアン"
@@ -9762,7 +9464,6 @@
       "id": 261,
       "file": "pastoral_valley_village.webp",
       "thumb": "pastoral_valley_village.jpg",
-      "mid": "pastoral_valley_village.jpg",
       "desc": "川が流れる緑豊かな里山に広がる、のどかな村の俯瞰図。畑や古民家、橋が見える。",
       "theme": [
         "東洋"
@@ -9794,7 +9495,6 @@
       "id": 43,
       "file": "peaceful_forest_farm.webp",
       "thumb": "peaceful_forest_farm.jpg",
-      "mid": "peaceful_forest_farm.jpg",
       "desc": "緑豊かな森に囲まれたのどかな農場の全景。家屋、納屋、畑、家畜、小川が詳細に描かれた素朴な風景。",
       "theme": [
         "汎用",
@@ -9825,7 +9525,6 @@
       "id": 48,
       "file": "peaceful_wildlife_park.webp",
       "thumb": "peaceful_wildlife_park.jpg",
-      "mid": "peaceful_wildlife_park.jpg",
       "desc": "緑豊かな森に囲まれた広大な動物園の俯瞰図。様々な動物の囲いや水辺、中央の美しい広場が特徴的で、石畳の道が全体を繋ぐ。",
       "theme": [
         "メルヘン",
@@ -9857,7 +9556,6 @@
       "id": 29,
       "file": "peaceful_windmill_farms.webp",
       "thumb": "peaceful_windmill_farms.jpg",
-      "mid": "peaceful_windmill_farms.jpg",
       "desc": "黄金の麦畑が広がる豊かな農村風景。小川には木製の橋がかかり、風車と農家が点在する、のどかな田園地帯の眺め。",
       "theme": [
         "汎用",
@@ -9890,7 +9588,6 @@
       "id": 321,
       "file": "primitive_river_village.webp",
       "thumb": "primitive_river_village.jpg",
-      "mid": "primitive_river_village.jpg",
       "desc": "鬱蒼とした森と川辺に広がる、古代文明や原始的な部族の集落。土器のような建物が立ち並び、煙が立ち上る活気ある風景。",
       "theme": [
         "汎用",
@@ -9921,7 +9618,6 @@
       "id": 137,
       "file": "quiet_adventure_crossroads.webp",
       "thumb": "quiet_adventure_crossroads.jpg",
-      "mid": "quiet_adventure_crossroads.jpg",
       "desc": "見下ろす視点から描かれた、草原の中の分岐する未舗装の道。案内標識が立ち、周りには低木が点在する、静かで冒険的な風景。",
       "theme": [
         "汎用",
@@ -9951,7 +9647,6 @@
       "id": 237,
       "file": "regal_empty_theater.webp",
       "thumb": "regal_empty_theater.jpg",
-      "mid": "regal_empty_theater.jpg",
       "desc": "豪華な赤いカーテンと座席が特徴の、壮麗な劇場の俯瞰図。舞台は暖かい光に照らされ、静かに開演を待っているようだ。",
       "theme": [
         "中世",
@@ -9981,7 +9676,6 @@
       "id": 98,
       "file": "regal_throne_room.webp",
       "thumb": "regal_throne_room.jpg",
-      "mid": "regal_throne_room.jpg",
       "desc": "王座が置かれた豪華な城の広間。赤い絨毯、石の床、燭台が特徴的な、壮大で威厳のある空間。",
       "theme": [
         "中世",
@@ -10007,7 +9701,6 @@
       "id": 100,
       "file": "ruined_church_graveyard.webp",
       "thumb": "ruined_church_graveyard.jpg",
-      "mid": "ruined_church_graveyard.jpg",
       "desc": "荒廃した古い教会のマップ。内部には朽ちた長椅子と祭壇があり、周囲は雑草が生い茂る荒地が広がる。薄暗く不気味な雰囲気が漂う廃墟の光景。",
       "theme": [
         "中世",
@@ -10039,7 +9732,6 @@
       "id": 12,
       "file": "rustic_fireplace_home.webp",
       "thumb": "rustic_fireplace_home.jpg",
-      "mid": "rustic_fireplace_home.jpg",
       "desc": "暖炉のあるリビング、ダイニング、2つの寝室、台所、浴室を備えた、居心地の良い素朴な民家の室内マップ。",
       "theme": [
         "中世",
@@ -10068,7 +9760,6 @@
       "id": 311,
       "file": "rustic_riverside_village.webp",
       "thumb": "rustic_riverside_village.jpg",
-      "mid": "rustic_riverside_village.jpg",
       "desc": "川と森に囲まれた、藁葺き屋根の家々が立ち並ぶ素朴な村。中央には焚き火が見える。",
       "theme": [
         "汎用",
@@ -10099,7 +9790,6 @@
       "id": 337,
       "file": "rustic_rocky_village.webp",
       "thumb": "rustic_rocky_village.jpg",
-      "mid": "rustic_rocky_village.jpg",
       "desc": "岩がちな山間に広がる素朴な村の鳥瞰図。谷には川が流れ、石造りの橋が架かっている。冒険の舞台に最適。",
       "theme": [
         "中世",
@@ -10131,7 +9821,6 @@
       "id": 131,
       "file": "rustic_stone_winery.webp",
       "thumb": "rustic_stone_winery.jpg",
-      "mid": "rustic_stone_winery.jpg",
       "desc": "古びた石造りのワイナリーの鳥瞰図。ブドウ畑、醸造施設、貯蔵室、そして屋外の圧搾機が見える。TRPGの冒険の舞台に。",
       "theme": [
         "中世",
@@ -10163,7 +9852,6 @@
       "id": 252,
       "file": "sacred_bamboo_dojo.webp",
       "thumb": "sacred_bamboo_dojo.jpg",
-      "mid": "sacred_bamboo_dojo.jpg",
       "desc": "緑豊かな森に囲まれた伝統的な道場。広い訓練場と小さな滝や池があり、静かで神秘的な雰囲気が漂う。",
       "theme": [
         "東洋"
@@ -10193,7 +9881,6 @@
       "id": 268,
       "file": "savage_forest_orc_fortress.webp",
       "thumb": "savage_forest_orc_fortress.jpg",
-      "mid": "savage_forest_orc_fortress.jpg",
       "desc": "川と滝、森に囲まれた、オークの部族の砦。中央に大きな焚き火があり、物々しい雰囲気が漂う野営地の俯瞰図。",
       "theme": [
         "中世",
@@ -10226,7 +9913,6 @@
       "id": 15,
       "file": "secret_forest_hideout.webp",
       "thumb": "secret_forest_hideout.jpg",
-      "mid": "secret_forest_hideout.jpg",
       "desc": "鬱蒼とした森の中、木造建築とテントで構成された野営地。中央の焚き火が暗闇を照らし、柵に囲まれた秘密の拠点のような場所。",
       "theme": [
         "汎用",
@@ -10256,7 +9942,6 @@
       "id": 348,
       "file": "serene_academy_grounds.webp",
       "thumb": "serene_academy_grounds.jpg",
-      "mid": "serene_academy_grounds.jpg",
       "desc": "伝統的なスタイルの学校の俯瞰図。複数の教室、図書館、実験室、音楽室を備え、広々とした庭園と運動場を持つ、落ち着いた学究的な雰囲気。",
       "theme": [
         "汎用",
@@ -10290,7 +9975,6 @@
       "id": 358,
       "file": "serene_blossom_river.webp",
       "thumb": "serene_blossom_river.jpg",
-      "mid": "serene_blossom_river.jpg",
       "desc": "満開の桜並木に囲まれた、清らかな川が流れる美しい春の風景を上空から見たTRPGマップ。",
       "theme": [
         "東洋",
@@ -10322,7 +10006,6 @@
       "id": 145,
       "file": "serene_forest_lake.webp",
       "thumb": "serene_forest_lake.jpg",
-      "mid": "serene_forest_lake.jpg",
       "desc": "等角投影で描かれた、緑豊かな森の中の静かな湖。水辺には岩や草花があり、穏やかで美しい自然の風景が広がる。",
       "theme": [
         "汎用",
@@ -10353,7 +10036,6 @@
       "id": 160,
       "file": "serene_forest_path.webp",
       "thumb": "serene_forest_path.jpg",
-      "mid": "serene_forest_path.jpg",
       "desc": "鬱蒼とした森の中、小川が流れ、木製の橋が架かる。曲がりくねった小道が点在し、静かな池も見える、自然豊かな風景。",
       "theme": [
         "汎用",
@@ -10386,7 +10068,6 @@
       "id": 157,
       "file": "serene_grassland_path.webp",
       "thumb": "serene_grassland_path.jpg",
-      "mid": "serene_grassland_path.jpg",
       "desc": "木々や岩が点在する緑豊かな草地を、緩やかに湾曲した土の道が横切る、上空からの眺め。",
       "theme": [
         "汎用",
@@ -10416,7 +10097,6 @@
       "id": 347,
       "file": "serene_japanese_homestead.webp",
       "thumb": "serene_japanese_homestead.jpg",
-      "mid": "serene_japanese_homestead.jpg",
       "desc": "伝統的な日本の家屋の俯瞰図。畳の部屋、台所、風呂、物置があり、外には庭と小道が広がる。",
       "theme": [
         "東洋",
@@ -10447,7 +10127,6 @@
       "id": 360,
       "file": "serene_japanese_river_estate.webp",
       "thumb": "serene_japanese_river_estate.jpg",
-      "mid": "serene_japanese_river_estate.jpg",
       "desc": "川辺に佇む伝統的な日本家屋の屋敷。豊かな緑と畑に囲まれた、静かで穏やかな田園風景が広がる。",
       "theme": [
         "東洋",
@@ -10481,7 +10160,6 @@
       "id": 218,
       "file": "serene_oriental_garden_teahouse.webp",
       "thumb": "serene_oriental_garden_teahouse.jpg",
-      "mid": "serene_oriental_garden_teahouse.jpg",
       "desc": "川辺に佇む東洋風の美しい庭園と茶屋の風景。桜や滝が彩り、静かで優雅な雰囲気が漂う。",
       "theme": [
         "東洋"
@@ -10513,7 +10191,6 @@
       "id": 365,
       "file": "serene_ryokan_gardens.webp",
       "thumb": "serene_ryokan_gardens.jpg",
-      "mid": "serene_ryokan_gardens.jpg",
       "desc": "夜の帳が下り、灯籠の明かりが美しい日本家屋の複合施設。複数の庭園と池、客室や広間を備え、静かで趣のある雰囲気が漂う。",
       "theme": [
         "東洋",
@@ -10547,7 +10224,6 @@
       "id": 352,
       "file": "serene_spring_blossom_forest.webp",
       "thumb": "serene_spring_blossom_forest.jpg",
-      "mid": "serene_spring_blossom_forest.jpg",
       "desc": "満開の桜が咲き誇る森林の空撮マップ。緑の草地と小石の合間に小道が続き、春の陽光が降り注ぐ、穏やかで美しい風景。",
       "theme": [
         "汎用",
@@ -10581,7 +10257,6 @@
       "id": 353,
       "file": "serene_tatami_chamber.webp",
       "thumb": "serene_tatami_chamber.jpg",
-      "mid": "serene_tatami_chamber.jpg",
       "desc": "畳が敷き詰められた伝統的な和室の俯瞰図。障子窓と温かい光の行灯が落ち着いた空間を演出する。",
       "theme": [
         "東洋",
@@ -10608,7 +10283,6 @@
       "id": 350,
       "file": "serene_tatami_retreat.webp",
       "thumb": "serene_tatami_retreat.jpg",
-      "mid": "serene_tatami_retreat.jpg",
       "desc": "畳の敷かれた個室が整然と並ぶ、日本の伝統的な料亭や旅館の広間。温かい光が灯り、静かで落ち着いた空間を演出しています。",
       "theme": [
         "東洋",
@@ -10637,7 +10311,6 @@
       "id": 182,
       "file": "shadowy_fishing_village.webp",
       "thumb": "shadowy_fishing_village.jpg",
-      "mid": "shadowy_fishing_village.jpg",
       "desc": "巨大な影が覆いかぶさる、暗く荒涼とした海辺の村の俯瞰図。畑や建物、小さな港が見える不気味な風景。",
       "theme": [
         "クトゥルフ",
@@ -10670,7 +10343,6 @@
       "id": 343,
       "file": "shadowy_mansion_garden.webp",
       "thumb": "shadowy_mansion_garden.jpg",
-      "mid": "shadowy_mansion_garden.jpg",
       "desc": "夜の豪華な邸宅の俯瞰マップ。広大な庭園には噴水や温室があり、邸内は暖かく照らされ多くの部屋が配置されている。",
       "theme": [
         "汎用",
@@ -10705,7 +10377,6 @@
       "id": 142,
       "file": "shadowy_orc_stronghold.webp",
       "thumb": "shadowy_orc_stronghold.jpg",
-      "mid": "shadowy_orc_stronghold.jpg",
       "desc": "オークの要塞が夜の闇に浮かび上がり、無数の篝火と松明が怪しく燃える。木材と獣骨で築かれた粗野な構造物が密集し、周囲を高い柵が囲む。川沿いに位置する広大な軍事拠点には、多数のオークが行き交う。",
       "theme": [
         "中世",
@@ -10736,7 +10407,6 @@
       "id": 205,
       "file": "smoldering_village_ruins.webp",
       "thumb": "smoldering_village_ruins.jpg",
-      "mid": "smoldering_village_ruins.jpg",
       "desc": "焼け落ちた家屋が立ち並び、瓦礫と煙に覆われた荒廃した村の全景。川と石橋が廃墟の中を流れる、不気味で寂れた光景。",
       "theme": [
         "東洋",
@@ -10766,7 +10436,6 @@
       "id": 23,
       "file": "solemn_council_chambers.webp",
       "thumb": "solemn_council_chambers.jpg",
-      "mid": "solemn_council_chambers.jpg",
       "desc": "豪華な装飾と多数の聴衆が集う、薄暗く厳粛な雰囲気の議事堂の俯瞰図。中央の演台には人物が立ち、格式ある会議が進行中。",
       "theme": [
         "中世"
@@ -10793,7 +10462,6 @@
       "id": 55,
       "file": "squalid_slum_district.webp",
       "thumb": "squalid_slum_district.jpg",
-      "mid": "squalid_slum_district.jpg",
       "desc": "ボロボロの木材やトタンの家々が密集するスラム街の俯瞰。荒涼とした貧しい居住区の日常風景が広がる。",
       "theme": [
         "ポストアポカリプス",
@@ -10822,7 +10490,6 @@
       "id": 363,
       "file": "stately_mansion_library.webp",
       "thumb": "stately_mansion_library.jpg",
-      "mid": "stately_mansion_library.jpg",
       "desc": "豪華な内装を持つ大邸宅の鳥瞰図。らせん階段のある円形図書館、書斎、応接間、広間などが配置され、知的で重厚な雰囲気を醸し出している。",
       "theme": [
         "中世",
@@ -10855,7 +10522,6 @@
       "id": 208,
       "file": "steampunk_city_at_night.webp",
       "thumb": "steampunk_city_at_night.jpg",
-      "mid": "steampunk_city_at_night.jpg",
       "desc": "スチームパンク様式の建物が立ち並び、石畳の道と広場、運河が特徴的な市街地の鳥瞰図。煙が立ち上り、街灯が灯る賑やかな夜の情景。",
       "theme": [
         "スチームパンク"
@@ -10884,7 +10550,6 @@
       "id": 143,
       "file": "steampunk_sand_vessel_interior.webp",
       "thumb": "steampunk_sand_vessel_interior.jpg",
-      "mid": "steampunk_sand_vessel_interior.jpg",
       "desc": "砂漠を航行する巨大な砂上船の緻密な設計図。内部構造、操舵室、食堂、機関室など詳細な区画が描かれている。",
       "theme": [
         "スチームパンク",
@@ -10916,7 +10581,6 @@
       "id": 330,
       "file": "subterranean_mushroom_market.webp",
       "thumb": "subterranean_mushroom_market.jpg",
-      "mid": "subterranean_mushroom_market.jpg",
       "desc": "カラフルなキノコと緑豊かな草花に囲まれた、地下の住居や商店が点在するメルヘンチックな村の市場。賑やかで温かいファンタジー世界。",
       "theme": [
         "メルヘン",
@@ -10948,7 +10612,6 @@
       "id": 300,
       "file": "sunlit_desert_palace.webp",
       "thumb": "sunlit_desert_palace.jpg",
-      "mid": "sunlit_desert_palace.jpg",
       "desc": "砂漠に建つ豪華絢爛な宮殿または神殿の俯瞰図。中央には太陽の紋章が輝き、異国情緒あふれる荘厳な雰囲気を醸し出している。",
       "theme": [
         "アラビアン",
@@ -10979,7 +10642,6 @@
       "id": 27,
       "file": "sunny_lakeside_trail.webp",
       "thumb": "sunny_lakeside_trail.jpg",
-      "mid": "sunny_lakeside_trail.jpg",
       "desc": "太陽の光が降り注ぐ穏やかな湖畔の風景。緑豊かな木々と草地、岩場を抜ける小道が美しい自然を描き出す。",
       "theme": [
         "汎用",
@@ -11012,7 +10674,6 @@
       "id": 264,
       "file": "traditional_academy_garden.webp",
       "thumb": "traditional_academy_garden.jpg",
-      "mid": "traditional_academy_garden.jpg",
       "desc": "伝統的な東洋風の学舎を上から見た画像。多くの机と書物が並び、周囲は緑豊かな庭園に囲まれており、静かで学術的な雰囲気が特徴です。",
       "theme": [
         "東洋"
@@ -11043,7 +10704,6 @@
       "id": 198,
       "file": "traditional_paddy_village.webp",
       "thumb": "traditional_paddy_village.jpg",
-      "mid": "traditional_paddy_village.jpg",
       "desc": "のどかな水田が広がる農村風景。小川が流れ、伝統的な家屋と水車が見える。",
       "theme": [
         "東洋"
@@ -11071,7 +10731,6 @@
       "id": 328,
       "file": "tranquil_medieval_village.webp",
       "thumb": "tranquil_medieval_village.jpg",
-      "mid": "tranquil_medieval_village.jpg",
       "desc": "豊かな森と川に囲まれた、風車と畑が広がるのどかな中世の村の俯瞰図。平和な日常が感じられる。",
       "theme": [
         "中世",
@@ -11104,7 +10763,6 @@
       "id": 229,
       "file": "tranquil_mountain_farm_village.webp",
       "thumb": "tranquil_mountain_farm_village.jpg",
-      "mid": "tranquil_mountain_farm_village.jpg",
       "desc": "山間の豊かな自然に囲まれた段々畑と素朴な集落の俯瞰図。小川や水車、桜が日本の里山の穏やかな風景を描き出す。",
       "theme": [
         "東洋"
@@ -11136,7 +10794,6 @@
       "id": 277,
       "file": "tranquil_paddy_village.webp",
       "thumb": "tranquil_paddy_village.jpg",
-      "mid": "tranquil_paddy_village.jpg",
       "desc": "水が張られた棚田が広がり、小川が流れる里山に、いくつかの家屋が点在する穏やかな風景。",
       "theme": [
         "東洋"
@@ -11167,7 +10824,6 @@
       "id": 364,
       "file": "tranquil_tatami_hall.webp",
       "thumb": "tranquil_tatami_hall.jpg",
-      "mid": "tranquil_tatami_hall.jpg",
       "desc": "和風の座敷が連なる空間。畳と低い卓、座布団が配置され、提灯の温かい光が落ち着いた雰囲気を醸し出している。",
       "theme": [
         "東洋",
@@ -11194,7 +10850,6 @@
       "id": 138,
       "file": "treacherous_pirate_sea.webp",
       "thumb": "treacherous_pirate_sea.jpg",
-      "mid": "treacherous_pirate_sea.jpg",
       "desc": "波立つ暗い海を航行する木製の帆船を上空から捉えた画像。船尾には海賊旗が翻り、冒険的な雰囲気を醸し出しています。",
       "theme": [
         "大航海時代",
@@ -11222,7 +10877,6 @@
       "id": 86,
       "file": "verdant_clockwork_tower.webp",
       "thumb": "verdant_clockwork_tower.jpg",
-      "mid": "verdant_clockwork_tower.jpg",
       "desc": "巨大な歯車が中心にある多層構造の円形塔。錬金術の実験室、寝室、作業場など様々な空間が植物に囲まれ、温かい光に満ちた幻想的な内部を描いている。",
       "theme": [
         "中世",
@@ -11252,7 +10906,6 @@
       "id": 10,
       "file": "verdant_open_plains.webp",
       "thumb": "verdant_open_plains.jpg",
-      "mid": "verdant_open_plains.jpg",
       "desc": "緑豊かな草地が広がり、点在する岩と低木が特徴の屋外マップ素材。明るく穏やかな自然の風景。",
       "theme": [
         "汎用",
@@ -11281,7 +10934,6 @@
       "id": 248,
       "file": "vibrant_canal_bazaar.webp",
       "thumb": "vibrant_canal_bazaar.jpg",
-      "mid": "vibrant_canal_bazaar.jpg",
       "desc": "活気ある中東風の市場と町並み。中央の広場には噴水があり、色鮮やかな屋台や人々で賑わう。運河には小舟が浮かび、異国情緒あふれる光景。",
       "theme": [
         "アラビアン"
@@ -11310,7 +10962,6 @@
       "id": 186,
       "file": "vibrant_desert_bazaar.webp",
       "thumb": "vibrant_desert_bazaar.jpg",
-      "mid": "vibrant_desert_bazaar.jpg",
       "desc": "中東風の賑やかな屋外市場の俯瞰図。多くの人々が往来し、色とりどりのテントや中央の噴水、ドーム型の建物が特徴。",
       "theme": [
         "アラビアン"
@@ -11338,7 +10989,6 @@
       "id": 226,
       "file": "vibrant_eastern_night_market.webp",
       "thumb": "vibrant_eastern_night_market.jpg",
-      "mid": "vibrant_eastern_night_market.jpg",
       "desc": "提灯の明かりで賑わう東洋の町並みを鳥瞰したイラスト。人々が行き交い、祭りのような活気に満ちた夜の風景。",
       "theme": [
         "東洋"
@@ -11370,7 +11020,6 @@
       "id": 202,
       "file": "vibrant_meadow_trails.webp",
       "thumb": "vibrant_meadow_trails.jpg",
-      "mid": "vibrant_meadow_trails.jpg",
       "desc": "色とりどりの花が咲き乱れる草原を複数の小道が縫うように伸びる、岩や木々が点在する明るく穏やかな自然風景。",
       "theme": [
         "汎用",
@@ -11404,7 +11053,6 @@
       "id": 33,
       "file": "vibrant_river_city_encampment.webp",
       "thumb": "vibrant_river_city_encampment.jpg",
-      "mid": "vibrant_river_city_encampment.jpg",
       "desc": "川を挟み、左岸に野営地、右岸に壮麗な城塞都市が広がるファンタジーマップ。対照的な二つの場所を複数の橋が繋ぎ、冒険の舞台となる活気ある風景を描いている。",
       "theme": [
         "中世"
@@ -11435,7 +11083,6 @@
       "id": 153,
       "file": "vibrant_shadowy_slum.webp",
       "thumb": "vibrant_shadowy_slum.jpg",
-      "mid": "vibrant_shadowy_slum.jpg",
       "desc": "夜の暗い町並みを俯瞰で捉える。建物が密集し、路地には灯りが灯り、活気と薄暗さが混在する幻想的な雰囲気。",
       "theme": [
         "中世",
@@ -11466,7 +11113,6 @@
       "id": 40,
       "file": "vibrant_waterfront_market.webp",
       "thumb": "vibrant_waterfront_market.jpg",
-      "mid": "vibrant_waterfront_market.jpg",
       "desc": "水路と石畳が特徴的な、活気ある港町の俯瞰図。多くの家々や市場、染物屋があり、船が停泊している。緑に囲まれたファンタジー風の風景。",
       "theme": [
         "中世",
@@ -11497,7 +11143,6 @@
       "id": 39,
       "file": "warm_bustling_inn_tavern.webp",
       "thumb": "warm_bustling_inn_tavern.jpg",
-      "mid": "warm_bustling_inn_tavern.jpg",
       "desc": "暖炉やランプの光が温かく灯る、ファンタジー世界の宿屋兼酒場の俯瞰マップ。客室、ダイニング、バーカウンターなど複数の部屋が見える。",
       "theme": [
         "中世",
@@ -11528,7 +11173,6 @@
       "id": 193,
       "file": "warm_exotic_bazaar.webp",
       "thumb": "warm_exotic_bazaar.jpg",
-      "mid": "warm_exotic_bazaar.jpg",
       "desc": "異国情緒あふれる豪華な絨毯と雑貨の店。暖色のランタンが店内を照らし、活気ある商人拠点のマップに最適です。",
       "theme": [
         "アラビアン"
@@ -11557,7 +11201,6 @@
       "id": 18,
       "file": "warm_forest_sanctuary.webp",
       "thumb": "warm_forest_sanctuary.jpg",
-      "mid": "warm_forest_sanctuary.jpg",
       "desc": "森に囲まれた円形多層の塔内部。暖炉や寝室がある居心地の良い空間に、複雑な木造構造と温かい光が満ちる。",
       "theme": [
         "中世",
@@ -11589,7 +11232,6 @@
       "id": 42,
       "file": "warm_lavish_tactical_tent.webp",
       "thumb": "warm_lavish_tactical_tent.jpg",
-      "mid": "warm_lavish_tactical_tent.jpg",
       "desc": "豪華な装飾が施された大型テントの内部を上空から見たマップ。中央に作戦会議用のテーブル、周囲に寝室や執務室、倉庫が配置され、ランタンの光が温かい雰囲気を醸し出している。",
       "theme": [
         "中世",
@@ -11618,7 +11260,6 @@
       "id": 260,
       "file": "warm_lively_tavern.webp",
       "thumb": "warm_lively_tavern.jpg",
-      "mid": "warm_lively_tavern.jpg",
       "desc": "暖色の明かりが灯る活気ある酒場/宿屋のフロアマップ。テーブルやカウンター、階段があり、冒険の始まりを感じさせる雰囲気。",
       "theme": [
         "中世",
@@ -11647,7 +11288,6 @@
       "id": 357,
       "file": "warm_luxurious_carriage.webp",
       "thumb": "warm_luxurious_carriage.jpg",
-      "mid": "warm_luxurious_carriage.jpg",
       "desc": "緑の座席が並ぶ、クラシックな列車の客車内部を上から見たマップ。木製の壁、豪華なカーペット、温かい照明が特徴で、旅やミステリーの舞台に最適です。",
       "theme": [
         "スチームパンク",
@@ -11678,7 +11318,6 @@
       "id": 247,
       "file": "warm_luxurious_theater.webp",
       "thumb": "warm_luxurious_theater.jpg",
-      "mid": "warm_luxurious_theater.jpg",
       "desc": "木製の舞台、赤い幕、赤いベルベットの観客席が特徴的な豪華な劇場を、暖かな照明の下で俯瞰した画像。",
       "theme": [
         "中世",
@@ -11706,7 +11345,6 @@
       "id": 140,
       "file": "warm_mystical_study.webp",
       "thumb": "warm_mystical_study.jpg",
-      "mid": "warm_mystical_study.jpg",
       "desc": "暖炉と書棚、豪華な家具が並ぶ石造りの広々とした室内。温かい光が差し込み、快適で神秘的な書斎や居間として利用できる空間。",
       "theme": [
         "中世"
@@ -11735,7 +11373,6 @@
       "id": 14,
       "file": "warm_whimsical_village.webp",
       "thumb": "warm_whimsical_village.jpg",
-      "mid": "warm_whimsical_village.jpg",
       "desc": "パンをモチーフにした建物が立ち並ぶ、のどかな村の俯瞰図。畑、川、風車があり、温かく幻想的な雰囲気。",
       "theme": [
         "メルヘン",
@@ -11765,7 +11402,6 @@
       "id": 312,
       "file": "whimsical_coral_port.webp",
       "thumb": "whimsical_coral_port.jpg",
-      "mid": "whimsical_coral_port.jpg",
       "desc": "貝殻の形をした建物が立ち並び、珊瑚や小舟が彩るメルヘンな海辺の村の鳥瞰図。明るく幻想的な港町の風景です。",
       "theme": [
         "メルヘン",
@@ -11797,7 +11433,6 @@
       "id": 282,
       "file": "wild_forest_gorge_path.webp",
       "thumb": "wild_forest_gorge_path.jpg",
-      "mid": "wild_forest_gorge_path.jpg",
       "desc": "鬱蒼とした森に囲まれた深い渓谷を流れる川と滝、そしていくつもの木製の橋がかかる山道を描いた、冒険的な雰囲気のマップ。",
       "theme": [
         "汎用",
@@ -11828,7 +11463,6 @@
       "id": 251,
       "file": "wild_forest_pass.webp",
       "thumb": "wild_forest_pass.jpg",
-      "mid": "wild_forest_pass.jpg",
       "desc": "森と岩場に囲まれた街道を馬車の隊列が進む。川には木製の橋がかかる、自然豊かな冒険の風景。",
       "theme": [
         "汎用",
@@ -11859,7 +11493,6 @@
       "id": 119,
       "file": "wild_orc_riverside_stronghold.webp",
       "thumb": "wild_orc_riverside_stronghold.jpg",
-      "mid": "wild_orc_riverside_stronghold.jpg",
       "desc": "岩場の川辺に築かれた、荒々しいオークの要塞集落。無数の焚き火と松明が暗闇を照らし、危険で壮大な雰囲気を醸し出している。",
       "theme": [
         "中世",
@@ -11891,7 +11524,6 @@
       "id": 339,
       "file": "winding_autumn_forest.webp",
       "thumb": "winding_autumn_forest.jpg",
-      "mid": "winding_autumn_forest.jpg",
       "desc": "紅葉に染まる広大な森を上空から捉えた俯瞰図。曲がりくねった小道と小川が景色を彩り、静かで美しい秋の情景が広がる。",
       "theme": [
         "汎用",
@@ -11925,7 +11557,6 @@
       "id": 46,
       "file": "wintry_pine_wilderness.webp",
       "thumb": "wintry_pine_wilderness.jpg",
-      "mid": "wintry_pine_wilderness.jpg",
       "desc": "雪に覆われた広大な野外風景。まばらに生える針葉樹と岩、動物の足跡が点在し、静かで寒い冬の情景を描いている。",
       "theme": [
         "汎用",

@@ -40,16 +40,13 @@ DEFAULT_OUTPUT = PROJECT_ROOT / "docs"
 WEB_TEMPLATE = PROJECT_ROOT / "web"
 
 THUMB_WIDTH = 400
-MID_WIDTH = 1280
 JPEG_QUALITY_THUMB = 82
-JPEG_QUALITY_MID = 85
 
 
 @dataclass
 class ImageJob:
     src: Path
     thumb_dst: Path
-    mid_dst: Path
     stem: str
 
 
@@ -98,10 +95,12 @@ def _convert_image(src: Path, dst: Path, max_width: int, quality: int) -> int:
     return dst.stat().st_size
 
 
-def _process_one(job: ImageJob, force: bool) -> tuple[str, int, int]:
-    """1 画像に対して thumb + mid を生成。(stem, thumb_size, mid_size) を返す."""
+def _process_one(job: ImageJob, force: bool) -> tuple[str, int]:
+    """1 画像に対して thumb を生成。(stem, thumb_size) を返す.
+
+    元解像度の画像はプレビューにそのまま使うため、ここでは生成しない。
+    """
     thumb_size = 0
-    mid_size = 0
     try:
         src_mtime = job.src.stat().st_mtime
     except OSError:
@@ -122,12 +121,7 @@ def _process_one(job: ImageJob, force: bool) -> tuple[str, int, int]:
     else:
         thumb_size = job.thumb_dst.stat().st_size
 
-    if _needs(job.mid_dst):
-        mid_size = _convert_image(job.src, job.mid_dst, MID_WIDTH, JPEG_QUALITY_MID)
-    else:
-        mid_size = job.mid_dst.stat().st_size
-
-    return (job.stem, thumb_size, mid_size)
+    return (job.stem, thumb_size)
 
 
 def _build_json_payload(
@@ -146,7 +140,6 @@ def _build_json_payload(
             "id": r.id,
             "file": r.file_name,
             "thumb": f"{stem}.jpg",
-            "mid": f"{stem}.jpg",
             "desc": r.description or "",
             "theme": list(r.theme_tags),
             "terrain": list(r.terrain_tags),
@@ -283,11 +276,9 @@ def main() -> int:
         logger.info("画像変換をスキップ (--no-images)")
         return 0
 
-    # 4. 画像変換
+    # 4. 画像変換 (thumb のみ。プレビューは originals を直接参照する)
     thumb_dir = output / "images" / "thumb"
-    mid_dir = output / "images" / "mid"
     thumb_dir.mkdir(parents=True, exist_ok=True)
-    mid_dir.mkdir(parents=True, exist_ok=True)
 
     jobs: list[ImageJob] = []
     missing: list[str] = []
@@ -301,7 +292,6 @@ def main() -> int:
             ImageJob(
                 src=src,
                 thumb_dst=thumb_dir / f"{stem}.jpg",
-                mid_dst=mid_dir / f"{stem}.jpg",
                 stem=stem,
             )
         )
@@ -313,7 +303,6 @@ def main() -> int:
     logger.info("画像変換開始: %d 件 / ワーカ %d", len(jobs), workers)
 
     total_thumb = 0
-    total_mid = 0
     done = 0
     failed = 0
     with ThreadPoolExecutor(max_workers=workers) as pool:
@@ -321,9 +310,8 @@ def main() -> int:
         for fut in as_completed(futures):
             done += 1
             try:
-                stem, ts, ms = fut.result()
+                stem, ts = fut.result()
                 total_thumb += ts
-                total_mid += ms
                 if done % 25 == 0 or done == len(jobs):
                     logger.info("  進捗: %d / %d", done, len(jobs))
             except Exception as e:  # noqa: BLE001
@@ -331,11 +319,10 @@ def main() -> int:
                 logger.error("変換失敗 %s: %s", futures[fut].src.name, e)
 
     logger.info(
-        "画像変換完了: 成功 %d / 失敗 %d / thumb 合計 %.1f MB / mid 合計 %.1f MB",
+        "画像変換完了: 成功 %d / 失敗 %d / thumb 合計 %.1f MB",
         done - failed,
         failed,
         total_thumb / 1024 / 1024,
-        total_mid / 1024 / 1024,
     )
 
     # 5. 元画像のコピー (デフォルト ON、--no-originals でスキップ)
