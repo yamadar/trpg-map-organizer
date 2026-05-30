@@ -95,32 +95,31 @@ def _convert_image(src: Path, dst: Path, max_width: int, quality: int) -> int:
     return dst.stat().st_size
 
 
-def _process_one(job: ImageJob, force: bool) -> tuple[str, int]:
-    """1 画像に対して thumb を生成。(stem, thumb_size) を返す.
-
-    元解像度の画像はプレビューにそのまま使うため、ここでは生成しない。
-    """
-    thumb_size = 0
+def _thumb_needs_generation(job: ImageJob, force: bool) -> bool:
+    """thumb を生成する必要があるか判定 (差分検出用、I/O だけで高速)."""
+    if force:
+        return True
+    if not job.thumb_dst.exists():
+        return True
     try:
         src_mtime = job.src.stat().st_mtime
     except OSError:
-        src_mtime = 0.0
+        return True
+    try:
+        return job.thumb_dst.stat().st_mtime < src_mtime
+    except OSError:
+        return True
 
-    def _needs(dst: Path) -> bool:
-        if force or not dst.exists():
-            return True
-        try:
-            return dst.stat().st_mtime < src_mtime
-        except OSError:
-            return True
 
-    if _needs(job.thumb_dst):
-        thumb_size = _convert_image(
-            job.src, job.thumb_dst, THUMB_WIDTH, JPEG_QUALITY_THUMB
-        )
-    else:
-        thumb_size = job.thumb_dst.stat().st_size
+def _process_one(job: ImageJob) -> tuple[str, int]:
+    """1 画像に対して thumb を生成。(stem, thumb_size) を返す.
 
+    呼び出し側で _thumb_needs_generation により事前フィルタ済みの前提。
+    元解像度の画像はプレビューにそのまま使うため、ここでは生成しない。
+    """
+    thumb_size = _convert_image(
+        job.src, job.thumb_dst, THUMB_WIDTH, JPEG_QUALITY_THUMB
+    )
     return (job.stem, thumb_size)
 
 
@@ -186,11 +185,14 @@ def _copy_originals(
     records: list[db.MapRecord],
     target_folder: Path,
     output: Path,
-) -> tuple[int, int]:
-    """元画像を docs/originals/ にコピーする。(コピー件数, 合計バイト数) を返す."""
+) -> tuple[int, int, int]:
+    """元画像を docs/originals/ にコピーする。
+    (新規コピー件数, スキップ件数, 合計バイト数) を返す.
+    """
     originals_dir = output / "originals"
     originals_dir.mkdir(parents=True, exist_ok=True)
     copied = 0
+    skipped = 0
     total = 0
     for r in records:
         src = db.resolve_path(r, target_folder)
@@ -207,11 +209,12 @@ def _copy_originals(
             and dst.stat().st_mtime >= src_stat.st_mtime - 1
         ):
             total += dst.stat().st_size
+            skipped += 1
             continue
         shutil.copy2(src, dst)
         total += dst.stat().st_size
         copied += 1
-    return copied, total
+    return copied, skipped, total
 
 
 _TEMPLATE_FILES = {"index.html", "style.css", "app.js"}
@@ -300,27 +303,48 @@ def main() -> int:
         logger.warning("元ファイルが見つからずスキップ: %d 件", len(missing))
 
     workers = args.workers or max(1, cfg.api_workers or 4)
-    logger.info("画像変換開始: %d 件 / ワーカ %d", len(jobs), workers)
 
-    total_thumb = 0
-    done = 0
-    failed = 0
-    with ThreadPoolExecutor(max_workers=workers) as pool:
-        futures = {pool.submit(_process_one, j, args.force): j for j in jobs}
-        for fut in as_completed(futures):
-            done += 1
+    # 事前に差分判定し、生成が必要なジョブだけを残す (既存サムネは触らない)
+    jobs_to_run: list[ImageJob] = []
+    skipped_size = 0
+    for j in jobs:
+        if _thumb_needs_generation(j, args.force):
+            jobs_to_run.append(j)
+        else:
             try:
-                stem, ts = fut.result()
-                total_thumb += ts
-                if done % 25 == 0 or done == len(jobs):
-                    logger.info("  進捗: %d / %d", done, len(jobs))
-            except Exception as e:  # noqa: BLE001
-                failed += 1
-                logger.error("変換失敗 %s: %s", futures[fut].src.name, e)
+                skipped_size += j.thumb_dst.stat().st_size
+            except OSError:
+                pass
 
     logger.info(
-        "画像変換完了: 成功 %d / 失敗 %d / thumb 合計 %.1f MB",
-        done - failed,
+        "画像変換: 対象 %d 件 (生成 %d / 既存スキップ %d) / ワーカ %d",
+        len(jobs),
+        len(jobs_to_run),
+        len(jobs) - len(jobs_to_run),
+        workers,
+    )
+
+    total_thumb = skipped_size
+    generated = 0
+    failed = 0
+    if jobs_to_run:
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            futures = {pool.submit(_process_one, j): j for j in jobs_to_run}
+            for fut in as_completed(futures):
+                generated += 1
+                try:
+                    stem, ts = fut.result()
+                    total_thumb += ts
+                    if generated % 25 == 0 or generated == len(jobs_to_run):
+                        logger.info("  進捗: %d / %d", generated, len(jobs_to_run))
+                except Exception as e:  # noqa: BLE001
+                    failed += 1
+                    logger.error("変換失敗 %s: %s", futures[fut].src.name, e)
+
+    logger.info(
+        "画像変換完了: 生成 %d / スキップ %d / 失敗 %d / thumb 合計 %.1f MB",
+        generated - failed,
+        len(jobs) - len(jobs_to_run),
         failed,
         total_thumb / 1024 / 1024,
     )
@@ -328,9 +352,14 @@ def main() -> int:
     # 5. 元画像のコピー (デフォルト ON、--no-originals でスキップ)
     if not args.no_originals:
         logger.info("元画像を docs/originals/ にコピー中...")
-        copied, total_orig = _copy_originals(records, cfg.target_folder, output)
+        copied, orig_skipped, total_orig = _copy_originals(
+            records, cfg.target_folder, output
+        )
         logger.info(
-            "元画像コピー: 新規 %d 件 / 合計 %.1f MB", copied, total_orig / 1024 / 1024
+            "元画像コピー: 新規 %d 件 / 既存スキップ %d 件 / 合計 %.1f MB",
+            copied,
+            orig_skipped,
+            total_orig / 1024 / 1024,
         )
 
     # サマリ
